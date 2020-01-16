@@ -1,0 +1,36 @@
+A user can...
+
+
+Account 
+- login
+- sign up (register)
+- log out
+- create profile/preferences
+- set privacy settings
+
+
+
+Rental Search
+- search by (city/region/zipcode)
+- save favorited rentals
+- sort by walk rating
+- set/edit rental search preferences
+
+
+User to User Interaction
+- set status to looking for a place to live/ looking for a roommate
+- send a message to another user
+- view messages
+- search for roommates in the same region
+
+
+Regional Groups of Users
+- join/look at regions (cities/areas)
+- navigate to a regions page (i.e. Chicago.. or Great Lakes or... Midwest)
+- sell/buy furniture?
+- post available rooms/descriptions on region page
+- promote and upvote : local favorite places (bars,entertainment,restaurants), properties (apartments/addresses), roommates
+
+
+
+
