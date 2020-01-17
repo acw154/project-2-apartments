@@ -1,5 +1,5 @@
 package com.revature.models;
 
-public class Preferences {
+public class Preference {
 
 }

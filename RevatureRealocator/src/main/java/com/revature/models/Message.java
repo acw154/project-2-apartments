@@ -1,15 +1,15 @@
 package com.revature.models;
 
-public class Messages {
+public class Message {
 
 	public int id; 
 	public int sender; 
 	public int receiver; 
 	public String body;
-	public Messages() {
+	public Message() {
 		super();
 	}
-	public Messages(int id, int sender, int receiver, String body) {
+	public Message(int id, int sender, int receiver, String body) {
 		super();
 		this.id = id;
 		this.sender = sender;
@@ -58,7 +58,7 @@ public class Messages {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Messages other = (Messages) obj;
+		Message other = (Message) obj;
 		if (body == null) {
 			if (other.body != null)
 				return false;
