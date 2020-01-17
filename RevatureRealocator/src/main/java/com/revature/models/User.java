@@ -1,5 +1,5 @@
 package com.revature.models;
 
-public class Properties {
+public class User {
 
 }
