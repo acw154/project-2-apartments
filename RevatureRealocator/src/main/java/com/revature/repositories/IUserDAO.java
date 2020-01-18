@@ -1,5 +1,6 @@
 package com.revature.repositories;
 
+<<<<<<< HEAD
 import java.util.List;
 
 import com.revature.models.User;
@@ -10,4 +11,8 @@ public interface IUserDAO {
 	public User findById(int id);
 	public void save(User u);
 	public void update(User u);
+=======
+public class IUserDAO {
+
+>>>>>>> master
 }
