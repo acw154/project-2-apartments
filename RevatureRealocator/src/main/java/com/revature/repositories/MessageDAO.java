@@ -12,7 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.revature.models.Message;
 
 @Repository
-public class MessageDAO implements IMessageDAO {
+public class MessageDAO implements MessageDAOImpl {
 	
 	@Autowired
 	private SessionFactory sf;
