@@ -1,11 +1,47 @@
 package com.revature.models;
 
-public class Message {
+import java.io.Serializable;
 
-	public int id; 
-	public int sender; 
-	public int receiver; 
-	public String body;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+import org.springframework.stereotype.Component;
+
+@Component
+@Entity
+@Table(name="messages")
+public class Message implements Serializable {
+
+	private static final long serialVersionUID = 6209031195787199438L;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="messages_id")
+	private int id; 
+	
+	@Column
+	@OneToMany(fetch = FetchType.EAGER)
+	private int sender; 
+	
+	@Column 
+	@ManyToOne
+	private int receiver; 
+	
+	@Column 
+	private String body; 
+	
+	
+//	public int id; 
+//	public int sender; 
+//	public int receiver; 
+//	public String body;
 	public Message() {
 		super();
 	}
