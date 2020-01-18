@@ -12,7 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.revature.models.User;
 
-public class UserDAO implements IUserDAO {
+public class UserDAO implements UserDAOi {
 
 	@Autowired
 	private SessionFactory sf;

@@ -1,5 +1,8 @@
 package com.revature.models;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 import java.io.Serializable;
 
 import javax.persistence.Column;
@@ -8,6 +11,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -39,13 +44,44 @@ public class User implements Serializable {
 
 	@Column(name = "current_state")
 	String current_state;
-
+	
+	@ManyToMany
+	@JoinTable(name="saved_properties", joinColumns= {@JoinColumn(name="user_id")},
+		inverseJoinColumns= {@JoinColumn(name="property_id")})
+	private List<Property> savedProperties = new ArrayList<>();
+	
 	@ManyToOne
 	@JoinColumn(name = "user_status_id", nullable = false, referencedColumnName = "id")
 	private UserStatus userStatus;
 
 	public User() {
 		super();
+	}
+
+	public User(int id, String password, String f_name, String l_name, String email, int preference_id,
+			String current_state, List<Property> savedProperties, UserStatus userStatus) {
+		super();
+		this.id = id;
+		this.password = password;
+		this.f_name = f_name;
+		this.l_name = l_name;
+		this.email = email;
+		this.preference_id = preference_id;
+		this.current_state = current_state;
+		this.savedProperties = savedProperties;
+		this.userStatus = userStatus;
+	}
+
+	public User(String password, String f_name, String l_name, String email, int preference_id, String current_state,
+			UserStatus userStatus) {
+		super();
+		this.password = password;
+		this.f_name = f_name;
+		this.l_name = l_name;
+		this.email = email;
+		this.preference_id = preference_id;
+		this.current_state = current_state;
+		this.userStatus = userStatus;
 	}
 
 	public User(int id, String password, String f_name, String l_name, String email, int preference_id,
@@ -60,76 +96,8 @@ public class User implements Serializable {
 		this.current_state = current_state;
 		this.userStatus = userStatus;
 	}
-
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", password=" + password + ", f_name=" + f_name + ", l_name=" + l_name + ", email="
-				+ email + ", preference_id=" + preference_id + ", current_state=" + current_state + ", userStatus="
-				+ userStatus + ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()="
-				+ super.toString() + "]";
-	}
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((current_state == null) ? 0 : current_state.hashCode());
-		result = prime * result + ((email == null) ? 0 : email.hashCode());
-		result = prime * result + ((f_name == null) ? 0 : f_name.hashCode());
-		result = prime * result + id;
-		result = prime * result + ((l_name == null) ? 0 : l_name.hashCode());
-		result = prime * result + ((password == null) ? 0 : password.hashCode());
-		result = prime * result + preference_id;
-		result = prime * result + ((userStatus == null) ? 0 : userStatus.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		User other = (User) obj;
-		if (current_state == null) {
-			if (other.current_state != null)
-				return false;
-		} else if (!current_state.equals(other.current_state))
-			return false;
-		if (email == null) {
-			if (other.email != null)
-				return false;
-		} else if (!email.equals(other.email))
-			return false;
-		if (f_name == null) {
-			if (other.f_name != null)
-				return false;
-		} else if (!f_name.equals(other.f_name))
-			return false;
-		if (id != other.id)
-			return false;
-		if (l_name == null) {
-			if (other.l_name != null)
-				return false;
-		} else if (!l_name.equals(other.l_name))
-			return false;
-		if (password == null) {
-			if (other.password != null)
-				return false;
-		} else if (!password.equals(other.password))
-			return false;
-		if (preference_id != other.preference_id)
-			return false;
-		if (userStatus == null) {
-			if (other.userStatus != null)
-				return false;
-		} else if (!userStatus.equals(other.userStatus))
-			return false;
-		return true;
-	}
-
+	
+	
 	public int getId() {
 		return id;
 	}
@@ -186,6 +154,14 @@ public class User implements Serializable {
 		this.current_state = current_state;
 	}
 
+	public List<Property> getSavedProperties() {
+		return savedProperties;
+	}
+
+	public void setSavedProperties(List<Property> savedProperties) {
+		this.savedProperties = savedProperties;
+	}
+
 	public UserStatus getUserStatus() {
 		return userStatus;
 	}
@@ -193,7 +169,38 @@ public class User implements Serializable {
 	public void setUserStatus(UserStatus userStatus) {
 		this.userStatus = userStatus;
 	}
-		
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(current_state, email, f_name, id, l_name, password, preference_id, savedProperties,
+				userStatus);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		if (!(obj instanceof User)) {
+			return false;
+		}
+		User other = (User) obj;
+		return Objects.equals(current_state, other.current_state) && Objects.equals(email, other.email)
+				&& Objects.equals(f_name, other.f_name) && id == other.id && Objects.equals(l_name, other.l_name)
+				&& Objects.equals(password, other.password) && preference_id == other.preference_id
+				&& Objects.equals(savedProperties, other.savedProperties)
+				&& Objects.equals(userStatus, other.userStatus);
+	}
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", password=" + password + ", f_name=" + f_name + ", l_name=" + l_name + ", email="
+				+ email + ", preference_id=" + preference_id + ", current_state=" + current_state + ", savedProperties="
+				+ savedProperties + ", userStatus=" + userStatus + "]";
+	}
+	
+	
+	
 	
 	
 }
