@@ -6,12 +6,14 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.revature.models.Preference;
 import com.revature.models.Property;
 
 @SuppressWarnings({"unchecked", "deprecation"})
+@Repository
 public class PropertyDAOImpl implements PropertyDAO {
 	
 	@Autowired
@@ -33,7 +35,7 @@ public class PropertyDAOImpl implements PropertyDAO {
 
 	@Override
 	@Transactional
-	public Property findByAddress(int street_num, String street, int apt_num, String city, String state) {
+	public Property findByAddressWithApt(int street_num, String street, int apt_num, String city, String state) {
 		Session s = sf.getCurrentSession();
 		Query<Property> query = (Query<Property>) s.createQuery("FROM Property WHERE street_num=:n, apt_num=:a, city=:c, state=:s");
 		query.setParameter(1, street_num);
@@ -96,6 +98,21 @@ public class PropertyDAOImpl implements PropertyDAO {
 			return null;
 		}
 		return list;
+	}
+
+	@Override
+	public Property findByAddressNoApt(int street_num, String street, String city, String state) {
+		Session s = sf.getCurrentSession();
+		Query<Property> query = (Query<Property>) s.createQuery("FROM Property WHERE street_num=:n, city=:c, state=:s");
+		query.setParameter(1, street_num);
+		query.setParameter(2, street);;
+		query.setParameter(3, city);
+		query.setParameter(4, state);
+		List<Property> list = query.getResultList();
+		if(list.isEmpty()) {
+			return null;
+		}
+		return list.get(0);
 	}
 	
 }
