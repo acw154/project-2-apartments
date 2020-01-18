@@ -31,17 +31,13 @@ public class Message implements Serializable {
 	private int sender; 
 	
 	@Column 
-	@ManyToOne
+	@OneToMany(fetch = FetchType.EAGER)
 	private int receiver; 
 	
 	@Column 
 	private String body; 
 	
 	
-//	public int id; 
-//	public int sender; 
-//	public int receiver; 
-//	public String body;
 	public Message() {
 		super();
 	}
