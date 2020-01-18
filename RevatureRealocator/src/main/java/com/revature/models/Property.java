@@ -13,6 +13,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -30,8 +31,8 @@ public class Property implements Serializable{
 	@Column(name="property_id")
 	private int property_id;
 	
-	@OneToOne
-	@JoinColumn(name="property_type_id", nullable=false)
+	@ManyToOne
+	@JoinColumn(name="property_type_id", nullable=false, referencedColumnName = "id")
 	private PropertyType propertyType;
 	
 	@Column(name="street_num", nullable=false)
@@ -67,8 +68,8 @@ public class Property implements Serializable{
 	@Column(name="sq_ft")
 	private double sq_ft;
 	
-	@OneToOne
-	@JoinColumn(name="parking_type_id")
+	@ManyToOne
+	@JoinColumn(name="parking_type_id", referencedColumnName = "id")
 	private ParkingType parkingType;
 	
 	@Column(name="revemp_owned", nullable=false)
