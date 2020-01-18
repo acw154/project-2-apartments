@@ -1,0 +1,386 @@
+{4 items
+"meta":{...}5 items
+"returned_rows":50
+"matching_rows":973
+"listings":[50 items
+0:{...}28 items
+1:{30 items
+"property_id":"5227657434"
+"listing_id":"2560209649"
+"prop_type":"townhome"
+"last_update":"2020-01-02T18:13:01.000Z"
+"address":"2967 Kildare Ln, Fairfax, 22031"
+"prop_status":"for_rent"
+"price_raw":2775
+"sqft_raw":1824
+"list_date":"2019-08-13T19:43:09Z"
+"is_showcase":false
+"has_specials":false
+"price":"$2,775/mo"
+"beds":"3"
+"baths":"3"
+"sqft":"1,824 sq ft"
+"photo":"https://ap.rdcpix.com/2026500229/78cc9e9e51630e899e5d51f5e4a45635l-m0s.jpg"
+"short_price":"$2,775/mo"
+"price_reduced":true
+"price_reduced_date":"2020-01-02T23:19:50.202Z"
+"baths_half":1
+"baths_full":2
+"photo_count":28
+"products":[...]2 items
+"lat":38.871229
+"lon":-77.247824
+"has_leadform":true
+"source":"mls"
+"page_no":1
+"rank":2
+"list_tracking":"type|property|data|prop_id|5227657434|list_id|2560209649|page|rank|list_branding|listing_agent|listing_office|advertiser_id|agent|office|property_status|product_code|advantage_code^1|2|0|1|1RQHO|1GI|3CY|0|5^^$0|1|2|$3|4|5|6|7|I|8|J|9|$A|K|B|L]|C|$D|M|E|N]|F|O|G|P|H|Q]]"
+}
+2:{27 items
+"property_id":"6347262112"
+"listing_id":"2885532023"
+"prop_type":"apartment"
+"last_update":"2020-01-04T00:14:27.000Z"
+"address":"4307 Branchview Way in Long Branch, Fairfax, 22032"
+"prop_status":"for_rent"
+"price_raw":3000
+"sqft_raw":2288
+"is_showcase":false
+"has_specials":false
+"price":"$3,000/mo"
+"beds":"4"
+"baths":"2"
+"sqft":"2,288 sq ft"
+"photo":"https://ap.rdcpix.com/218b4e09ccfb9a9c3a45f56cc52898fbl-m2110205223s.jpg"
+"short_price":"$3,000/mo"
+"baths_full":2
+"photo_count":3
+"products":[...]5 items
+"lat":38.82996
+"lon":-77.274572
+"pet_policy":"Dogs & Cats OK"
+"has_leadform":true
+"source":"unit_rental"
+"page_no":1
+"rank":3
+"list_tracking":"type|property|data|prop_id|6347262112|list_id|2885532023|page|rank|list_branding|listing_agent|listing_office|property_status|product_code|advantage_code^1|3|0|1|3YA|W|0^^$0|1|2|$3|4|5|6|7|F|8|G|9|$A|H|B|I]|C|J|D|K|E|L]]"
+}
+3:{...}28 items
+4:{...}28 items
+5:{30 items
+"property_id":"5138310151"
+"listing_id":"2826814196"
+"prop_type":"townhome"
+"last_update":"2020-01-04T22:49:13.000Z"
+"address":"2514 Peter Jefferson Ln in McNair, Herndon, 20171"
+"prop_status":"for_rent"
+"price_raw":2275
+"sqft_raw":2600
+"list_date":"2019-11-25T04:58:56Z"
+"is_showcase":false
+"has_specials":false
+"price":"$2,275/mo"
+"beds":"3"
+"baths":"4"
+"sqft":"2,600 sq ft"
+"photo":"https://ap.rdcpix.com/518c28c8027a70dd4683e01e559b0c6bl-m2747200113s.jpg"
+"short_price":"$2,275/mo"
+"price_reduced":true
+"price_reduced_date":"2020-01-05T04:27:59.288Z"
+"baths_half":2
+"baths_full":2
+"photo_count":24
+"products":[...]2 items
+"lat":38.945318
+"lon":-77.414573
+"has_leadform":true
+"source":"mls"
+"page_no":1
+"rank":6
+"list_tracking":"type|property|data|prop_id|5138310151|list_id|2826814196|page|rank|list_branding|listing_agent|listing_office|advertiser_id|agent|property_status|product_code|advantage_code^1|6|0|1|1X13Y|3CY|2|1^^$0|1|2|$3|4|5|6|7|H|8|I|9|$A|J|B|K]|C|$D|L]|E|M|F|N|G|O]]"
+}
+6:{...}28 items
+7:{...}29 items
+8:{30 items
+"property_id":"5554935164"
+"listing_id":"2772282931"
+"prop_type":"single_family"
+"last_update":"2019-12-20T02:19:59.000Z"
+"address":"10116 Garrett St, Vienna, 22181"
+"prop_status":"for_rent"
+"price_raw":2650
+"sqft_raw":1950
+"list_date":"2019-11-01T18:24:26Z"
+"is_showcase":false
+"has_specials":false
+"price":"$2,650/mo"
+"beds":"4"
+"baths":"3"
+"sqft":"1,950 sq ft"
+"photo":"https://ap.rdcpix.com/a698ecf2cadb5c7268fbe1ed16463713l-m903054149s.jpg"
+"short_price":"$2,650/mo"
+"price_reduced":true
+"price_reduced_date":"2019-12-19T05:42:43.292Z"
+"baths_half":1
+"baths_full":2
+"photo_count":42
+"products":[...]2 items
+"lat":38.909022
+"lon":-77.297547
+"has_leadform":true
+"source":"mls"
+"page_no":1
+"rank":9
+"list_tracking":"type|property|data|prop_id|5554935164|list_id|2772282931|page|rank|list_branding|listing_agent|listing_office|advertiser_id|agent|office|property_status|product_code|advantage_code^1|9|0|1|H16X|2EP|3CY|0|5^^$0|1|2|$3|4|5|6|7|I|8|J|9|$A|K|B|L]|C|$D|M|E|N]|F|O|G|P|H|Q]]"
+}
+9:{...}28 items
+10:{...}29 items
+11:{...}28 items
+12:{...}28 items
+13:{29 items
+"property_id":"5605093838"
+"listing_id":"2866619508"
+"prop_type":"townhome"
+"last_update":"2019-12-20T15:16:06.000Z"
+"address":"25492 Cancello Ter in South Riding, Chantilly, 20152"
+"prop_status":"for_rent"
+"price_raw":2300
+"sqft_raw":1976
+"list_date":"2019-12-20T20:20:11Z"
+"is_showcase":false
+"has_specials":false
+"price":"$2,300/mo"
+"beds":"3"
+"baths":"4"
+"sqft":"1,976 sq ft"
+"photo":"https://ap.rdcpix.com/1f4a2be006ad64d1df27391a2ef2b2e8l-m2403647444s.jpg"
+"short_price":"$2,300/mo"
+"price_reduced":false
+"baths_half":2
+"baths_full":2
+"photo_count":58
+"products":[...]2 items
+"lat":38.911757
+"lon":-77.480584
+"has_leadform":true
+"source":"mls"
+"page_no":1
+"rank":14
+"list_tracking":"type|property|data|prop_id|5605093838|list_id|2866619508|page|rank|list_branding|listing_agent|listing_office|advertiser_id|agent|office|property_status|product_code|advantage_code^1|E|0|1|1A3GI|203F4|3CY|0|5^^$0|1|2|$3|4|5|6|7|I|8|J|9|$A|K|B|L]|C|$D|M|E|N]|F|O|G|P|H|Q]]"
+}
+14:{...}29 items
+15:{...}29 items
+16:{...}30 items
+17:{...}28 items
+18:{28 items
+"property_id":"6309107565"
+"listing_id":"2861927065"
+"prop_type":"condo"
+"last_update":"2019-12-19T15:21:06.000Z"
+"address":"2233 Castle Rock Sq Apt 12C, Reston, 20191"
+"prop_status":"for_rent"
+"price_raw":1850
+"sqft_raw":1029
+"list_date":"2019-12-17T15:08:53Z"
+"is_showcase":false
+"has_specials":false
+"price":"$1,850/mo"
+"beds":"3"
+"baths":"2"
+"sqft":"1,029 sq ft"
+"photo":"https://ap.rdcpix.com/cbabbddcbff0ff8a2f2af7919a84fbd7l-m1220914260s.jpg"
+"short_price":"$1,850/mo"
+"price_reduced":false
+"baths_full":2
+"photo_count":21
+"products":[...]2 items
+"lat":38.933983
+"lon":-77.347982
+"has_leadform":true
+"source":"mls"
+"page_no":1
+"rank":19
+"list_tracking":"type|property|data|prop_id|6309107565|list_id|2861927065|page|rank|list_branding|listing_agent|listing_office|advertiser_id|agent|office|property_status|product_code|advantage_code^1|J|0|1|4M5J|MVE6|3CY|0|5^^$0|1|2|$3|4|5|6|7|I|8|J|9|$A|K|B|L]|C|$D|M|E|N]|F|O|G|P|H|Q]]"
+}
+19:{...}29 items
+20:{...}29 items
+21:{...}29 items
+22:{...}29 items
+23:{...}29 items
+24:{...}28 items
+25:{29 items
+"property_id":"5006362668"
+"listing_id":"2861404549"
+"prop_type":"townhome"
+"last_update":"2019-12-27T15:22:09.000Z"
+"address":"6605 McLean Ct in McLean, McLean, 22101"
+"prop_status":"for_rent"
+"price_raw":3500
+"sqft_raw":1628
+"list_date":"2019-12-17T05:11:15Z"
+"is_showcase":false
+"has_specials":false
+"price":"$3,500/mo"
+"beds":"4"
+"baths":"4"
+"sqft":"1,628 sq ft"
+"photo":"https://ap.rdcpix.com/03172ce7e1c2fd2406a4b060af47ad36l-m3936469202s.jpg"
+"short_price":"$3,500/mo"
+"price_reduced":false
+"baths_half":1
+"baths_full":3
+"photo_count":41
+"products":[...]2 items
+"lat":38.930348
+"lon":-77.169577
+"has_leadform":true
+"source":"mls"
+"page_no":1
+"rank":26
+"list_tracking":"type|property|data|prop_id|5006362668|list_id|2861404549|page|rank|list_branding|listing_agent|listing_office|advertiser_id|agent|office|property_status|product_code|advantage_code^1|Q|0|1|14WC5|2EH|3CY|0|5^^$0|1|2|$3|4|5|6|7|I|8|J|9|$A|K|B|L]|C|$D|M|E|N]|F|O|G|P|H|Q]]"
+}
+26:{...}30 items
+27:{...}28 items
+28:{29 items
+"property_id":"6880643952"
+"listing_id":"2841229891"
+"prop_type":"townhome"
+"last_update":"2019-12-08T03:52:41.000Z"
+"address":"2111 Bobbyber Dr, Vienna, 22182"
+"prop_status":"for_rent"
+"price_raw":2950
+"sqft_raw":1686
+"list_date":"2019-12-05T14:25:00Z"
+"is_showcase":false
+"has_specials":false
+"price":"$2,950/mo"
+"beds":"3"
+"baths":"3"
+"sqft":"1,686 sq ft"
+"photo":"https://ap.rdcpix.com/a51639465a7fe844bc1ad610f4f3bd94l-m2888548892s.jpg"
+"short_price":"$2,950/mo"
+"price_reduced":false
+"baths_half":1
+"baths_full":2
+"photo_count":13
+"products":[...]2 items
+"lat":38.904323
+"lon":-77.219115
+"has_leadform":true
+"source":"mls"
+"page_no":1
+"rank":29
+"list_tracking":"type|property|data|prop_id|6880643952|list_id|2841229891|page|rank|list_branding|listing_agent|listing_office|advertiser_id|agent|office|property_status|product_code|advantage_code^1|T|0|1|1QD0D|MVE6|3CY|0|5^^$0|1|2|$3|4|5|6|7|I|8|J|9|$A|K|B|L]|C|$D|M|E|N]|F|O|G|P|H|Q]]"
+}
+29:{...}29 items
+30:{...}30 items
+31:{...}30 items
+32:{...}29 items
+33:{...}30 items
+34:{...}29 items
+35:{...}29 items
+36:{...}28 items
+37:{29 items
+"property_id":"6020087956"
+"listing_id":"2868017985"
+"prop_type":"townhome"
+"last_update":"2020-01-11T20:13:10.000Z"
+"address":"2707 Manhattan Pl, Vienna, 22180"
+"prop_status":"for_rent"
+"price_raw":3500
+"sqft_raw":1938
+"list_date":"2019-12-21T16:18:56Z"
+"is_showcase":false
+"has_specials":false
+"price":"$3,500/mo"
+"beds":"3"
+"baths":"4"
+"sqft":"1,938 sq ft"
+"photo":"https://ap.rdcpix.com/feb00dff2e19274f63e791fc1b6e0d69l-m2320914076s.jpg"
+"short_price":"$3,500/mo"
+"price_reduced":false
+"baths_half":1
+"baths_full":3
+"photo_count":30
+"products":[...]2 items
+"lat":38.881348
+"lon":-77.225535
+"has_leadform":true
+"source":"mls"
+"page_no":1
+"rank":38
+"list_tracking":"type|property|data|prop_id|6020087956|list_id|2868017985|page|rank|list_branding|listing_agent|listing_office|advertiser_id|agent|office|property_status|product_code|advantage_code^1|12|0|1|5BQR|20BGB|3CY|0|5^^$0|1|2|$3|4|5|6|7|I|8|J|9|$A|K|B|L]|C|$D|M|E|N]|F|O|G|P|H|Q]]"
+}
+38:{...}28 items
+39:{...}29 items
+40:{28 items
+"property_id":"5674383363"
+"listing_id":"2876623121"
+"prop_type":"condo"
+"last_update":"2020-01-08T10:42:54.000Z"
+"address":"12919 Alton Sq Apt 211, Herndon, 20170"
+"prop_status":"for_rent"
+"price_raw":1650
+"sqft_raw":990
+"list_date":"2019-12-30T18:58:28Z"
+"is_showcase":false
+"has_specials":false
+"price":"$1,650/mo"
+"beds":"2"
+"baths":"1"
+"sqft":"990 sq ft"
+"photo":"https://ap.rdcpix.com/7987644813d01846afc052410cb12302l-m2144542711s.jpg"
+"short_price":"$1,650/mo"
+"price_reduced":false
+"baths_full":1
+"photo_count":29
+"products":[...]2 items
+"lat":38.955615
+"lon":-77.394453
+"has_leadform":true
+"source":"mls"
+"page_no":1
+"rank":41
+"list_tracking":"type|property|data|prop_id|5674383363|list_id|2876623121|page|rank|list_branding|listing_agent|listing_office|advertiser_id|agent|office|property_status|product_code|advantage_code^1|15|0|1|1BNCZ|2KW|3CY|0|5^^$0|1|2|$3|4|5|6|7|I|8|J|9|$A|K|B|L]|C|$D|M|E|N]|F|O|G|P|H|Q]]"
+}
+41:{...}28 items
+42:{...}29 items
+43:{...}28 items
+44:{...}30 items
+45:{...}30 items
+46:{...}30 items
+47:{...}30 items
+48:{...}30 items
+49:{29 items
+"property_id":"5101086425"
+"listing_id":"2906721557"
+"prop_type":"condo"
+"last_update":"2020-01-14T11:35:45.000Z"
+"address":"300 Shirley St Apt 39, Falls Church, 22046"
+"prop_status":"for_rent"
+"price_raw":1075
+"sqft_raw":700
+"list_date":"2020-01-14T16:39:53Z"
+"is_showcase":false
+"has_specials":false
+"price":"$1,075/mo"
+"beds":"1"
+"baths":"1"
+"sqft":"700 sq ft"
+"photo":"https://ap.rdcpix.com/9ee025193c0b921a5cb03cb117b97a92l-m1919908549s.jpg"
+"short_price":"$1,075/mo"
+"price_reduced":false
+"baths_full":1
+"photo_count":2
+"products":[...]2 items
+"lat":38.881983
+"lon":-77.175613
+"is_new_listing":true
+"has_leadform":true
+"source":"mls"
+"page_no":2
+"rank":7
+"list_tracking":"type|property|data|prop_id|5101086425|list_id|2906721557|page|rank|list_branding|listing_agent|listing_office|advertiser_id|agent|property_status|product_code|advantage_code^2|7|0|1|1DQVC|3CY|2|1^^$0|1|2|$3|4|5|6|7|H|8|I|9|$A|J|B|K]|C|$D|L]|E|M|F|N|G|O]]"
+}
+]
+}
