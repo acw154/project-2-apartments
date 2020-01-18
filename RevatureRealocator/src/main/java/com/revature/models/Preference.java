@@ -47,10 +47,10 @@ public class Preference implements Serializable{
 	private double maxPrice;
 	
 	@Column(name = "num_beds")
-	private int numBeds;
+	private double numBeds;
 	
 	@Column(name = "num_baths")
-	private int numBaths;
+	private double numBaths;
 	
 	@Column
 	private boolean furnished;
@@ -69,7 +69,7 @@ public class Preference implements Serializable{
 
 
 	public Preference(int id, boolean pets, int minWalk, int minBike, int minTransit, double minPrice, double maxPrice,
-			int numBeds, int numBaths, boolean furnished, User user) {
+			double numBeds, double numBaths, boolean furnished, User user) {
 		super();
 		this.id = id;
 		this.pets = pets;
@@ -171,25 +171,25 @@ public class Preference implements Serializable{
 
 
 
-	public int getNumBeds() {
+	public double getNumBeds() {
 		return numBeds;
 	}
 
 
 
-	public void setNumBeds(int numBeds) {
+	public void setNumBeds(double numBeds) {
 		this.numBeds = numBeds;
 	}
 
 
 
-	public int getNumBaths() {
+	public double getNumBaths() {
 		return numBaths;
 	}
 
 
 
-	public void setNumBaths(int numBaths) {
+	public void setNumBaths(double numBaths) {
 		this.numBaths = numBaths;
 	}
 
