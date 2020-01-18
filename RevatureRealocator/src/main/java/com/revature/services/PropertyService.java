@@ -8,12 +8,15 @@ import org.springframework.stereotype.Service;
 import com.revature.models.Preference;
 import com.revature.models.Property;
 import com.revature.repositories.PropertyDAO;
-import com.revature.repositories.PropertyDAOImpl;
 
 @Service
 public class PropertyService {
 	@Autowired
-	private PropertyDAO pdao = new PropertyDAOImpl();
+	private PropertyDAO pdao;
+	
+	public PropertyService(PropertyDAO pdao) {
+		this.pdao = pdao;
+	}
 	
 	public List<Property> findAll(){
 		return pdao.findAll();
