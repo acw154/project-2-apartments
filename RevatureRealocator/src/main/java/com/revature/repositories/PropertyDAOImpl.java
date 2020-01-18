@@ -85,14 +85,15 @@ public class PropertyDAOImpl implements PropertyDAO {
 	public List<Property> findPropertiesByFilter(Preference pref) {
 		Session s = sf.getCurrentSession();
 		Query<Property> query = (Query<Property>) s.createQuery("FROM Property p WHERE p.num_beds=:beds, p.num_baths=:baths, "
-				+ "p.price between :p1 and :p2, p.city=:c, p.pets=:pets, p.furnished=:f");
+				+ "p.price between :p1 and :p2, p.city=:c, p.pets=:pets, p.furnished=:f, p.state=:sc");
 		query.setParameter(1, pref.getNumBeds());
 		query.setParameter(2, pref.getNumBaths());
 		query.setParameter(3, pref.getMinPrice());
 		query.setParameter(4, pref.getMaxPrice());
 		query.setParameter(5, pref.getCity());
-		query.setParameter(6, pref.getPets());
-		query.setParameter(7, pref.getFurnished());
+		query.setParameter(6, pref.isPets());
+		query.setParameter(7, pref.isFurnished());
+		query.setParameter(8, pref.getState_code());
 		List<Property> list = query.getResultList();
 		if(list.isEmpty()) {
 			return null;

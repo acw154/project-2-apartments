@@ -43,11 +43,14 @@ public class Preference implements Serializable{
 	@Column(name = "num_baths")
 	private double numBaths;
 	
-	@Column
+	@Column(name="furnished")
 	private boolean furnished;
 	
-	@Column
+	@Column(name="city")
 	private String city;
+	
+	@Column(name="state_code")
+	private String state_code;
 	
 	@OneToOne(mappedBy = "user_id")
 	private User user;
@@ -62,8 +65,8 @@ public class Preference implements Serializable{
 
 
 
-	public Preference(int id, boolean pets, double minPrice, double maxPrice,
-			double numBeds, double numBaths, boolean furnished, String city, User user) {
+	public Preference(int id, boolean pets, double minPrice, double maxPrice, double numBeds, double numBaths,
+			boolean furnished, String city, String state_code, User user) {
 		super();
 		this.id = id;
 		this.pets = pets;
@@ -72,12 +75,15 @@ public class Preference implements Serializable{
 		this.numBeds = numBeds;
 		this.numBaths = numBaths;
 		this.furnished = furnished;
+		this.city = city;
+		this.state_code = state_code;
 		this.user = user;
 	}
 
 
-	public Preference(boolean pets, double minPrice, double maxPrice,
-			double numBeds, double numBaths, boolean furnished, String city) {
+
+	public Preference(boolean pets, double minPrice, double maxPrice, double numBeds, double numBaths,
+			boolean furnished, String city, String state_code, User user) {
 		super();
 		this.pets = pets;
 		this.minPrice = minPrice;
@@ -86,11 +92,11 @@ public class Preference implements Serializable{
 		this.numBaths = numBaths;
 		this.furnished = furnished;
 		this.city = city;
+		this.state_code = state_code;
+		this.user = user;
 	}
-	
 
 
-	// getters and setters
 
 	public int getId() {
 		return id;
@@ -104,7 +110,7 @@ public class Preference implements Serializable{
 
 
 
-	public boolean getPets() {
+	public boolean isPets() {
 		return pets;
 	}
 
@@ -113,6 +119,7 @@ public class Preference implements Serializable{
 	public void setPets(boolean pets) {
 		this.pets = pets;
 	}
+
 
 
 	public double getMinPrice() {
@@ -163,7 +170,7 @@ public class Preference implements Serializable{
 
 
 
-	public boolean getFurnished() {
+	public boolean isFurnished() {
 		return furnished;
 	}
 
@@ -171,6 +178,30 @@ public class Preference implements Serializable{
 
 	public void setFurnished(boolean furnished) {
 		this.furnished = furnished;
+	}
+
+
+
+	public String getCity() {
+		return city;
+	}
+
+
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+
+
+	public String getState_code() {
+		return state_code;
+	}
+
+
+
+	public void setState_code(String state_code) {
+		this.state_code = state_code;
 	}
 
 
@@ -184,29 +215,15 @@ public class Preference implements Serializable{
 	public void setUser(User user) {
 		this.user = user;
 	}
-	
-	
-
-	// hashcode + equals
-
-	public String getCity() {
-		return city;
-	}
 
 
-
-	public void setCity(String city) {
-		this.city = city;
-	}
-
-	
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(city, furnished, id, maxPrice, minPrice, numBaths, numBeds, pets, user);
+		return Objects.hash(city, furnished, id, maxPrice, minPrice, numBaths, numBeds, pets, state_code, user);
 	}
 
-	
+
 
 	@Override
 	public boolean equals(Object obj) {
@@ -222,7 +239,7 @@ public class Preference implements Serializable{
 				&& Double.doubleToLongBits(minPrice) == Double.doubleToLongBits(other.minPrice)
 				&& Double.doubleToLongBits(numBaths) == Double.doubleToLongBits(other.numBaths)
 				&& Double.doubleToLongBits(numBeds) == Double.doubleToLongBits(other.numBeds) && pets == other.pets
-				&& Objects.equals(user, other.user);
+				&& Objects.equals(state_code, other.state_code) && Objects.equals(user, other.user);
 	}
 
 
@@ -231,16 +248,10 @@ public class Preference implements Serializable{
 	public String toString() {
 		return "Preference [id=" + id + ", pets=" + pets + ", minPrice=" + minPrice + ", maxPrice=" + maxPrice
 				+ ", numBeds=" + numBeds + ", numBaths=" + numBaths + ", furnished=" + furnished + ", city=" + city
-				+ ", user=" + user + "]";
+				+ ", state_code=" + state_code + ", user=" + user + "]";
 	}
 
 
-
-	
-	
-	
-	
-	
 	
 	
 }
