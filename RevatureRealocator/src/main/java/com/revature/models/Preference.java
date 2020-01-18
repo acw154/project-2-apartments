@@ -31,15 +31,6 @@ public class Preference implements Serializable{
 	@Column
 	private boolean pets;
 	
-	@Column(name = "min_walk")
-	private int minWalk;
-	
-	@Column(name = "min_bike")
-	private int minBike;
-	
-	@Column(name = "min_transit")
-	private int minTransit;
-	
 	@Column(name = "min_price")
 	private double minPrice;
 	
@@ -55,6 +46,9 @@ public class Preference implements Serializable{
 	@Column
 	private boolean furnished;
 	
+	@Column
+	private String city;
+	
 	@OneToOne(mappedBy = "user_id")
 	private User user;
 
@@ -68,14 +62,11 @@ public class Preference implements Serializable{
 
 
 
-	public Preference(int id, boolean pets, int minWalk, int minBike, int minTransit, double minPrice, double maxPrice,
-			double numBeds, double numBaths, boolean furnished, User user) {
+	public Preference(int id, boolean pets, double minPrice, double maxPrice,
+			double numBeds, double numBaths, boolean furnished, String city, User user) {
 		super();
 		this.id = id;
 		this.pets = pets;
-		this.minWalk = minWalk;
-		this.minBike = minBike;
-		this.minTransit = minTransit;
 		this.minPrice = minPrice;
 		this.maxPrice = maxPrice;
 		this.numBeds = numBeds;
@@ -83,6 +74,20 @@ public class Preference implements Serializable{
 		this.furnished = furnished;
 		this.user = user;
 	}
+
+
+	public Preference(boolean pets, double minPrice, double maxPrice,
+			double numBeds, double numBaths, boolean furnished, String city) {
+		super();
+		this.pets = pets;
+		this.minPrice = minPrice;
+		this.maxPrice = maxPrice;
+		this.numBeds = numBeds;
+		this.numBaths = numBaths;
+		this.furnished = furnished;
+		this.city = city;
+	}
+	
 
 
 	// getters and setters
@@ -108,43 +113,6 @@ public class Preference implements Serializable{
 	public void setPets(boolean pets) {
 		this.pets = pets;
 	}
-
-
-
-	public int getMinWalk() {
-		return minWalk;
-	}
-
-
-
-	public void setMinWalk(int minWalk) {
-		this.minWalk = minWalk;
-	}
-
-
-
-	public int getMinBike() {
-		return minBike;
-	}
-
-
-
-	public void setMinBike(int minBike) {
-		this.minBike = minBike;
-	}
-
-
-
-	public int getMinTransit() {
-		return minTransit;
-	}
-
-
-
-	public void setMinTransit(int minTransit) {
-		this.minTransit = minTransit;
-	}
-
 
 
 	public double getMinPrice() {
@@ -216,14 +184,26 @@ public class Preference implements Serializable{
 	public void setUser(User user) {
 		this.user = user;
 	}
-
+	
+	
 
 	// hashcode + equals
 
+	public String getCity() {
+		return city;
+	}
+
+
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+
+
 	@Override
 	public int hashCode() {
-		return Objects.hash(furnished, id, maxPrice, minBike, minPrice, minTransit, minWalk, numBaths, numBeds, pets,
-				user);
+		return Objects.hash(city, furnished, id, maxPrice, minPrice, numBaths, numBeds, pets, user);
 	}
 
 
@@ -237,24 +217,26 @@ public class Preference implements Serializable{
 			return false;
 		}
 		Preference other = (Preference) obj;
-		return furnished == other.furnished && id == other.id
+		return Objects.equals(city, other.city) && furnished == other.furnished && id == other.id
 				&& Double.doubleToLongBits(maxPrice) == Double.doubleToLongBits(other.maxPrice)
-				&& minBike == other.minBike
 				&& Double.doubleToLongBits(minPrice) == Double.doubleToLongBits(other.minPrice)
-				&& minTransit == other.minTransit && minWalk == other.minWalk && numBaths == other.numBaths
-				&& numBeds == other.numBeds && pets == other.pets && Objects.equals(user, other.user);
+				&& Double.doubleToLongBits(numBaths) == Double.doubleToLongBits(other.numBaths)
+				&& Double.doubleToLongBits(numBeds) == Double.doubleToLongBits(other.numBeds) && pets == other.pets
+				&& Objects.equals(user, other.user);
 	}
 
 
 
-	// to string
-	
 	@Override
 	public String toString() {
-		return "Preference [id=" + id + ", pets=" + pets + ", minWalk=" + minWalk + ", minBike=" + minBike
-				+ ", minTransit=" + minTransit + ", minPrice=" + minPrice + ", maxPrice=" + maxPrice + ", numBeds="
-				+ numBeds + ", numBaths=" + numBaths + ", furnished=" + furnished + ", user=" + user + "]";
+		return "Preference [id=" + id + ", pets=" + pets + ", minPrice=" + minPrice + ", maxPrice=" + maxPrice
+				+ ", numBeds=" + numBeds + ", numBaths=" + numBaths + ", furnished=" + furnished + ", city=" + city
+				+ ", user=" + user + "]";
 	}
+
+
+
+	
 	
 	
 	
