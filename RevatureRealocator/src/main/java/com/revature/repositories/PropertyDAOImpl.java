@@ -6,12 +6,14 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.revature.models.Preference;
 import com.revature.models.Property;
 
 @SuppressWarnings({"unchecked", "deprecation"})
+@Repository
 public class PropertyDAOImpl implements PropertyDAO {
 	
 	@Autowired
@@ -33,7 +35,7 @@ public class PropertyDAOImpl implements PropertyDAO {
 
 	@Override
 	@Transactional
-	public Property findByAddress(int street_num, String street, int apt_num, String city, String state) {
+	public Property findByAddressWithApt(int street_num, String street, int apt_num, String city, String state) {
 		Session s = sf.getCurrentSession();
 		Query<Property> query = (Query<Property>) s.createQuery("FROM Property WHERE street_num=:n, apt_num=:a, city=:c, state=:s");
 		query.setParameter(1, street_num);
@@ -83,19 +85,35 @@ public class PropertyDAOImpl implements PropertyDAO {
 	public List<Property> findPropertiesByFilter(Preference pref) {
 		Session s = sf.getCurrentSession();
 		Query<Property> query = (Query<Property>) s.createQuery("FROM Property p WHERE p.num_beds=:beds, p.num_baths=:baths, "
-				+ "p.price between :p1 and :p2, p.city=:c, p.pets=:pets, p.furnished=:f");
+				+ "p.price between :p1 and :p2, p.city=:c, p.pets=:pets, p.furnished=:f, p.state=:sc");
 		query.setParameter(1, pref.getNumBeds());
 		query.setParameter(2, pref.getNumBaths());
 		query.setParameter(3, pref.getMinPrice());
 		query.setParameter(4, pref.getMaxPrice());
 		query.setParameter(5, pref.getCity());
-		query.setParameter(6, pref.getPets());
-		query.setParameter(7, pref.getFurnished());
+		query.setParameter(6, pref.isPets());
+		query.setParameter(7, pref.isFurnished());
+		query.setParameter(8, pref.getState_code());
 		List<Property> list = query.getResultList();
 		if(list.isEmpty()) {
 			return null;
 		}
 		return list;
+	}
+
+	@Override
+	public Property findByAddressNoApt(int street_num, String street, String city, String state) {
+		Session s = sf.getCurrentSession();
+		Query<Property> query = (Query<Property>) s.createQuery("FROM Property WHERE street_num=:n, city=:c, state=:s");
+		query.setParameter(1, street_num);
+		query.setParameter(2, street);;
+		query.setParameter(3, city);
+		query.setParameter(4, state);
+		List<Property> list = query.getResultList();
+		if(list.isEmpty()) {
+			return null;
+		}
+		return list.get(0);
 	}
 	
 }
