@@ -1,8 +1,9 @@
 package com.revature.models;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashSet;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -14,7 +15,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
@@ -27,7 +27,7 @@ public class Property implements Serializable{
 	private static final long serialVersionUID = 5217316358226596240L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="property_id")
 	private int property_id;
 	
@@ -53,20 +53,26 @@ public class Property implements Serializable{
 	@Column(name="apt_num")
 	private int apt_num;
 	
-	@Column(name="walk_score")
-	private int walk_score;
+	@Column(name="num_beds")
+	private double num_beds;
 	
-	@Column(name="transit_score")
-	private int transit_score;
-	
-	@Column(name="bike_score")
-	private int bike_score;
+	@Column(name="num_baths")
+	private double num_baths;
 	
 	@Column(name="photo")
-	private byte[] photo;
+	private String photo;
 	
 	@Column(name="sq_ft")
 	private double sq_ft;
+	
+	@Column(name="pets")
+	private boolean pets;
+	
+	@Column(name="furnished")
+	private boolean furnished;
+	
+	@Column(name="price")
+	private double price;
 	
 	@ManyToOne
 	@JoinColumn(name="parking_type_id", referencedColumnName = "id")
@@ -76,7 +82,7 @@ public class Property implements Serializable{
 	private boolean revemp_owned;
 	
 	@ManyToMany(mappedBy="users") //User owns the Many-To-Many relationship
-	private Set<User> users = new HashSet<>();
+	private List<User> users = new ArrayList<>();
 	
 	public Property() {
 		super();
@@ -84,8 +90,8 @@ public class Property implements Serializable{
 	}
 
 	public Property(int property_id, PropertyType propertyType, int street_num, String street, String city, int zip,
-			String state, int apt_num, int walk_score, int transit_score, int bike_score, byte[] photo, double sq_ft,
-			ParkingType parkingType, boolean revemp_owned, Set<User> users) {
+			String state, int apt_num, double num_beds, double num_baths, String photo, double sq_ft, boolean pets,
+			boolean furnished, double price, ParkingType parkingType, boolean revemp_owned, List<User> users) {
 		super();
 		this.property_id = property_id;
 		this.propertyType = propertyType;
@@ -95,34 +101,21 @@ public class Property implements Serializable{
 		this.zip = zip;
 		this.state = state;
 		this.apt_num = apt_num;
-		this.walk_score = walk_score;
-		this.transit_score = transit_score;
-		this.bike_score = bike_score;
+		this.num_beds = num_beds;
+		this.num_baths = num_baths;
 		this.photo = photo;
 		this.sq_ft = sq_ft;
+		this.pets = pets;
+		this.furnished = furnished;
+		this.price = price;
 		this.parkingType = parkingType;
 		this.revemp_owned = revemp_owned;
 		this.users = users;
 	}
 
 	public Property(PropertyType propertyType, int street_num, String street, String city, int zip, String state,
-			int bike_score, byte[] photo, double sq_ft, ParkingType parkingType, boolean revemp_owned) {
-		super();
-		this.propertyType = propertyType;
-		this.street_num = street_num;
-		this.street = street;
-		this.city = city;
-		this.zip = zip;
-		this.state = state;
-		this.bike_score = bike_score;
-		this.photo = photo;
-		this.sq_ft = sq_ft;
-		this.parkingType = parkingType;
-		this.revemp_owned = revemp_owned;
-	}
-
-	public Property(PropertyType propertyType, int street_num, String street, String city, int zip, String state,
-			int apt_num, byte[] photo, double sq_ft, ParkingType parkingType, boolean revemp_owned, Set<User> users) {
+			int apt_num, double num_beds, double num_baths, String photo, double sq_ft, boolean pets, boolean furnished,
+			double price, ParkingType parkingType, boolean revemp_owned) {
 		super();
 		this.propertyType = propertyType;
 		this.street_num = street_num;
@@ -131,16 +124,20 @@ public class Property implements Serializable{
 		this.zip = zip;
 		this.state = state;
 		this.apt_num = apt_num;
+		this.num_beds = num_beds;
+		this.num_baths = num_baths;
 		this.photo = photo;
 		this.sq_ft = sq_ft;
+		this.pets = pets;
+		this.furnished = furnished;
+		this.price = price;
 		this.parkingType = parkingType;
 		this.revemp_owned = revemp_owned;
-		this.users = users;
 	}
 
 	public Property(PropertyType propertyType, int street_num, String street, String city, int zip, String state,
-			int apt_num, int walk_score, int transit_score, int bike_score, byte[] photo, double sq_ft,
-			ParkingType parkingType, boolean revemp_owned, Set<User> users) {
+			double num_beds, double num_baths, String photo, double sq_ft, boolean pets, boolean furnished,
+			double price, ParkingType parkingType, boolean revemp_owned) {
 		super();
 		this.propertyType = propertyType;
 		this.street_num = street_num;
@@ -148,15 +145,15 @@ public class Property implements Serializable{
 		this.city = city;
 		this.zip = zip;
 		this.state = state;
-		this.apt_num = apt_num;
-		this.walk_score = walk_score;
-		this.transit_score = transit_score;
-		this.bike_score = bike_score;
+		this.num_beds = num_beds;
+		this.num_baths = num_baths;
 		this.photo = photo;
 		this.sq_ft = sq_ft;
+		this.pets = pets;
+		this.furnished = furnished;
+		this.price = price;
 		this.parkingType = parkingType;
 		this.revemp_owned = revemp_owned;
-		this.users = users;
 	}
 
 	public int getProperty_id() {
@@ -223,35 +220,27 @@ public class Property implements Serializable{
 		this.apt_num = apt_num;
 	}
 
-	public int getWalk_score() {
-		return walk_score;
+	public double getNum_beds() {
+		return num_beds;
 	}
 
-	public void setWalk_score(int walk_score) {
-		this.walk_score = walk_score;
+	public void setNum_beds(double num_beds) {
+		this.num_beds = num_beds;
 	}
 
-	public int getTransit_score() {
-		return transit_score;
+	public double getNum_baths() {
+		return num_baths;
 	}
 
-	public void setTransit_score(int transit_score) {
-		this.transit_score = transit_score;
+	public void setNum_baths(double num_baths) {
+		this.num_baths = num_baths;
 	}
 
-	public int getBike_score() {
-		return bike_score;
-	}
-
-	public void setBike_score(int bike_score) {
-		this.bike_score = bike_score;
-	}
-
-	public byte[] getPhoto() {
+	public String getPhoto() {
 		return photo;
 	}
 
-	public void setPhoto(byte[] photo) {
+	public void setPhoto(String photo) {
 		this.photo = photo;
 	}
 
@@ -261,6 +250,30 @@ public class Property implements Serializable{
 
 	public void setSq_ft(double sq_ft) {
 		this.sq_ft = sq_ft;
+	}
+
+	public boolean isPets() {
+		return pets;
+	}
+
+	public void setPets(boolean pets) {
+		this.pets = pets;
+	}
+
+	public boolean isFurnished() {
+		return furnished;
+	}
+
+	public void setFurnished(boolean furnished) {
+		this.furnished = furnished;
+	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
 	}
 
 	public ParkingType getParkingType() {
@@ -279,22 +292,26 @@ public class Property implements Serializable{
 		this.revemp_owned = revemp_owned;
 	}
 
-	public Set<User> getUsers() {
+	public List<User> getUsers() {
 		return users;
 	}
 
-	public void setUsers(Set<User> users) {
+	public void setUsers(List<User> users) {
 		this.users = users;
+	}
+	
+	public boolean addUser(User u) {
+		if(!this.users.contains(u)) {
+			this.users.add(u);
+			return true;
+		}
+		return false;
 	}
 
 	@Override
 	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + Arrays.hashCode(photo);
-		result = prime * result + Objects.hash(apt_num, bike_score, city, parkingType, propertyType, property_id,
-				revemp_owned, sq_ft, state, street, street_num, transit_score, users, walk_score, zip);
-		return result;
+		return Objects.hash(apt_num, city, furnished, num_baths, num_beds, parkingType, pets, photo, price,
+				propertyType, property_id, revemp_owned, sq_ft, state, street, street_num, users, zip);
 	}
 
 	@Override
@@ -306,25 +323,27 @@ public class Property implements Serializable{
 			return false;
 		}
 		Property other = (Property) obj;
-		return apt_num == other.apt_num && bike_score == other.bike_score && Objects.equals(city, other.city)
-				&& Objects.equals(parkingType, other.parkingType) && Arrays.equals(photo, other.photo)
+		return apt_num == other.apt_num && Objects.equals(city, other.city) && furnished == other.furnished
+				&& Double.doubleToLongBits(num_baths) == Double.doubleToLongBits(other.num_baths)
+				&& Double.doubleToLongBits(num_beds) == Double.doubleToLongBits(other.num_beds)
+				&& Objects.equals(parkingType, other.parkingType) && pets == other.pets
+				&& Objects.equals(photo, other.photo)
+				&& Double.doubleToLongBits(price) == Double.doubleToLongBits(other.price)
 				&& Objects.equals(propertyType, other.propertyType) && property_id == other.property_id
 				&& revemp_owned == other.revemp_owned
 				&& Double.doubleToLongBits(sq_ft) == Double.doubleToLongBits(other.sq_ft)
 				&& Objects.equals(state, other.state) && Objects.equals(street, other.street)
-				&& street_num == other.street_num && transit_score == other.transit_score
-				&& Objects.equals(users, other.users) && walk_score == other.walk_score && zip == other.zip;
+				&& street_num == other.street_num && Objects.equals(users, other.users) && zip == other.zip;
 	}
 
 	@Override
 	public String toString() {
 		return "Property [property_id=" + property_id + ", propertyType=" + propertyType + ", street_num=" + street_num
 				+ ", street=" + street + ", city=" + city + ", zip=" + zip + ", state=" + state + ", apt_num=" + apt_num
-				+ ", walk_score=" + walk_score + ", transit_score=" + transit_score + ", bike_score=" + bike_score
-				+ ", photo=" + Arrays.toString(photo) + ", sq_ft=" + sq_ft + ", parkingType=" + parkingType
+				+ ", num_beds=" + num_beds + ", num_baths=" + num_baths + ", photo=" + photo + ", sq_ft=" + sq_ft
+				+ ", pets=" + pets + ", furnished=" + furnished + ", price=" + price + ", parkingType=" + parkingType
 				+ ", revemp_owned=" + revemp_owned + ", users=" + users + "]";
 	}
-
-
+	
 
 }
