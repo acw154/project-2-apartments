@@ -293,12 +293,41 @@ public class Property implements Serializable{
 		}
 		return false;
 	}
-	
-	
-	
 
-	
+	@Override
+	public int hashCode() {
+		return Objects.hash(apt_num, city, furnished, num_baths, num_beds, parkingType, pets, photo, propertyType,
+				property_id, revemp_owned, sq_ft, state, street, street_num, users, zip);
+	}
 
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		if (!(obj instanceof Property)) {
+			return false;
+		}
+		Property other = (Property) obj;
+		return apt_num == other.apt_num && Objects.equals(city, other.city) && furnished == other.furnished
+				&& Double.doubleToLongBits(num_baths) == Double.doubleToLongBits(other.num_baths)
+				&& Double.doubleToLongBits(num_beds) == Double.doubleToLongBits(other.num_beds)
+				&& Objects.equals(parkingType, other.parkingType) && pets == other.pets
+				&& Objects.equals(photo, other.photo) && Objects.equals(propertyType, other.propertyType)
+				&& property_id == other.property_id && revemp_owned == other.revemp_owned
+				&& Double.doubleToLongBits(sq_ft) == Double.doubleToLongBits(other.sq_ft)
+				&& Objects.equals(state, other.state) && Objects.equals(street, other.street)
+				&& street_num == other.street_num && Objects.equals(users, other.users) && zip == other.zip;
+	}
+
+	@Override
+	public String toString() {
+		return "Property [property_id=" + property_id + ", propertyType=" + propertyType + ", street_num=" + street_num
+				+ ", street=" + street + ", city=" + city + ", zip=" + zip + ", state=" + state + ", apt_num=" + apt_num
+				+ ", num_beds=" + num_beds + ", num_baths=" + num_baths + ", photo=" + photo + ", sq_ft=" + sq_ft
+				+ ", pets=" + pets + ", furnished=" + furnished + ", parkingType=" + parkingType + ", revemp_owned="
+				+ revemp_owned + ", users=" + users + "]";
+	}
 	
 
 }
