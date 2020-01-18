@@ -17,7 +17,6 @@ public class PropertyDAOImpl implements PropertyDAO {
 	@Autowired
 	private SessionFactory sf;
 	
-	@SuppressWarnings({"unchecked"})
 	@Override
 	@Transactional
 	public List<Property> findAll() {
@@ -83,7 +82,15 @@ public class PropertyDAOImpl implements PropertyDAO {
 	@Transactional
 	public List<Property> findPropertiesByFilter(Preference pref) {
 		Session s = sf.getCurrentSession();
-		Query<Property> query = (Query<Property>) s.createQuery("FROM Property WHERE num_beds=:beds, num_baths=:baths, ");
+		Query<Property> query = (Query<Property>) s.createQuery("FROM Property p WHERE p.num_beds=:beds, p.num_baths=:baths, "
+				+ "p.price between :p1 and :p2, p.city=:c, p.pets=:pets, p.furnished=:f");
+		query.setParameter(1, pref.getNumBeds());
+		query.setParameter(2, pref.getNumBaths());
+		query.setParameter(3, pref.getMinPrice());
+		query.setParameter(4, pref.getMaxPrice());
+		query.setParameter(5, pref.getCity());
+		query.setParameter(6, pref.getPets());
+		query.setParameter(7, pref.getFurnished());
 		List<Property> list = query.getResultList();
 		if(list.isEmpty()) {
 			return null;

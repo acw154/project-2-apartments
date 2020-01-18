@@ -104,7 +104,7 @@ public class Preference implements Serializable{
 
 
 
-	public boolean isPets() {
+	public boolean getPets() {
 		return pets;
 	}
 
@@ -163,7 +163,7 @@ public class Preference implements Serializable{
 
 
 
-	public boolean isFurnished() {
+	public boolean getFurnished() {
 		return furnished;
 	}
 
@@ -199,14 +199,14 @@ public class Preference implements Serializable{
 		this.city = city;
 	}
 
-
+	
 
 	@Override
 	public int hashCode() {
 		return Objects.hash(city, furnished, id, maxPrice, minPrice, numBaths, numBeds, pets, user);
 	}
 
-
+	
 
 	@Override
 	public boolean equals(Object obj) {
