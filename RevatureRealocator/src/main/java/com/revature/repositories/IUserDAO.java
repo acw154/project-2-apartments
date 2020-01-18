@@ -11,6 +11,7 @@ public interface IUserDAO {
 	public User findById(int id);
 	public void save(User u);
 	public void update(User u);
-
+	public User getUserByEmail(String email);
+	User findByFirstLastName(String f_name, String l_name);
 
 }
