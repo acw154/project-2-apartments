@@ -1,13 +1,16 @@
 package com.revature.models;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
@@ -26,7 +29,10 @@ public class ParkingType implements Serializable {
 	
 	@Column(name="parking_type")
 	private String parking_type;
-
+	
+	@OneToMany(mappedBy="parking_type_id")
+	private Set<Property> property;
+	
 	public ParkingType() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -36,6 +42,7 @@ public class ParkingType implements Serializable {
 		super();
 		this.id = id;
 		this.parking_type = parking_type;
+		this.property = new HashSet<>();
 	}
 
 	public int getId() {
