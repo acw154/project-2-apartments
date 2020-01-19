@@ -7,6 +7,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { BackgroundComponent } from './components/background/background.component';
 import { LoginwordsComponent } from './components/loginwords/loginwords.component';
 import { LoginpageComponent } from './components/loginpage/loginpage.component';
+import { RentalsearchComponent } from './components/rentalsearch/rentalsearch.component';
+import { Background2Component } from './components/background2/background2.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { LoginpageComponent } from './components/loginpage/loginpage.component';
     NavbarComponent,
     BackgroundComponent,
     LoginwordsComponent,
-    LoginpageComponent
+    LoginpageComponent,
+    RentalsearchComponent,
+    Background2Component
   ],
   imports: [
     BrowserModule,
