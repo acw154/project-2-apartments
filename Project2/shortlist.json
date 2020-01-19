@@ -1,0 +1,159 @@
+{4 items
+"meta":{...}5 items
+"returned_rows":50
+"matching_rows":973
+"listings":[50 items
+0:{28 items
+"property_id":"5839271004"
+"listing_id":"2765187880"
+"prop_type":"single_family"
+"last_update":"2020-01-04T15:47:48.000Z"
+"address":"905 Shady Dr SE, Vienna, 22180"
+"prop_status":"for_rent"
+"price_raw":2850
+"sqft_raw":2200
+"list_date":"2019-10-29T22:00:31Z"
+"is_showcase":false
+"has_specials":false
+"price":"$2,850/mo"
+"beds":"4"
+"baths":"3"
+"sqft":"2,200 sq ft"
+"photo":"https://ap.rdcpix.com/1ef8a80a7e4b9af2861cdb29f7b4776el-m4266272082s.jpg"
+"short_price":"$2,850/mo"
+"price_reduced":false
+"baths_full":3
+"photo_count":24
+"products":[...]2 items
+"lat":38.89872
+"lon":-77.244987
+"has_leadform":true
+"source":"mls"
+"page_no":1
+"rank":1
+"list_tracking":"type|property|data|prop_id|5839271004|list_id|2765187880|page|rank|list_branding|listing_agent|listing_office|advertiser_id|agent|office|property_status|product_code|advantage_code^1|1|0|1|1ZRMY|1ZZTA|3CY|2|1^^$0|1|2|$3|4|5|6|7|I|8|J|9|$A|K|B|L]|C|$D|M|E|N]|F|O|G|P|H|Q]]"
+}
+1:{30 items
+"property_id":"5227657434"
+"listing_id":"2560209649"
+"prop_type":"townhome"
+"last_update":"2020-01-02T18:13:01.000Z"
+"address":"2967 Kildare Ln, Fairfax, 22031"
+"prop_status":"for_rent"
+"price_raw":2775
+"sqft_raw":1824
+"list_date":"2019-08-13T19:43:09Z"
+"is_showcase":false
+"has_specials":false
+"price":"$2,775/mo"
+"beds":"3"
+"baths":"3"
+"sqft":"1,824 sq ft"
+"photo":"https://ap.rdcpix.com/2026500229/78cc9e9e51630e899e5d51f5e4a45635l-m0s.jpg"
+"short_price":"$2,775/mo"
+"price_reduced":true
+"price_reduced_date":"2020-01-02T23:19:50.202Z"
+"baths_half":1
+"baths_full":2
+"photo_count":28
+"products":[...]2 items
+"lat":38.871229
+"lon":-77.247824
+"has_leadform":true
+"source":"mls"
+"page_no":1
+"rank":2
+"list_tracking":"type|property|data|prop_id|5227657434|list_id|2560209649|page|rank|list_branding|listing_agent|listing_office|advertiser_id|agent|office|property_status|product_code|advantage_code^1|2|0|1|1RQHO|1GI|3CY|0|5^^$0|1|2|$3|4|5|6|7|I|8|J|9|$A|K|B|L]|C|$D|M|E|N]|F|O|G|P|H|Q]]"
+}
+2:{27 items
+"property_id":"6347262112"
+"listing_id":"2885532023"
+"prop_type":"apartment"
+"last_update":"2020-01-04T00:14:27.000Z"
+"address":"4307 Branchview Way in Long Branch, Fairfax, 22032"
+"prop_status":"for_rent"
+"price_raw":3000
+"sqft_raw":2288
+"is_showcase":false
+"has_specials":false
+"price":"$3,000/mo"
+"beds":"4"
+"baths":"2"
+"sqft":"2,288 sq ft"
+"photo":"https://ap.rdcpix.com/218b4e09ccfb9a9c3a45f56cc52898fbl-m2110205223s.jpg"
+"short_price":"$3,000/mo"
+"baths_full":2
+"photo_count":3
+"products":[...]5 items
+"lat":38.82996
+"lon":-77.274572
+"pet_policy":"Dogs & Cats OK"
+"has_leadform":true
+"source":"unit_rental"
+"page_no":1
+"rank":3
+"list_tracking":"type|property|data|prop_id|6347262112|list_id|2885532023|page|rank|list_branding|listing_agent|listing_office|property_status|product_code|advantage_code^1|3|0|1|3YA|W|0^^$0|1|2|$3|4|5|6|7|F|8|G|9|$A|H|B|I]|C|J|D|K|E|L]]"
+}
+3:{28 items
+"property_id":"9848192586"
+"listing_id":"2876543513"
+"prop_type":"condo"
+"last_update":"2019-12-30T12:45:53.000Z"
+"address":"11200 Reston Station Blvd Apt 307, Reston, 20190"
+"prop_status":"for_rent"
+"price_raw":2500
+"sqft_raw":1502
+"list_date":"2019-12-30T18:03:34Z"
+"is_showcase":false
+"has_specials":false
+"price":"$2,500/mo"
+"beds":"2"
+"baths":"2"
+"sqft":"1,502 sq ft"
+"photo":"https://ap.rdcpix.com/b4bfe9b010a8b629197fc6f25e48a6bdl-m1583059057s.jpg"
+"short_price":"$2,500/mo"
+"price_reduced":false
+"baths_full":2
+"photo_count":41
+"products":[...]2 items
+"lat":38.94976
+"lon":-77.34016
+"has_leadform":true
+"source":"mls"
+"page_no":1
+"rank":4
+"list_tracking":"type|property|data|prop_id|9848192586|list_id|2876543513|page|rank|list_branding|listing_agent|listing_office|advertiser_id|agent|office|property_status|product_code|advantage_code^1|4|0|1|1BNCZ|2KW|3CY|0|5^^$0|1|2|$3|4|5|6|7|I|8|J|9|$A|K|B|L]|C|$D|M|E|N]|F|O|G|P|H|Q]]"
+}
+49:{29 items
+"property_id":"5101086425"
+"listing_id":"2906721557"
+"prop_type":"condo"
+"last_update":"2020-01-14T11:35:45.000Z"
+"address":"300 Shirley St Apt 39, Falls Church, 22046"
+"prop_status":"for_rent"
+"price_raw":1075
+"sqft_raw":700
+"list_date":"2020-01-14T16:39:53Z"
+"is_showcase":false
+"has_specials":false
+"price":"$1,075/mo"
+"beds":"1"
+"baths":"1"
+"sqft":"700 sq ft"
+"photo":"https://ap.rdcpix.com/9ee025193c0b921a5cb03cb117b97a92l-m1919908549s.jpg"
+"short_price":"$1,075/mo"
+"price_reduced":false
+"baths_full":1
+"photo_count":2
+"products":[...]2 items
+"lat":38.881983
+"lon":-77.175613
+"is_new_listing":true
+"has_leadform":true
+"source":"mls"
+"page_no":2
+"rank":7
+"list_tracking":"type|property|data|prop_id|5101086425|list_id|2906721557|page|rank|list_branding|listing_agent|listing_office|advertiser_id|agent|property_status|product_code|advantage_code^2|7|0|1|1DQVC|3CY|2|1^^$0|1|2|$3|4|5|6|7|H|8|I|9|$A|J|B|K]|C|$D|L]|E|M|F|N|G|O]]"
+}
+]
+}

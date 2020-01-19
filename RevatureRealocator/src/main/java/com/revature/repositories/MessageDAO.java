@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.revature.models.Message;
 
+
 @Repository
 public class MessageDAO implements MessageDAOImpl {
 	
@@ -46,3 +47,11 @@ public class MessageDAO implements MessageDAOImpl {
 		s.update(m);
 	}
 }
+
+//public interface MessageDAO {
+//	public List<Message> findAll();
+//	public Message findById(int id);
+//	public void save(Message m);
+//	public void update(Message m);
+//}
+//>>>>>>> master
