@@ -2,45 +2,16 @@ package com.revature.repositories;
 
 import java.util.List;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Transactional;
-
 import com.revature.models.User;
 
-public class UserDAO implements UserDAOi {
+public interface UserDAO {
 
-	@Autowired
-	private SessionFactory sf;
 
-	@SuppressWarnings({ "deprecation", "unchecked" })
-	@Override
-	@Transactional(propagation = Propagation.REQUIRED)
-	public List<User> findAll() {
-		Session s = sf.getCurrentSession();
-		return (List<User>) s.createCriteria(User.class).list();
-	}
-
-	@Override
-	@Transactional
-	public User findById(int id) {
-		Session s = sf.getCurrentSession();
-		return s.get(User.class, id);
-	}
-
-	@Override
-	@Transactional
-	public void save(User u) {
-		Session s = sf.getCurrentSession();
-		s.save(u);
-	}
-	
-	@Override
-	@Transactional
-	public void update(User u) {
-		Session s = sf.getCurrentSession();
-		s.update(u);
-	}
+	public List<User> findAll();
+	public User findById(int id);
+	public void save(User u);
+	public void update(User u);
+	User findByFirstLastName(String f_name, String l_name);
+	User getUserByEmail(String email);
 }
+

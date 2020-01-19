@@ -8,7 +8,6 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -31,17 +30,13 @@ public class Message implements Serializable {
 	private int sender; 
 	
 	@Column 
-	@ManyToOne
+	@OneToMany(fetch = FetchType.EAGER)
 	private int receiver; 
 	
 	@Column 
 	private String body; 
 	
 	
-//	public int id; 
-//	public int sender; 
-//	public int receiver; 
-//	public String body;
 	public Message() {
 		super();
 	}
