@@ -28,7 +28,6 @@ public class APIParse {
 		int index = data.indexOf("0:", 0);
 		data = data.substring(index);
 		sa = data.split("\\{");
-		System.out.println(sa.length);
 		for(int i = 0; i < sa.length; i++) {
 		}
 		for(int i = 1; i < sa.length; i++) {
@@ -46,7 +45,6 @@ public class APIParse {
 						p.setPropertyType(pType4);
 					} 
 				}
-				System.out.println(p);
 				if(sa2[j].equals("address")) {
 					// need to iterate over the whole address here 
 					if((p.getPropertyType().getType().equals("apartment")) || (p.getPropertyType().getType().equals("condo"))) {
@@ -153,7 +151,6 @@ public class APIParse {
 					}
 				}
 				if(sa2[j].equals("price_raw")) {
-					System.out.println("price_raw: " + sa2[j+2]);
 					String priceS = sa2[j+1].replace(":", "");
 					double price = Double.parseDouble(priceS);
 					p.setPrice(price);
@@ -161,7 +158,6 @@ public class APIParse {
 			}
 			properties.add(p);
 		}
-		System.out.println("List<properties> properties = \n" + properties);
 		return properties;
 	}
 	
