@@ -1,14 +1,15 @@
 package com.revature;
 
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-
-import com.revature.models.User;
+import com.revature.services.APIParse;
+import com.revature.services.DummyData;
 
 public class Driver {
 
 	public static void main(String[] args) {
 
-			
+		DummyData dummy = new DummyData();
+		String data = dummy.data;
+		APIParse.parse(data);
 
 		}
 }
