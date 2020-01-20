@@ -36,5 +36,19 @@ public class UserService {
 		}
 		return false;
 	}
+	
+	public boolean verifyUser(String email, String password) {
+		User u = dao.getUserByEmail(email);
+		if(u != null) {
+			if(u.getPassword().equals(password)) {
+				return true;
+			}
+		}
+		 return false;
+	}
+	
+	public List<User> findByState(String state){
+		return dao.findByState(state);
+	}
 
 }

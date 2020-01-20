@@ -1,5 +1,8 @@
 package com.revature.util;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+
 import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.Unirest;
@@ -29,24 +32,39 @@ public class APIUtil {
 	}
 	
 	public String createSimpleQuery(Preference p) {
-		String sc = p.getState_code();
-		String c = p.getCity();
-		String query = "state_code=%sc, limit=50, city=%c, offset=0";
-		return query;
+		String sc;
+		String c;
+		try {
+			sc = URLEncoder.encode(p.getState_code(), charset);
+			c = URLEncoder.encode(p.getCity(), charset);
+			String query = String.format("state_code=%sc, limit=50, city=%c, offset=0", sc, c);
+			return query;
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return "";
+		
 	}
 	
 	public String createQueryByPreference(Preference pref) {
-		String c = pref.getCity(); 
-		String sc = pref.getState_code();
-		double min = pref.getMinPrice();
-		double max = pref.getMaxPrice();
-		double beds = pref.getNumBeds();
-		double baths = pref.getNumBaths();
-		String p = Boolean.toString(pref.isPets());
-		String f = Boolean.toString(pref.isFurnished());
-		String query = "state_code=%sc, limit=50, city=%c, offset=0, no_pets_allowed=%p, "
-				+ "price_min=%min, price_max=$max, beds_min=%beds, baths_min=%baths";
-		return query;
+		String c, sc, p, f, min, max, beds, baths;
+		try {
+			c = URLEncoder.encode(pref.getCity(), charset);
+			sc = URLEncoder.encode(pref.getState_code(), charset);
+			min = URLEncoder.encode(Double.toString(pref.getMinPrice()), charset);
+			max = URLEncoder.encode(Double.toString(pref.getMaxPrice()), charset);
+			beds = URLEncoder.encode(Double.toString(pref.getNumBeds()), charset);
+			baths = URLEncoder.encode(Double.toString(pref.getNumBaths()), charset);
+			p = URLEncoder.encode(Boolean.toString(pref.isPets()), charset);
+			String query = String.format("state_code=%sc, limit=50, city=%c, offset=0, no_pets_allowed=%p, "
+					+ "price_min=%min, price_max=$max, beds_min=%beds, baths_min=%baths, ", sc, c, p, min, max, beds, baths);
+			return query;
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		return "";
+		
 	}
 
 }
