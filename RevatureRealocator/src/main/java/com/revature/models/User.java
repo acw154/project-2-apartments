@@ -43,7 +43,7 @@ public class User implements Serializable {
 	@Column(name = "l_name", nullable = false)
 	String l_name;
 
-	@Column(name = "email")
+	@Column(name = "email", unique=true)
 	String email;
 
 	@OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
