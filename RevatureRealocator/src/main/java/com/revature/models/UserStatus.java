@@ -33,7 +33,7 @@ public class UserStatus implements Serializable{
 	@Column
 	private String status;
 	
-	@OneToMany(mappedBy = "user_status_id")
+	@OneToMany(mappedBy = "userStatus")
 	private Set<User> user;
 
 	

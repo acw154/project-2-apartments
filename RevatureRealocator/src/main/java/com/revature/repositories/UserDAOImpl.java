@@ -6,12 +6,16 @@ import javax.persistence.Query;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.revature.models.Preference;
 import com.revature.models.User;
 
+@Repository
 public class UserDAOImpl implements UserDAO {
 
 	@Autowired
@@ -42,6 +46,19 @@ public class UserDAOImpl implements UserDAO {
 		
 		s.save(u);
 	}
+	
+	@Override
+	@Transactional
+	public void upsertUser(User user) {
+		Session s = sf.getCurrentSession();
+		Transaction tx = s.beginTransaction();
+		s.saveOrUpdate(user);
+		tx.commit();
+	
+	}
+	
+	
+	
 	
 	@Override
 	@Transactional
