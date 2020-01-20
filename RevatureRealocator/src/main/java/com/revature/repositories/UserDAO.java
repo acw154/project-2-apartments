@@ -13,5 +13,6 @@ public interface UserDAO {
 	public void update(User u);
 	User findByFirstLastName(String f_name, String l_name);
 	User getUserByEmail(String email);
+	public void upsertUser(User user);
 }
 
