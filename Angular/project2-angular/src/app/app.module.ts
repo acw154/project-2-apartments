@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-import { AppRoutingModule } from './app-routing.module';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { BackgroundComponent } from './components/background/background.component';
@@ -9,6 +10,10 @@ import { LoginwordsComponent } from './components/loginwords/loginwords.componen
 import { LoginpageComponent } from './components/loginpage/loginpage.component';
 import { RentalsearchComponent } from './components/rentalsearch/rentalsearch.component';
 import { Background2Component } from './components/background2/background2.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { RegisterComponent } from './components/register/register.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { LogoutComponent } from './components/logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -18,11 +23,18 @@ import { Background2Component } from './components/background2/background2.compo
     LoginwordsComponent,
     LoginpageComponent,
     RentalsearchComponent,
-    Background2Component
+    Background2Component,
+    RegisterComponent,
+    FooterComponent,
+    LogoutComponent,
+    ProfileComponent,
+    routingComponents
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

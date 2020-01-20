@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Background2Component implements OnInit {
 
+  bgrimage1:string ="assets/img2.jpg";
+  
   constructor() { }
 
   ngOnInit() {

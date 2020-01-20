@@ -1,0 +1,36 @@
+<app-background></app-background>
+<div class="container">
+    <div class="row justify-content-center">
+        
+        <div class="col-lg-5 register">
+
+            <div class="text-center text-light">
+                <h3>Register</h3>
+            </div>
+            <div class="form-group">
+                <label for="userNameField">User Name:</label>
+                <input [(ngModel)]="username" type="text" class="form-control" placeholder="Enter username" required>
+
+                <label for="passwordField">Password:</label>
+                <input [(ngModel)]="password" type="password" class="form-control" placeholder="Password" required>
+
+                <label for="passwordConfirmField">Confirm Password:</label>
+                <input [(ngModel)]="confirmpas" type="password" class="form-control" placeholder="Re-enter Password" required>
+
+                <label for="firstNameField">First Name:</label>
+                <input [(ngModel)]="f_name" type="text" class="form-control" placeholder="First Name" required>
+
+                <label for="lastNameField">Last Name:</label>
+                <input [(ngModel)]="l_name" type="text" class="form-control" placeholder="Last Name" required>
+
+                <label for="emailField">Email:</label>
+                <input [(ngModel)]="email" type="text" class="form-control" placeholder="Email" required>
+
+                <button (click)="newUser()" class="btn">Register</button>
+                <p id = "attention" style="color:rgb(255, 145, 0)"></p>
+            </div>
+            
+        </div>
+
+    </div>
+</div>

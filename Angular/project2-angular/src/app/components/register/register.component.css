@@ -1,0 +1,49 @@
+.register {
+    background-color: rgba(0,0,0,0.5);
+    margin-top: -50rem;
+    padding: 1.5rem;
+    height: 80vh;
+}
+
+.register h3 {
+    font-size: 2rem;
+    font-weight: bold;
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+
+.btn{
+    color: black;
+    background-color: rgb(111, 183, 189);
+    width: 100px;
+    text-align: center;
+    justify-content: center;
+    margin-top: 2rem;
+    text-align: center;
+    align-items: center;
+    }
+    
+    .btn:hover{
+    color: black;
+    background-color: white;
+    }
+
+    input:active, input:focus {
+        /* border: none!important; */
+        border: rgb(107, 173, 157)!important;
+        outline: none!important;
+      }
+
+      input:hover {
+          background-color: rgb(235, 236, 236);
+      }
+
+    label {
+        color: white;
+        padding-top: 10px;
+    }
+
+    input {
+        border: none!important;
+        outline: none!important; 
+    }
