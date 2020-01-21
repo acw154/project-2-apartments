@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +13,7 @@ import { Background2Component } from './components/background2/background2.compo
 import { ProfileComponent } from './components/profile/profile.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LogoutComponent } from './components/logout/logout.component';
+import { ResultspageComponent } from './components/resultspage/resultspage.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { LogoutComponent } from './components/logout/logout.component';
     Background2Component,
     ProfileComponent,
     RegisterComponent,
-    LogoutComponent
+    LogoutComponent,
+    ResultspageComponent
   ],
   imports: [
     BrowserModule,
