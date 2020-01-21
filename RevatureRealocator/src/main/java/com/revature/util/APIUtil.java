@@ -3,12 +3,15 @@ package com.revature.util;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 
+import org.springframework.stereotype.Service;
+
 import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
 import com.revature.models.Preference;
 
+@Service
 public class APIUtil {
 	// Host + Endpoint that we are searching
 	private String host = "https://realtor.p.rapidapi.com/properties/list-for-rent";
