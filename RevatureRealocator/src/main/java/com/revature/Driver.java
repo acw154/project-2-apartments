@@ -1,15 +1,12 @@
 package com.revature;
 
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-
-import com.revature.models.PropertyType;
-import com.revature.models.User;
-import com.revature.models.UserStatus;
-import com.revature.services.APIParse;
-import com.revature.services.DummyData;
-import com.revature.services.PropertyTypeService;
-import com.revature.services.UserService;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
+import com.mashape.unirest.http.HttpResponse;
+import com.mashape.unirest.http.JsonNode;
+import com.revature.util.APIUtil;
 
 public class Driver {
 
@@ -40,6 +37,16 @@ public class Driver {
 //		
 //		UserService us = (UserService) ac.getBean("userService");
 //		us.upsert(u);
+	public static void main(String[] args) {
+		APIUtil api = new APIUtil();
+		String query = api.createSimpleQuery("VA", "Reston");
+		HttpResponse<JsonNode> response = api.getResponse(query);
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		JsonParser jp = new JsonParser();
+		JsonElement je = jp.parse(response.getBody().toString());
+		String prettyJsonString = gson.toJson(je);
+		System.out.println(prettyJsonString);
+	}
 //		
 //	}
 }

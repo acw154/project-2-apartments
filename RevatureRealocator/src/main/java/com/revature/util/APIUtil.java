@@ -37,7 +37,21 @@ public class APIUtil {
 		try {
 			sc = URLEncoder.encode(p.getState_code(), charset);
 			c = URLEncoder.encode(p.getCity(), charset);
-			String query = String.format("state_code=%sc, limit=50, city=%c, offset=0", sc, c);
+			String query = String.format("state_code=%s&limit=50&city=%s&offset=0", sc, c);
+			return query;
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return "";
+		
+	}
+	
+	public String createSimpleQuery(String state_code, String city) {
+		try {
+			String sc = URLEncoder.encode(state_code, charset);
+			String c = URLEncoder.encode(city, charset);
+			String query = String.format("state_code=%s&limit=50&city=%s&offset=0", sc, c);
 			return query;
 		} catch (UnsupportedEncodingException e) {
 			// TODO Auto-generated catch block
@@ -57,8 +71,8 @@ public class APIUtil {
 			beds = URLEncoder.encode(Double.toString(pref.getNumBeds()), charset);
 			baths = URLEncoder.encode(Double.toString(pref.getNumBaths()), charset);
 			p = URLEncoder.encode(Boolean.toString(pref.isPets()), charset);
-			String query = String.format("state_code=%sc, limit=50, city=%c, offset=0, no_pets_allowed=%p, "
-					+ "price_min=%min, price_max=$max, beds_min=%beds, baths_min=%baths, ", sc, c, p, min, max, beds, baths);
+			String query = String.format("state_code=%sc&limit=50&city=%s&offset=0&no_pets_allowed=%p&"
+					+ "price_min=%d, price_max=%d&beds_min=d&baths_min=d", sc, c, p, min, max, beds, baths);
 			return query;
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
