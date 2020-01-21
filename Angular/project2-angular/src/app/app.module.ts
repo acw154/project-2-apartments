@@ -9,9 +9,9 @@ import { LoginwordsComponent } from './components/loginwords/loginwords.componen
 import { LoginpageComponent } from './components/loginpage/loginpage.component';
 import { RentalsearchComponent } from './components/rentalsearch/rentalsearch.component';
 import { Background2Component } from './components/background2/background2.component';
-import { ProfileComponent } from './profile/profile.component';
-import { RegisterComponent } from './register/register.component';
-import { LogoutComponent } from './logout/logout.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { RegisterComponent } from './components/register/register.component';
+import { LogoutComponent } from './components/logout/logout.component';
 
 @NgModule({
   declarations: [
