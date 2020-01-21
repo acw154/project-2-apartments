@@ -27,6 +27,10 @@ public class UserService {
 	public User findById(int id) {
 		return dao.findById(id);
 	}
+	
+	public User findByEmail(String email) {
+		return dao.getUserByEmail(email);
+	}
 
 	
 	public boolean upsert(User u) {
