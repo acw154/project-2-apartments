@@ -5,6 +5,7 @@ import { LoginService } from '../../services/login.service';
 import { Observable } from 'rxjs';
 import { User } from '../../model/user';
 import { stringify } from 'querystring';
+import { ProfileService } from 'src/app/services/profile.service';
 
 @Component({
   selector: 'app-loginpage',
@@ -37,6 +38,7 @@ export class LoginpageComponent implements OnInit {
     this.submitted = true;
     this.loginService.login(this.loginForm.value).subscribe(
       data => {
+        ProfileService
         // Send the user value to some other service and save it as currentUser object
         // ex: this.profileService.setCurrentUser()
         // this.router.navigate([]) Navigate to profile of currentUser

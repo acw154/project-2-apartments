@@ -8,22 +8,23 @@ import { User } from '../model/user';
 })
 export class UserService {
 
-  // this needs some work 
+  private usersUrl: string;
+  private currentUser: User;
 
-  
-  // constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    this.usersUrl = 'http://localhost:8080/users'; // May need to change this URI 
+  }
 
-  // login(username: string, password: string): Observable<User> {
-  //   let body: any =
-  //   {
-  //     username: username,
-  //     password: password
-  //   };
+  // Create methods for saving and getting the profile information
+  public saveCurrentUser(user: User){
+    this.currentUser = user;
+  }
 
-  //   return this.http.post<User>("http://localhost:8080/",body);
-  // }
-
-  // logout() {
-  //   return this.http.post<void>("http://localhost:8080/", {});
-  // }
+  public getCurrentUser(){
+    if(this.currentUser.email != null){
+      return this.currentUser;
+    } else {
+      return null;
+    }
+  }
 }
