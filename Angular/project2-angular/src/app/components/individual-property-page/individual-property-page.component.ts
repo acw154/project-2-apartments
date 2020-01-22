@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Property } from '.././model/Property';
 
 @Component({
   selector: 'app-individual-property-page',
