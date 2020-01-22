@@ -92,11 +92,42 @@
     </form>
 </div>
 
-<div class="container rendom">
-    <div class="row">
-        <div class="col">
-            <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit!</h4>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur perferendis a consequatur praesentium, minus voluptate facere enim, at aut blanditiis maxime delectus fuga qui maiores alias illo exercitationem dolor nobis.</p>
-        </div>
+<div style="text-align: center;">
+    <h1 >Search Results</h1>
+    <h2 *ngIf="response; else NRF">Found {{response.length}}</h2>
+    <ng-template #NRF>No Results Found</ng-template>
+</div>
+<div class="container">
+    <!-- Search component right here
+        button must be able to do get request from spring application
+    -->
+
+    <div *ngIf="response">
+        <!-- Table with ngFor for every object in the response body-->
+        <table class="table-table-bordered table-hover">
+            <thead>
+                <th>Address</th>
+                <th>Price</th>
+                <th>Beds</th>
+                <th>Baths</th>
+                <th>Sq Ft</th>
+                <th>Type</th>
+                <th>Photo</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let property of response">
+                    <td>{{property.street_num}} {{property.street}} {{property.apt_num}}, {{property.city}}, {{property.zip}}</td>
+                    <td>${{property.price}}</td>
+                    <td>{{property.num_beds}}</td>
+                    <td>{{property.num_baths</td>
+                    <td>{{property.sqft}}ft.</td>
+                    <td>{{property.type}}</td>
+                    <td><img src="{{property.photo}}" class="img-thumbnail mx-auto dblock" style="width:30%"/></td>
+                    <!-- Perhaps use a DTO instead of a property so that the address, price, & property type are more 
+                        easily displayed and formatted
+                    -->
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>
