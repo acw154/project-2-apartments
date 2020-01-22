@@ -17,7 +17,6 @@ import { LogoutComponent } from './components/logout/logout.component';
 
 import { ResultspageComponent } from './components/resultspage/resultspage.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,

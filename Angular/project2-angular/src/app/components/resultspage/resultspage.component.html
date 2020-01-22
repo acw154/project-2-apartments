@@ -1,8 +1,9 @@
-<html>
-    <head>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-      </head>
-        <h1>Search Results</h1>
+
+        <div style="text-align: center;">
+            <h1 >Search Results</h1>
+            <h2 *ngIf="response; else NRF">Found {{response.length}}</h2>
+            <ng-template #NRF>No Results Found</ng-template>
+        </div>
         <div class="container">
             <!-- Search component right here
                 button must be able to do get request from spring application
@@ -37,5 +38,3 @@
                 </table>
             </div>
         </div>
-      <body>
-</html>>
