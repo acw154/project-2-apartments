@@ -6,7 +6,6 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { LogoutComponent } from './components/logout/logout.component';
 import { RentalsearchComponent } from './components/rentalsearch/rentalsearch.component';
 import { RegisterComponent } from './components/register/register.component';
-import { ResultspageComponent } from './components/resultspage/resultspage.component';
 
 
 const routes: Routes = [
@@ -16,7 +15,6 @@ const routes: Routes = [
   { path: 'logout', component: LogoutComponent },
   { path: 'rentalsearch', component: RentalsearchComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'resultspage', component: ResultspageComponent },
   { path: '', component: LoginpageComponent },
   { path: '**', redirectTo: 'loginpage', pathMatch: 'full' }
 ];

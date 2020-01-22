@@ -18,6 +18,7 @@ import com.revature.services.PropertyService;
 import com.revature.util.APIUtil;
 
 @RestController
+@CrossOrigin(origins="http://localhost:4200")
 public class PropertyController {
 	@Autowired 
 	private PropertyService ps;
@@ -26,7 +27,6 @@ public class PropertyController {
 	private APIUtil api;
 	
 	
-	@CrossOrigin(origins="http://localhost:4200")
 	@PostMapping("/propsearch")
 	public List<Property> getProperties(@RequestBody Preference pref){
 		//Get POST request values and create a preference object to create an API call with
@@ -35,7 +35,6 @@ public class PropertyController {
 		return list;
 	}
 	
-	@CrossOrigin(origins="http://localhost:4200")
 	@PostMapping("/propsearch")
 	public List<Property> getPropertiesSimpleSearch(@RequestBody SimpleSearchBody ssb){
 		String state_code = ssb.getState_code();
@@ -45,7 +44,6 @@ public class PropertyController {
 		return list;
 	}
 	
-	@CrossOrigin(origins="http://localhost:4200")
 	@PostMapping("/propsearch")
 	public List<Property> getPropertiesSimpleSearch(@RequestBody Preference pref){
 		String query = api.createSimpleQuery(pref);
@@ -53,7 +51,6 @@ public class PropertyController {
 		return list;
 	}
 	
-	@CrossOrigin(origins="http://localhost:4200")
 	@PostMapping("/propsearch")
 	public List<Property> getProperties(String state_code, String city){
 		//Get POST request values and create a preference object to create an API call with

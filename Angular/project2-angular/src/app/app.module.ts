@@ -14,7 +14,6 @@ import { Background2Component } from './components/background2/background2.compo
 import { ProfileComponent } from './components/profile/profile.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LogoutComponent } from './components/logout/logout.component';
-import { ResultspageComponent } from './components/resultspage/resultspage.component';
 
 
 
@@ -30,7 +29,6 @@ import { ResultspageComponent } from './components/resultspage/resultspage.compo
     ProfileComponent,
     RegisterComponent,
     LogoutComponent,
-    ResultspageComponent
   ],
   imports: [
     BrowserModule,
