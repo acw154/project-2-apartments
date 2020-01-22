@@ -1,0 +1,18 @@
+.profile-container {
+    margin-top: 7rem;
+}
+
+.btn {
+background-color: rgb(111, 183, 189);
+width: 100px;
+text-align: center;
+justify-content: center;
+color: white;
+text-align: center;
+justify-content: center;
+}
+
+.btn:hover {
+color: black;
+background-color: rgb(212, 209, 219);
+}
