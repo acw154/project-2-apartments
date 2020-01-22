@@ -13,6 +13,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -32,7 +33,7 @@ public class Property implements Serializable{
 	private int property_id;
 	
 	@ManyToOne
-	@JoinColumn(name="property_type_id", nullable=false, referencedColumnName = "id")
+	//@JoinColumn(name="property_type_id", nullable=false, referencedColumnName = "id")
 	private PropertyType propertyType;
 	
 	@Column(name="street_num", nullable=false)
@@ -77,7 +78,9 @@ public class Property implements Serializable{
 	@Column(name="revemp_owned", nullable=false)
 	private boolean revemp_owned;
 	
-	@ManyToMany(mappedBy="users") //User owns the Many-To-Many relationship
+	@ManyToMany //User owns the Many-To-Many relationship
+	@JoinTable(name="saved_users", joinColumns= {@JoinColumn(name="property_id", referencedColumnName = "property_id")},
+	inverseJoinColumns= {@JoinColumn(name="user_id", referencedColumnName = "user_id")})
 	private List<User> users = new ArrayList<>();
 	
 	public Property() {

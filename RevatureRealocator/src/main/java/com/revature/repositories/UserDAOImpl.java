@@ -6,18 +6,23 @@ import javax.persistence.Query;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.revature.models.Preference;
 import com.revature.models.User;
 
+@SuppressWarnings({ "deprecation", "unchecked" })
+@Repository
 public class UserDAOImpl implements UserDAO {
 
 	@Autowired
 	private SessionFactory sf;
 
-	@SuppressWarnings({ "deprecation", "unchecked" })
+	
 	@Override
 	@Transactional(propagation = Propagation.REQUIRED)
 	public List<User> findAll() {
@@ -45,6 +50,19 @@ public class UserDAOImpl implements UserDAO {
 	
 	@Override
 	@Transactional
+	public void upsertUser(User user) {
+		Session s = sf.getCurrentSession();
+		Transaction tx = s.beginTransaction();
+		s.saveOrUpdate(user);
+		tx.commit();
+	
+	}
+	
+	
+	
+	
+	@Override
+	@Transactional
 	public void update(User u) {
 		
 		Session s = sf.getCurrentSession();
@@ -67,6 +85,7 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
+	@Transactional
 	public User findByFirstLastName(String f_name, String l_name) {
 		
 		Session s = sf.getCurrentSession();
@@ -80,6 +99,16 @@ public class UserDAOImpl implements UserDAO {
 		return u;
 		
 		
+	}
+
+	@Override
+	@Transactional
+	public List<User> findByState(String state) {
+		Session s = sf.getCurrentSession();
+		Query query = s.createQuery("from User where current_state=:state", User.class);
+		query.setParameter(1, state);
+		List<User> list = (List<User>) query.getResultList();
+		return list;
 	}
 
 }

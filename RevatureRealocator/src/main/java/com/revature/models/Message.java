@@ -1,6 +1,7 @@
 package com.revature.models;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,6 +9,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -25,13 +27,13 @@ public class Message implements Serializable {
 	@Column(name="messages_id")
 	private int id; 
 	
-	@Column
-	@OneToMany(fetch = FetchType.EAGER)
-	private int sender; 
 	
-	@Column 
-	@OneToMany(fetch = FetchType.EAGER)
-	private int receiver; 
+	@ManyToOne(fetch = FetchType.EAGER)
+	private User sender; 
+	
+	
+	@ManyToOne(fetch = FetchType.EAGER)
+	private User receiver; 
 	
 	@Column 
 	private String body; 
@@ -40,7 +42,7 @@ public class Message implements Serializable {
 	public Message() {
 		super();
 	}
-	public Message(int id, int sender, int receiver, String body) {
+	public Message(int id, User sender, User receiver, String body) {
 		super();
 		this.id = id;
 		this.sender = sender;
@@ -53,16 +55,16 @@ public class Message implements Serializable {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public int getSender() {
+	public User getSender() {
 		return sender;
 	}
-	public void setSender(int sender) {
+	public void setSender(User sender) {
 		this.sender = sender;
 	}
-	public int getReceiver() {
+	public User getReceiver() {
 		return receiver;
 	}
-	public void setReceiver(int receiver) {
+	public void setReceiver(User receiver) {
 		this.receiver = receiver;
 	}
 	public String getBody() {
@@ -73,40 +75,25 @@ public class Message implements Serializable {
 	}
 	@Override
 	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((body == null) ? 0 : body.hashCode());
-		result = prime * result + id;
-		result = prime * result + receiver;
-		result = prime * result + sender;
-		return result;
+		return Objects.hash(body, id, receiver, sender);
 	}
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
+		if (this == obj) {
 			return true;
-		if (obj == null)
+		}
+		if (!(obj instanceof Message)) {
 			return false;
-		if (getClass() != obj.getClass())
-			return false;
+		}
 		Message other = (Message) obj;
-		if (body == null) {
-			if (other.body != null)
-				return false;
-		} else if (!body.equals(other.body))
-			return false;
-		if (id != other.id)
-			return false;
-		if (receiver != other.receiver)
-			return false;
-		if (sender != other.sender)
-			return false;
-		return true;
+		return Objects.equals(body, other.body) && id == other.id && Objects.equals(receiver, other.receiver)
+				&& Objects.equals(sender, other.sender);
 	}
 	@Override
 	public String toString() {
-		return "Messages [id=" + id + ", sender=" + sender + ", receiver=" + receiver + ", body=" + body + "]";
-	} 
+		return "Message [id=" + id + ", sender=" + sender + ", receiver=" + receiver + ", body=" + body + "]";
+	}
+
 	
 	
 }

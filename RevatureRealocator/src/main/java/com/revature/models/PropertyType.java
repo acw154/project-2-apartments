@@ -30,7 +30,7 @@ public class PropertyType implements Serializable {
 	@Column(name="type")
 	private String type;
 	
-	@OneToMany(mappedBy="property_type_id")
+	@OneToMany(mappedBy="propertyType")
 	private Set<Property> property;
 	
 	public PropertyType() {

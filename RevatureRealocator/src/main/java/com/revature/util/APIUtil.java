@@ -1,11 +1,17 @@
 package com.revature.util;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+
+import org.springframework.stereotype.Service;
+
 import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
 import com.revature.models.Preference;
 
+@Service
 public class APIUtil {
 	// Host + Endpoint that we are searching
 	private String host = "https://realtor.p.rapidapi.com/properties/list-for-rent";
@@ -29,10 +35,53 @@ public class APIUtil {
 	}
 	
 	public String createSimpleQuery(Preference p) {
-		String sc = p.getState_code();
-		String c = p.getCity();
-		String query = "state_code=%sc, limit=50, city=%c, offset=0";
-		return query;
+		String sc;
+		String c;
+		try {
+			sc = URLEncoder.encode(p.getState_code(), charset);
+			c = URLEncoder.encode(p.getCity(), charset);
+			String query = String.format("state_code=%s&limit=50&city=%s&offset=0", sc, c);
+			return query;
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return "";
+		
+	}
+	
+	public String createSimpleQuery(String state_code, String city) {
+		try {
+			String sc = URLEncoder.encode(state_code, charset);
+			String c = URLEncoder.encode(city, charset);
+			String query = String.format("state_code=%s&limit=50&city=%s&offset=0", sc, c);
+			return query;
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return "";
+		
+	}
+	
+	public String createQueryByPreference(Preference pref) {
+		String c, sc, p, f, min, max, beds, baths;
+		try {
+			c = URLEncoder.encode(pref.getCity(), charset);
+			sc = URLEncoder.encode(pref.getState_code(), charset);
+			min = URLEncoder.encode(Double.toString(pref.getMinPrice()), charset);
+			max = URLEncoder.encode(Double.toString(pref.getMaxPrice()), charset);
+			beds = URLEncoder.encode(Double.toString(pref.getNumBeds()), charset);
+			baths = URLEncoder.encode(Double.toString(pref.getNumBaths()), charset);
+			p = URLEncoder.encode(Boolean.toString(pref.isPets()), charset);
+			String query = String.format("state_code=%sc&limit=50&city=%s&offset=0&no_pets_allowed=%p&"
+					+ "price_min=%d, price_max=%d&beds_min=d&baths_min=d", sc, c, p, min, max, beds, baths);
+			return query;
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		return "";
+		
 	}
 
 }
