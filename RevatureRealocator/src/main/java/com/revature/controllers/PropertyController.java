@@ -47,7 +47,6 @@ public class PropertyController {
 	
 	@CrossOrigin(origins="http://localhost:4200")
 	@PostMapping("/propsearch")
-	@ResponseBody
 	public List<Property> getPropertiesSimpleSearch(@RequestBody Preference pref){
 		String query = api.createSimpleQuery(pref);
 		List<Property> list = APIParse.parse(api.getResponse(query).toString()); //TODO: Map the response body to Properties and return them

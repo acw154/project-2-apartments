@@ -1,11 +1,15 @@
 package com.revature;
 
+import java.util.List;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.JsonNode;
+import com.revature.models.Property;
+import com.revature.services.APIParse;
 import com.revature.util.APIUtil;
 
 public class Driver {
@@ -45,7 +49,10 @@ public class Driver {
 		JsonParser jp = new JsonParser();
 		JsonElement je = jp.parse(response.getBody().toString());
 		String prettyJsonString = gson.toJson(je);
-		System.out.println(prettyJsonString);
+		List<Property> list = APIParse.parse(prettyJsonString);
+		for(Property p: list) {
+			System.out.println(p);
+		}
 	}
 //		
 //	}
