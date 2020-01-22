@@ -8,7 +8,6 @@ import { User } from '../model/user';
 })
 export class UserService {
 
-
   // this needs some work 
 
   

@@ -57,5 +57,5 @@ public class PropertyController {
 		String query = api.createSimpleQuery(state_code, city);
 		List<Property> list = APIParse.parse(api.getResponse(query).toString()); //TODO: Map the response body to Properties and return them
 		return list;
-	}
+	}	
 }
