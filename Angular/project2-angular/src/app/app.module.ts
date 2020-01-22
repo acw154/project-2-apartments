@@ -7,6 +7,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { BackgroundComponent } from './components/background/background.component';
 import { LoginwordsComponent } from './components/loginwords/loginwords.component';
 import { LoginpageComponent } from './components/loginpage/loginpage.component';
+import { UsersearchpageComponent } from './usersearchpage/usersearchpage.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { LoginpageComponent } from './components/loginpage/loginpage.component';
     NavbarComponent,
     BackgroundComponent,
     LoginwordsComponent,
-    LoginpageComponent
+    LoginpageComponent,
+    UsersearchpageComponent
   ],
   imports: [
     BrowserModule,
