@@ -39,14 +39,15 @@ export class NavbarComponent implements OnInit {
   }
   
   toSearch(){
-    if(this.sessionService.getCurrentUser() != null){
-      console.log("Moving to rental search");
-      //Something about profile service
-      return this.router.navigateByUrl('/rentalsearch');
-    } else {
-      alert('You are not logged in');
-      return this.router.navigateByUrl('/loginpage');
-    }
+    // if(this.sessionService.getCurrentUser() != null){
+    //   console.log("Moving to rental search");
+    //   //Something about profile service
+    //   return this.router.navigateByUrl('/rentalsearch');
+    // } else {
+    //   alert('You are not logged in');
+    //   return this.router.navigateByUrl('/loginpage');
+    // }
+    return this.router.navigateByUrl('/rentalsearch');
   }
 
   toRegister(){

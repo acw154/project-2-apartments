@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PropertyService } from 'src/app/services/property.service';
 import { Preference } from 'src/app/model/preference';
 import { Router } from '@angular/router';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-rentalsearch',
@@ -13,29 +14,44 @@ export class RentalsearchComponent implements OnInit {
   //readonly APP_URL = 'http://localhost:8080/RevatureRealocator'; //not sure if this is right
   preference: Preference;
   submitted = false;
+  simple = true;
+  prefForm: FormGroup;
 
   constructor(private propertyService: PropertyService,
-    private router: Router) {
-      this.preference = new Preference();
-      this.preference.min_price = 0;
-    }
-   
+    private router: Router,
+    private fb: FormBuilder) {
+      this.createForm();
+  }
+  
+  createForm(){
+    this.prefForm = this.fb.group({
+      city: ['', Validators.required],
+      state_code: ['', Validators.required],
+      zip: ['', ],
+      max_price: ['', ],
+      num_beds: ['', ],
+      num_baths: ['', ],
+    });
+  }
 
   ngOnInit() {  
   }
 
-  getAllProperties(){
-    this.propertyService.getProperties(this.preference).subscribe(
-      data => {
-        if(data != null) {
-          this.response = data;
-          // Either have properties hide until search is clicked using ngIf or have some update button
-        }
-      },
-      error => {
-        console.log('Error', error);
-      }
-    );
+  doSearch(){
+    this.preference = new Preference(this.prefForm.value);
+    this.preference.min_price = 0;
+    console.log(this.preference);
+    // this.propertyService.getPropertiesByPref(this.preference).subscribe(
+    //   data => {
+    //     if(data != null) {
+    //       this.response = data;
+    //       // Either have properties hide until search is clicked using ngIf or have some update button
+    //     }
+    //   },
+    //   error => {
+    //     console.log('Error', error);
+    //   }
+    // );
   }
 
 }
