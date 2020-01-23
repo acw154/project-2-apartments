@@ -3,22 +3,23 @@
       <div class="col">
         <nav class="w-100 nav1">
           <ul class="nav justify-content-center">
-            <li class="nav-item">
-                <a class="nav-link" routerLink="/loginpage" routerLinkActive="active">Log in</a>
+              <li class="nav-item">
+                <a class="nav-link" (click)="toLogin()">Log in</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" routerLink="/register" routerLinkActive="active">Register</a>
+                <a class="nav-link" (click)="toRegister()">Register</a>
               </li>
-            <li class="nav-item">
-              <a class="nav-link" routerLink="/rentalsearch" routerLinkActive="active">Search Rentals</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" routerLink="/profile" routerLinkActive="active">Profile</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" routerLink="/logout" routerLinkActive="active">Log Out</a>
-            </li>
+              <li class="nav-item">
+                <a class="nav-link" (click)="toSearch()">Search Rentals</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" (click)="toProfile()">Profile</a>
+              </li>
+              <li>
+                <a (click)="logout()" class="nav-link">Log Out</a>
+              </li>
           </ul>
+          
         </nav>
       </div>
     </div>

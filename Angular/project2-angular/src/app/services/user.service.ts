@@ -16,15 +16,5 @@ export class UserService {
   // }
 
   // Create methods for saving and getting the profile information
-  // public saveCurrentUser(user: User){
-  //   this.currentUser = user;
-  // }
-
-  // public getCurrentUser(){
-  //   if(this.currentUser.email != undefined){
-  //     return this.currentUser;
-  //   } else {
-  //     return null;
-  //   }
-  // }
+  
 }

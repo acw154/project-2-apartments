@@ -13,12 +13,12 @@
 
 
 <div class="s011 rentalsearch">
-    <form (ngSubmit)="getAllProperties()">
+    
+    <form [formGroup]="prefForm" (ngSubmit)="doSearch()" >
         <fieldset>
             <legend>Search Rentals</legend>
         </fieldset>
         <div class="inner-form">
-          
             <div class="type3 main-form" id="main-form">
                 <div class="row">
                     <div class="input-wrap">
@@ -31,8 +31,13 @@
                         </div>
                         <div class="input-field">
                             <label>City</label>
-                            <input name="city" [(ngModel)]="preference.city" type="text" placeholder="name of city">
+                            <input class="form-control" formControlName="city" type="text" placeholder="name of city"/>
                         </div>
+                        <!-- <div *ngIf="prefForm.controls['city'].invalid && (prefForm.controls['city'].dirty || prefForm.controls['city'].touched)" class="alert alert-danger">
+                            <div *ngIf="prefForm.controls['city'].errors.required">
+                            City is required.
+                          </div>
+                        </div> -->
                         
                     </div>
                     <div class="input-wrap-2">
@@ -45,10 +50,15 @@
                         </div>
                         <div class="input-field">
                             <label>State</label>
-                            <input name="state_code" [(ngModel)]="preference.state_code" type="text" placeholder="VA" required>
+                            <input class="form-control" formControlName="state_code" type="text" placeholder="VA"/>
                         </div>
+                        <!-- <div *ngIf="prefForm.controls['state_code'].invalid && (prefForm.controls['state_code'].dirty || prefForm.controls['state_code'].touched)" class="alert alert-danger">
+                            <div *ngIf="prefForm.controls['state_code'].errors.required">
+                            State is required.
+                          </div>
+                        </div> -->
                     </div>
-                    <div class="input-wrap-2">
+                    <!-- <div class="input-wrap-2">
                         <div class="icon-wrap">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                                 <path
@@ -58,27 +68,27 @@
                         </div>
                         <div class="input-field">
                             <label>Zip Code</label>
-                            <input name="zip" [(ngModel)]="preference.zip" type="text" placeholder="55555" required>
+                            <input class="form-control" formControlName="zip" type="text" placeholder="55555"/>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="row second">
                     <div class="input-wrap">
                         <div class="input-field">
                             <label>MAX PRICE</label>
-                            <input name="max_price" [(ngModel)]="preference.max_price" class="datepicker flatpickr-input form-control" type="number" placeholder="$ xxx.xx / Month" min="0" step=".01" value="$" required>
+                            <input formControlName="max_price" class="datepicker flatpickr-input form-control" type="number" placeholder="$ xxx.xx / Month" min="0" step=".01" value="$" />
                         </div>
                     </div>
                     <div class="input-wrap">
                         <div class="input-field">
                             <label>BEDS</label>
-                            <input name="num_beds" [(ngModel)]="preference.num_beds" class="datepicker flatpickr-input" type="number" placeholder="#" min="0" step="1" required>
+                            <input formControlName="num_beds" class="datepicker flatpickr-input" type="number" placeholder="#" min="0" step="0.5" />
                         </div>
                     </div>
                     <div class="input-wrap">
                         <div class="input-field">
                             <label>BATHS</label>
-                            <input name="num_baths" [(ngModel)]="preference.num_baths" class="datepicker flatpickr-input" type="number" placeholder="#" min="0" step=".5" required>
+                            <input formConntrolName="num_baths" class="datepicker flatpickr-input" type="number" placeholder="#" min="0" step=".5" />
                         </div>
                     </div>
                   
@@ -86,7 +96,16 @@
              
                 
                 <div class="row last">
-                    <button class="btn-search" type="button">Search</button>
+                    <button class="btn-search" type="submit" [disabled]="!prefForm.valid">Search</button>
+                    <div *ngIf="!prefForm.valid" class="alert alert-danger">
+                        <p>City and State Necessary</p>
+                    </div>
+                </div>
+                <div class="row last">
+                    <button class="btn-search" (click)="searchWithSavedPref()" [disabled]="!currPref">Use Saved Pref</button>
+                    <div *ngIf="!currPref" class="alert alert-danger">
+                        <p>No Saved Preference</p>
+                    </div>
                 </div>
             </div>
         </div>
