@@ -6,6 +6,7 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -13,6 +14,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Component
 @Entity
@@ -33,7 +36,8 @@ public class UserStatus implements Serializable{
 	@Column
 	private String status;
 	
-	@OneToMany(mappedBy = "userStatus")
+	@JsonIgnoreProperties("userStatus")
+	@OneToMany(mappedBy = "userStatus", fetch = FetchType.EAGER)
 	private Set<User> user;
 
 	
@@ -50,7 +54,10 @@ public class UserStatus implements Serializable{
 		this.user = user;
 	}
 
-	
+	public UserStatus(String status) {
+		super();
+		this.status = status;
+	}
 	// getters and setters
 	
 	public int getId() {
@@ -81,7 +88,7 @@ public class UserStatus implements Serializable{
 	// hashcode + equals
 	@Override
 	public int hashCode() {
-		return Objects.hash(id, status, user);
+		return Objects.hash(id, status);
 	}
 
 	@Override
@@ -100,7 +107,7 @@ public class UserStatus implements Serializable{
 	// to string 
 	@Override
 	public String toString() {
-		return "UserStatus [id=" + id + ", status=" + status + ", user=" + user + "]";
+		return "UserStatus [id=" + id + ", status=" + status + "]";
 	}
 	
 	
