@@ -2,6 +2,8 @@ package com.revature.controllers;
 
 import java.util.List;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,14 +20,18 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.models.LoginDTO;
 import com.revature.models.User;
+import com.revature.models.UserDTO;
+import com.revature.repositories.UserDAOImpl;
 import com.revature.services.UserService;
 
 //@RestController
 @Controller
 public class UserController {
 
+	
+	private static final Logger logger = LogManager.getLogger(UserController.class);
 	@Autowired
-	UserService us;
+	 private UserService us;
 
 //	@RequestMapping(value = "/home", method = RequestMethod.GET)
 //	public String home() {
@@ -43,14 +49,36 @@ public class UserController {
 	@PostMapping(value = "/login")
 	@ResponseBody
 	public ResponseEntity<User> findByEmail(@RequestBody LoginDTO login) {
+		System.out.println("inside of UserController login method");
 		String email = login.getEmail();
 		String pass = login.getPassword();
 		if (us.verifyUser(email, pass)) {
 			User user = us.findByEmail(email);
+			logger.info("Successful User login with email: " + user.getEmail());	
 			return ResponseEntity.ok().body(user);
 		} else {
 			User user = null;
-			// User user = new User();
+			logger.warn("Attempted and failed login with User email: " + user.getEmail());
+			return ResponseEntity.status(HttpStatus.NO_CONTENT).body(user);
+		}
+	}
+	
+	@CrossOrigin(origins = "*")
+	@PostMapping(value = "/user/{email}")
+	@ResponseBody
+	public ResponseEntity<User> saveOrAddUser(@RequestBody UserDTO userdto) {
+		System.out.println("inside of saveOrAddUser method in UserController");
+//		String f_name = userdto.getF_name();
+//		String l_name = userdto.getL_name();
+//		String email = userdto.getEmail();
+//		String password = userdto.getPassword();
+//		String user_status = userdto.getUser_status();
+//		String current_state = userdto.getCurrent_state();
+		User user = new User(userdto);
+		if(us.upsert(user) != null) {
+			return ResponseEntity.status(HttpStatus.CREATED).body(user);
+		} else {
+			user = null;
 			return ResponseEntity.status(HttpStatus.NO_CONTENT).body(user);
 		}
 	}
@@ -62,10 +90,13 @@ public class UserController {
 	public ResponseEntity<List<User>> findByState(@PathVariable("st") String st) {
 		System.out.println("Inside of findByState method of UserController");
 		if (us.findByState(st) != null) {
+			System.out.println("Inside of findByState method if conditional of UserController");
 			List<User> list = us.findByState(st);
+			System.out.println("used the userService to create a list UserController");
 			return ResponseEntity.ok().body(list);
 		} else {
 			List<User> list = null;
+			System.out.println("list is null apparently of UserController");
 
 			return ResponseEntity.status(HttpStatus.NO_CONTENT).body(list);
 		}
@@ -77,6 +108,8 @@ public class UserController {
 	@ResponseBody
 	public List<User> findAll() {
 		return us.findAll();
+		 
+		
 	}
 
 }

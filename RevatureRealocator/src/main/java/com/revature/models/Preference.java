@@ -5,6 +5,7 @@ import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -53,7 +54,7 @@ public class Preference implements Serializable{
 	@Column(name="state_code")
 	private String state_code;
 	
-	@OneToOne//(mappedBy="user_id")
+	@OneToOne(fetch = FetchType.EAGER)//(mappedBy="user_id")
 	@JoinColumn(name="user_id")
 	private User user;
 

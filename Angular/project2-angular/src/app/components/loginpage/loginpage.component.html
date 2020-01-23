@@ -9,19 +9,19 @@
 <!-- username -->
             </div>
             <div class="card-body">
-                <form>
+                <form (ngSubmit)="onSubmit()">
                     <div class="input-group form-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-user"></i></span>
                         </div>
-                        <input [(ngModel)]="username" type="text" class="form-control form-control-lg" placeholder="username" required>
+                        <input name="email" [(ngModel)]="loginT.email" type="text" class="form-control form-control-lg" placeholder="email" required>
                     </div>
 <!-- password -->
                     <div class="input-group form-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-key"></i></span>
                         </div>
-                        <input [(ngModel)]="password" type="password" class="form-control form-control-lg" placeholder="password" required>
+                        <input name="password" [(ngModel)]="loginT.password" type="password" class="form-control form-control-lg" placeholder="password" required>
                     </div>
 
   <!-- register -->
