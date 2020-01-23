@@ -1,0 +1,12 @@
+ a {
+    color: white;
+   
+  }
+
+  a {
+     float: right!important;
+  }
+  
+   a:hover {
+    background-color: rgb(111, 183, 189);
+  }

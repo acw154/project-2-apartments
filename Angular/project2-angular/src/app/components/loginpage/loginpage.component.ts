@@ -8,6 +8,7 @@ import { stringify } from 'querystring';
 import { ProfileService } from 'src/app/services/profile.service';
 import { UserService } from '../../services/user.service';
 import { LoginTemplate } from 'src/app/model/login-template';
+import { SessionService } from 'src/app/services/session.service';
 
 @Component({
   selector: 'app-loginpage',
@@ -23,6 +24,7 @@ export class LoginpageComponent implements OnInit {
       private loginService: LoginService,
       private router: Router,
       private userService: UserService,
+      private sessionService: SessionService,
       //private profileService: ProfileService,
   ) { 
     this.loginT = new LoginTemplate();
@@ -37,10 +39,11 @@ export class LoginpageComponent implements OnInit {
     this.loginService.login(this.loginT).subscribe(
       data => {
         if(data != null){
-          this.userService.saveCurrentUser(data);
+          this.sessionService.saveCurrentUser(data);
           this.router.navigate(['/profile']);
         } else {
           alert("Invalid Credentials");
+          
         }
          // Saved the user as current User 
         // Send the user value to some other service and save it as currentUser object

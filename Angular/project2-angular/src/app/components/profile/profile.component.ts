@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/model/user';
 import { FormBuilder } from '@angular/forms';
 import { UserService } from 'src/app/services/user.service';
+import { Session } from 'protractor';
+import { SessionService } from 'src/app/services/session.service';
 
 @Component({
   selector: 'app-profile',
@@ -16,8 +18,9 @@ export class ProfileComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private userService: UserService,
+    private sessionService: SessionService,
   ) { 
-    this.currentUser = this.userService.getCurrentUser();
+    this.currentUser = this.sessionService.getCurrentUser();
   }
 
   ngOnInit() { 
