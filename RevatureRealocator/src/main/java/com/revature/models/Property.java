@@ -9,6 +9,7 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -32,7 +33,7 @@ public class Property implements Serializable{
 	@Column(name="property_id")
 	private int property_id;
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER)
 	//@JoinColumn(name="property_type_id", nullable=false, referencedColumnName = "id")
 	private PropertyType propertyType;
 	
@@ -78,7 +79,7 @@ public class Property implements Serializable{
 	@Column(name="revemp_owned", nullable=false)
 	private boolean revemp_owned;
 	
-	@ManyToMany //User owns the Many-To-Many relationship
+	@ManyToMany(fetch = FetchType.EAGER) //User owns the Many-To-Many relationship
 	@JoinTable(name="saved_users", joinColumns= {@JoinColumn(name="property_id", referencedColumnName = "property_id")},
 	inverseJoinColumns= {@JoinColumn(name="user_id", referencedColumnName = "user_id")})
 	private List<User> users = new ArrayList<>();

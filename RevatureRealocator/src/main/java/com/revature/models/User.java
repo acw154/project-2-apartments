@@ -2,6 +2,7 @@ package com.revature.models;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
@@ -9,6 +10,7 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -20,7 +22,11 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 import org.springframework.stereotype.Component;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Component
 @Entity
@@ -46,32 +52,42 @@ public class User implements Serializable {
 	@Column(name = "email", unique=true)
 	String email;
 
-	@OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+	@OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private Preference preference;
 
 	@Column(name = "current_state")
 	String current_state;
 	
 	@ManyToMany
+	@LazyCollection(LazyCollectionOption.FALSE)
 	@JoinTable(name="saved_properties", joinColumns= {@JoinColumn(name="user_id", referencedColumnName = "user_id")},
 		inverseJoinColumns= {@JoinColumn(name="property_id", referencedColumnName = "property_id")})
 	private List<Property> savedProperties = new ArrayList<>();
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JsonIgnoreProperties("user")
 	private UserStatus userStatus;
 	
-	@OneToMany(mappedBy="sender")
-	private Set<Message> messagesSent;
+	@OneToMany(mappedBy="sender", fetch = FetchType.EAGER)
+	private Set<Message> messagesSent = new HashSet<>();
 	
-	@OneToMany(mappedBy="receiver")
-	private Set<Message> messagesReceived;
+	@OneToMany(mappedBy="receiver", fetch = FetchType.EAGER)
+	private Set<Message> messagesReceived = new HashSet<>();
 
 	public User() {
 		super();
 	}
 
 	
-	
+	public User(UserDTO dto) {
+		this.id = dto.getId();
+		this.f_name = dto.getF_name();
+		this.l_name = dto.getL_name();
+		this.email = dto.getEmail();
+		this.password = dto.getPassword();
+		this.userStatus = new UserStatus(dto.getUser_status());
+		this.current_state = dto.getCurrent_state();
+	}
 	
 	public User(String password, String f_name, String l_name, String email, Preference preference,
 			String current_state, List<Property> savedProperties, UserStatus userStatus, Set<Message> messagesSent,
@@ -237,7 +253,7 @@ public class User implements Serializable {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(current_state, email, f_name, id, l_name, messagesReceived, messagesSent, password,
+		return Objects.hash(current_state, email, f_name, l_name, messagesReceived, messagesSent, password,
 				preference, savedProperties, userStatus);
 	}
 
@@ -255,11 +271,11 @@ public class User implements Serializable {
 		User other = (User) obj;
 		return Objects.equals(current_state, other.current_state) && Objects.equals(email, other.email)
 				&& Objects.equals(f_name, other.f_name) && id == other.id && Objects.equals(l_name, other.l_name)
-				&& Objects.equals(messagesReceived, other.messagesReceived)
-				&& Objects.equals(messagesSent, other.messagesSent) && Objects.equals(password, other.password)
-				&& Objects.equals(preference, other.preference)
-				&& Objects.equals(savedProperties, other.savedProperties)
-				&& Objects.equals(userStatus, other.userStatus);
+				//&& Objects.equals(messagesReceived, other.messagesReceived)
+				/*&& Objects.equals(messagesSent, other.messagesSent)*/ && Objects.equals(password, other.password)
+				//&& Objects.equals(preference, other.preference)
+				//&& Objects.equals(savedProperties, other.savedProperties)
+				/*&& Objects.equals(userStatus, other.userStatus)*/;
 	}
 
 

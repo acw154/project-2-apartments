@@ -12,7 +12,7 @@
 
 
 <div class="s011 rentalsearch">
-    <form>
+    <form (ngSubmit)="getAllProperties()">
         <fieldset>
             <legend>Search Rentals</legend>
         </fieldset>
@@ -30,7 +30,7 @@
                         </div>
                         <div class="input-field">
                             <label>City</label>
-                            <input type="text" placeholder="name of city">
+                            <input name="city" [(ngModel)]="preference.city" type="text" placeholder="name of city">
                         </div>
                         
                     </div>
@@ -44,7 +44,7 @@
                         </div>
                         <div class="input-field">
                             <label>State</label>
-                            <input type="text" placeholder="VA" required>
+                            <input name="state_code" [(ngModel)]="preference.state_code" type="text" placeholder="VA" required>
                         </div>
                     </div>
                     <div class="input-wrap-2">
@@ -57,27 +57,27 @@
                         </div>
                         <div class="input-field">
                             <label>Zip Code</label>
-                            <input type="text" placeholder="55555" required>
+                            <input name="zip" [(ngModel)]="preference.zip" type="text" placeholder="55555" required>
                         </div>
                     </div>
                 </div>
                 <div class="row second">
                     <div class="input-wrap">
                         <div class="input-field">
-                            <label>PRICE</label>
-                            <input class="datepicker flatpickr-input form-control" type="number" placeholder="$ xxx.xx / Month" min="0" step=".01" value="$">
+                            <label>MAX PRICE</label>
+                            <input name="max_price" [(ngModel)]="preference.max_price" class="datepicker flatpickr-input form-control" type="number" placeholder="$ xxx.xx / Month" min="0" step=".01" value="$" required>
                         </div>
                     </div>
                     <div class="input-wrap">
                         <div class="input-field">
                             <label>BEDS</label>
-                            <input class="datepicker flatpickr-input" type="number" placeholder="#" min="0" step="1">
+                            <input name="num_beds" [(ngModel)]="preference.num_beds" class="datepicker flatpickr-input" type="number" placeholder="#" min="0" step="1" required>
                         </div>
                     </div>
                     <div class="input-wrap">
                         <div class="input-field">
                             <label>BATHS</label>
-                            <input class="datepicker flatpickr-input" type="number" placeholder="#" min="0" step=".5">
+                            <input name="num_baths" [(ngModel)]="preference.num_baths" class="datepicker flatpickr-input" type="number" placeholder="#" min="0" step=".5" required>
                         </div>
                     </div>
                   
