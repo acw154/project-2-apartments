@@ -1,20 +1,18 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { Property } from '../model/property';
 import { User } from '../model/user';
-import { Form } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
 })
-export class LoginService {
+export class ProfileService {
   private usersUrl: string;
 
   constructor(private http: HttpClient) {
-    this.usersUrl = 'http://localhost:8080/login';
+    this.usersUrl = 'http://localhost:8080/users'; // May need to change this URI 
   }
 
-  public login(loginForm: Form): Observable<User> {
-    return this.http.post<User>(this.usersUrl, loginForm);
-  }
+  // Create methods for saving and getting the profile information
 }
