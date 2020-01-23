@@ -7,6 +7,7 @@ import { User } from '../../model/user';
 import { stringify } from 'querystring';
 import { ProfileService } from 'src/app/services/profile.service';
 import { UserService } from '../../services/user.service';
+import { LoginTemplate } from 'src/app/model/login-template';
 
 @Component({
   selector: 'app-loginpage',
@@ -14,8 +15,7 @@ import { UserService } from '../../services/user.service';
   styleUrls: ['./loginpage.component.css']
 })
 export class LoginpageComponent implements OnInit {
-  loginForm: FormGroup;
-  user: Observable<User>;
+  loginT: LoginTemplate;
   submitted=false;
   
 
@@ -26,23 +26,16 @@ export class LoginpageComponent implements OnInit {
       private userService: UserService,
       //private profileService: ProfileService,
   ) { 
-    if(userService.getCurrentUser != null){
-      this.router.navigate(['profile']);
-    }
+    this.loginT = new LoginTemplate();
   }
 
   ngOnInit() {
-    this.loginForm = this.formBuilder.group({
-      email: 'email',
-      password: 'password',
-    });
   }
 
-  get f() { return this.loginForm.controls; }
-
   onSubmit() {
+    
     this.submitted = true;
-    this.loginService.login(this.loginForm.value).subscribe(
+    this.loginService.login(this.loginT).subscribe(
       data => {
         if(data != null){
           this.userService.saveCurrentUser(data);
@@ -54,7 +47,11 @@ export class LoginpageComponent implements OnInit {
         // Send the user value to some other service and save it as currentUser object
         // ex: this.profileService.setCurrentUser()
         // this.router.navigate([]) Navigate to profile of currentUser
+      }, error => {
+        alert("Error submitting login");
       }
     );
+    console.log(this.submitted);
+    console.log(this.loginT);
   }
 }

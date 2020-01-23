@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../model/user';
 import { Form } from '@angular/forms';
+import { LoginTemplate } from '../model/login-template';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,7 @@ export class LoginService {
     this.usersUrl = 'http://localhost:8080/login';
   }
 
-  public login(loginForm: Form): Observable<User> {
-    return this.http.post<User>(this.usersUrl, loginForm);
+  public login(loginT: LoginTemplate): Observable<User> {
+    return this.http.post<User>(this.usersUrl, loginT);
   }
 }

@@ -21,7 +21,7 @@ export class UserService {
   }
 
   public getCurrentUser(){
-    if(this.currentUser.email != null){
+    if(this.currentUser.email != undefined){
       return this.currentUser;
     } else {
       return null;
