@@ -14,7 +14,6 @@ import { RentalsearchComponent } from './components/rentalsearch/rentalsearch.co
 import { Background2Component } from './components/background2/background2.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { RegisterComponent } from './components/register/register.component';
-import { LogoutComponent } from './components/logout/logout.component';
 import { UsersearchpageComponent } from './components/usersearchpage/usersearchpage.component';
 import { IndividualPropertyPageComponent } from './components/individual-property-page/individual-property-page.component';
 
@@ -31,7 +30,6 @@ import { IndividualPropertyPageComponent } from './components/individual-propert
     Background2Component,
     ProfileComponent,
     RegisterComponent,
-    LogoutComponent,
     UsersearchpageComponent,
     IndividualPropertyPageComponent
   ],

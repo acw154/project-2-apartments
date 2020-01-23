@@ -14,8 +14,12 @@ export class PropertyService {
     this.usersUrl = 'http://localhost:8080/propsearch';
   }
 
-  public getProperties(preference: Preference): Observable<Property[]> {
-    return this.http.post<Property[]>(this.usersUrl, preference);
+  public getPropertiesByPref(preference: Preference): Observable<Property[]> {
+    return this.http.post<Property[]>(this.usersUrl + 'pref', preference);
+  }
+
+  public getPropertiesSimple(preference: Preference): Observable<Property[]> {
+    return this.http.post<Property[]>(this.usersUrl + 'simple', preference);
   }
   // Create methods that take in the searchForm with all of its values and post it 
 }

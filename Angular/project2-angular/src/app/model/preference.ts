@@ -5,4 +5,8 @@ export class Preference {
     num_baths: number;
     city: string;
     state_code: string;
+
+    public constructor(init?: Partial<Preference>) {
+        Object.assign(this, init);
+    }
 }
