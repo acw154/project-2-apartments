@@ -8,12 +8,12 @@ import { User } from '../model/user';
 })
 export class UserService {
 
-  private usersUrl: string;
-  private currentUser: User;
+  // private usersUrl: string;
+  // private currentUser: User;
 
-  constructor(private http: HttpClient) {
-    this.usersUrl = 'http://localhost:8080/users'; // May need to change this URI 
-  }
+  // constructor(private http: HttpClient) {
+  //   this.usersUrl = 'http://localhost:8080/users'; // May need to change this URI 
+  // }
 
   // Create methods for saving and getting the profile information
   

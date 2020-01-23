@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
-
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,10 +11,11 @@ import { LoginwordsComponent } from './components/loginwords/loginwords.componen
 import { LoginpageComponent } from './components/loginpage/loginpage.component';
 import { RentalsearchComponent } from './components/rentalsearch/rentalsearch.component';
 import { Background2Component } from './components/background2/background2.component';
-import { ProfileComponent } from './components/profile/profile.component';
 import { RegisterComponent } from './components/register/register.component';
 import { UsersearchpageComponent } from './components/usersearchpage/usersearchpage.component';
 import { IndividualPropertyPageComponent } from './components/individual-property-page/individual-property-page.component';
+import { ProfileComponent } from './components/profile/profile.component';
+
 
 
 

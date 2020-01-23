@@ -1,4 +1,11 @@
 Manifest-Version: 1.0
+<<<<<<< HEAD
+<<<<<<< HEAD
+Built-By: woda
+=======
+Built-By: Austin
+>>>>>>> master
+=======
 
 Built-By: rb249
 Built-By: woda
@@ -11,6 +18,7 @@ Built-By: Austin
 
 Built-By: Austin
 
+>>>>>>> master
 Build-Jdk: 1.8.0_231
 Created-By: Maven Integration for Eclipse
 
