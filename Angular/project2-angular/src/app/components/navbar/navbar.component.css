@@ -1,6 +1,6 @@
 .navbar {
     background-color: rgba(0,0,0,0.5);
-    position: fixed;
+    /* position: fixed; */
     color: white;
     width: 100%;
     padding: 1.7rem;
@@ -12,10 +12,6 @@
    
   }
 
-  .nav1 {
-     float: right!important;
-  }
-  
   .nav li a:hover {
     background-color: rgb(111, 183, 189);
   }

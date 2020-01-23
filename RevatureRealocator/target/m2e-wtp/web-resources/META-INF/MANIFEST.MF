@@ -1,5 +1,17 @@
 Manifest-Version: 1.0
+<<<<<<< HEAD
 Built-By: rb249
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+Built-By: woda
+=======
+Built-By: jwulf
+>>>>>>> master
+Built-By: Austin
+>>>>>>> master
+>>>>>>> 255d1192b14eb85cd495b0a1f3c63b4f97d4f3b3
 Build-Jdk: 1.8.0_231
 Created-By: Maven Integration for Eclipse
 
