@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { LogoutComponent } from '../logout/logout.component';
+import { Router } from '@angular/router';
+import { SessionService } from 'src/app/services/session.service';
+
 
 @Component({
   selector: 'app-navbar',
@@ -7,16 +9,63 @@ import { LogoutComponent } from '../logout/logout.component';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+  constructor(private sessionService: SessionService, private router: Router){ }
 
-  constructor() { }
-
-  ngOnInit() {
-
-   
+  ngOnInit() {}
   
+
+  logout(){
+    console.log(this.sessionService.getCurrentUser());
+    if(this.sessionService.getCurrentUser() != null){
+      this.sessionService.invalidateSession();
+      alert("You have logged out");
+      console.log(this.sessionService.getCurrentUser());
+      
+    } else {
+      alert("You were not logged in");
+    }
+    return this.router.navigateByUrl('/loginpage');
   }
 
+  toProfile(){
+    if(this.sessionService.getCurrentUser() != null){
+      console.log("Moving to user profile");
+      //Something about profile service
+      return this.router.navigateByUrl('/profile');
+    } else {
+      alert('You are not logged in');
+      return this.router.navigateByUrl('/loginpage');
+    }
+  }
+  
+  toSearch(){
+    if(this.sessionService.getCurrentUser() != null){
+      console.log("Moving to rental search");
+      //Something about profile service
+      return this.router.navigateByUrl('/rentalsearch');
+    } else {
+      alert('You are not logged in');
+      return this.router.navigateByUrl('/loginpage');
+    }
+  }
 
+  toRegister(){
+    if(this.sessionService.getCurrentUser() == null){
+      console.log('Moving to Register Page');
+      return this.router.navigateByUrl('/register');
+    } else {
+      alert('You are currently logged in as ' + this.sessionService.getCurrentUser() + ". Please logout to register");
+    }
+  }
+
+  toLogin(){
+    if(this.sessionService.getCurrentUser() == null){
+      console.log('Moving to Login Page');
+      return this.router.navigateByUrl('/loginpage');
+    } else {
+      alert('You are currently logged in as ' + this.sessionService.getCurrentUser() + ". Please logout to change user");
+    }
+  }
 
 
   
