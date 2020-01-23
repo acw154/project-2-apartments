@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { User } from '../../model/user';
 import { stringify } from 'querystring';
 import { ProfileService } from 'src/app/services/profile.service';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-loginpage',
@@ -22,8 +23,13 @@ export class LoginpageComponent implements OnInit {
       private formBuilder: FormBuilder,
       private loginService: LoginService,
       private router: Router,
+      private userService: UserService,
       //private profileService: ProfileService,
-  ) { }
+  ) { 
+    if(userService.getCurrentUser != null){
+      this.router.navigate(['profile']);
+    }
+  }
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
@@ -38,7 +44,13 @@ export class LoginpageComponent implements OnInit {
     this.submitted = true;
     this.loginService.login(this.loginForm.value).subscribe(
       data => {
-        ProfileService
+        if(data != null){
+          this.userService.saveCurrentUser(data);
+          this.router.navigate(['/profile']);
+        } else {
+          alert("Invalid Credentials");
+        }
+         // Saved the user as current User 
         // Send the user value to some other service and save it as currentUser object
         // ex: this.profileService.setCurrentUser()
         // this.router.navigate([]) Navigate to profile of currentUser
