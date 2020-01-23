@@ -13,12 +13,12 @@ export class ProfileComponent implements OnInit {
   searchedUser: User;
 
   
-  constructor(
-    private formBuilder: FormBuilder,
-    private userService: UserService,
-  ) { 
-    this.currentUser = this.userService.getCurrentUser();
-  }
+  constructor(){}
+    // private formBuilder: FormBuilder,
+    // private userService: UserService,
+  // ) { 
+  //   this.currentUser = this.userService.getCurrentUser();
+  // }
 
   ngOnInit() { 
   }

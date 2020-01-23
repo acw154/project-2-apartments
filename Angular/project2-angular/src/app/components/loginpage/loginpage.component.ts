@@ -31,26 +31,26 @@ export class LoginpageComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSubmit() {
+  // onSubmit() {
     
-    this.submitted = true;
-    this.loginService.login(this.loginT).subscribe(
-      data => {
-        if(data != null){
-          this.userService.saveCurrentUser(data);
-          this.router.navigate(['/profile']);
-        } else {
-          alert("Invalid Credentials");
-        }
+    // this.submitted = true;
+    // this.loginService.login(this.loginT).subscribe(
+    //   data => {
+    //     if(data != null){
+    //       this.userService.saveCurrentUser(data);
+    //       this.router.navigate(['/profile']);
+    //     } else {
+    //       alert("Invalid Credentials");
+    //     }
          // Saved the user as current User 
         // Send the user value to some other service and save it as currentUser object
         // ex: this.profileService.setCurrentUser()
         // this.router.navigate([]) Navigate to profile of currentUser
-      }, error => {
-        alert("Error submitting login");
-      }
-    );
-    console.log(this.submitted);
-    console.log(this.loginT);
-  }
+  //     }, error => {
+  //       alert("Error submitting login");
+  //     }
+  //   );
+  //   console.log(this.submitted);
+  //   console.log(this.loginT);
+  // }
 }
