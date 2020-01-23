@@ -1,5 +1,16 @@
 Manifest-Version: 1.0
+
+Built-By: rb249
+Built-By: woda
+
+Built-By: jwulf
+
 Built-By: Austin
+
+
+
+Built-By: Austin
+
 Build-Jdk: 1.8.0_231
 Created-By: Maven Integration for Eclipse
 
