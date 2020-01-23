@@ -3,6 +3,7 @@ import { PropertyService } from 'src/app/services/property.service';
 import { Preference } from 'src/app/model/preference';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { SessionService } from 'src/app/services/session.service';
 
 @Component({
   selector: 'app-rentalsearch',
@@ -19,6 +20,7 @@ export class RentalsearchComponent implements OnInit {
 
   constructor(private propertyService: PropertyService,
     private router: Router,
+    private sessionService: SessionService,
     private fb: FormBuilder) {
       this.createForm();
   }
@@ -72,6 +74,30 @@ export class RentalsearchComponent implements OnInit {
     //     console.log('Error', error);
     //   }
     // );
+    }
+    searchWithSavedPref(){
+      console.log(this.sessionService.getPreference());
+      this.preference = this.sessionService.getPreference();
+      if(this.preference.max_price == null && this.preference.num_baths == null && this.preference.num_beds == null){
+        this.propertyService.getPropertiesSimple(this.preference).subscribe(
+          data => {
+            if(data != null) {
+              this.response = data;
+            }
+          }, error => {
+            console.log('Error', error);
+          }
+        )
+      } else {
+        this.propertyService.getPropertiesByPref(this.preference).subscribe(
+          data => {
+            if(data != null){
+              this.response = data;
+            }
+          }, error => {
+            console.log('Error', error);
+          }
+        )
+      }
+    }
   }
-
-}

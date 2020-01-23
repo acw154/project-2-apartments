@@ -100,6 +100,12 @@
                         <p>City and State Necessary</p>
                     </div>
                 </div>
+                <div class="row last">
+                    <button class="btn-search" (click)="searchWithSavedPref()" [disabled]="!currPref">Use Saved Pref</button>
+                    <div *ngIf="!currPref" class="alert alert-danger">
+                        <p>No Saved Preference</p>
+                    </div>
+                </div>
             </div>
         </div>
     </form>
