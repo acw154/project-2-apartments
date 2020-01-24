@@ -42,6 +42,10 @@ public class PreferenceService {
 	
 	public Preference upsert(Preference p, String email) {
 		User user = us.findByEmail(email);
+		Preference current = user.getPreference();
+		if(current != null) {
+			p.setId(current.getId());
+		}
 		user.setPreference(p);
 		p.setUser(user);
 		pdao.upsertPreference(p);
