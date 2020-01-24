@@ -15,9 +15,13 @@ export class ProfileComponent implements OnInit {
   currentUser: User;
   searchedUser: User;
 
+
+  currentUserPref: Preference;
+  searchedUserPref: Preference;
   // preferences
   userPreference: Preference;
   searchedUserPreference: Preference;
+master
 
   
   constructor(
@@ -27,6 +31,13 @@ export class ProfileComponent implements OnInit {
   ) { 
     this.currentUser = this.sessionService.getCurrentUser();
   }
+
+  // display on button click
+  // isShow = false;
+ 
+  // toggleDisplay() {
+  //   this.isShow = !this.isShow;
+  // }
 
   ngOnInit() { 
   }
