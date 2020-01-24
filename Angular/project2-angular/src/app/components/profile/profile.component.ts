@@ -15,14 +15,20 @@ export class ProfileComponent implements OnInit {
   currentUser: User;
   searchedUser: User;
 
+  email ="sfsfsfsfsdfsdfs"
+
 
   currentUserPref: Preference;
   searchedUserPref: Preference;
   // preferences
-  userPreference: Preference;
-  searchedUserPreference: Preference;
-master
 
+// toggle
+isShow = false;
+ 
+toggleDisplay() {
+  this.isShow = !this.isShow;
+}
+// end
   
   constructor(
     private formBuilder: FormBuilder,

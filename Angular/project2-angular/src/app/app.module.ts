@@ -13,8 +13,10 @@ import { RegisterComponent } from './components/register/register.component';
 import { UsersearchpageComponent } from './components/usersearchpage/usersearchpage.component';
 import { IndividualPropertyPageComponent } from './components/individual-property-page/individual-property-page.component';
 import { ProfileComponent } from './components/profile/profile.component';
-import { CreatepropComponent } from './components/createprop/createprop.component';
 import { LoginpageComponent } from './components/loginpage/loginpage.component';
+import { EditprofileComponent } from './components/editprofile/editprofile.component';
+import { CreatepropComponent } from './components/createprop/createprop.component';
+
 
 
 
@@ -30,6 +32,8 @@ import { LoginpageComponent } from './components/loginpage/loginpage.component';
     RegisterComponent,
     UsersearchpageComponent,
     IndividualPropertyPageComponent,
+    LoginpageComponent,
+    EditprofileComponent,
     CreatepropComponent,
     LoginpageComponent
   ],

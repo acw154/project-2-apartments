@@ -1,36 +1,26 @@
 <app-navbar></app-navbar>
-<!-- <app-background></app-background> -->
-<!-- <div class="profile-page">
-    <div style="text-align: center;">
-        <h2 *ngIf="currentUser==searchedUser Else elseBlock">Welcome {{currentUser.f_name}} {{currentUser.l_name}}</h2>
-        <h2 class="elseBlock">Welcome {{searchedUser.f_name}} {{searchedUser.l_name}}</h2>
-    </div>
-
-
-
-<div class="container profile-page shadow p-3 mb-5 bg-white rounded">
-    <div style="text-align: center;">
-        <h2 *ngIf="currentUser==searchedUser Else elseBlock">Welcome {{currentUser.f_name}} {{currentUser.l_name}}</h2>
-        <h2 class="elseBlock">Welcome {{searchedUser.f_name}} {{searchedUser.l_name}}</h2>
-    </div> -->
-    <!-- <div class="shadow p-3 mb-5 bg-white rounded"> -->
+<app-background></app-background>
+     
+<div class="container profile-page p-3 mb-5">
         <div class="row">
-
-         <div class="col-lg-4">
+  
+         <div class="col-lg-4 prefer">
             <h5>Details</h5>
                 <ul class="profile-ul">
-                    <!-- Insert values into the li elements based on whether the user searched is the currentUser or searchedUser-->
-                    <li><h4><strong>Email:</strong><span>{{ currentUser.email }}</span></h4></li>
-                    <li><h4><strong>State:</strong><span>{{ currentUser.state }}</span></h4></li>
-                    <li><h4><strong>Status:</strong><span>{{ currentUser.status }}</span></h4></li>
+
+                    <li class="shadow-sm p-3 mb-5 bg-white rounded"><h4><strong>Name:</strong><span>{{ currentUser.f_name }}</span></h4></li>
+                    <li class="shadow-sm p-3 mb-5 bg-white rounded"><h4><strong>Last Name:</strong><span>{{ currentUser.l_name }}</span></h4></li>
+                    <li class="shadow-sm p-3 mb-5 bg-white rounded"><h4><strong>Email:</strong><span>{{ currentUser.email }}</span></h4></li>
+                    <li class="shadow-sm p-3 mb-5 bg-white rounded"><h4><strong>State:</strong><span>{{ currentUser.current_state }}</span></h4></li>
+                    <li class="shadow-sm p-3 mb-5 bg-white rounded"><h4><strong>Email:</strong><span>{{ currentUser.email }}</span></h4></li>
+                    <li class="shadow-sm p-3 mb-5 bg-white rounded"><h4><strong>Status:</strong><span>{{ currentUser.user_status }}</span></h4></li>
                 </ul>
             </div>  
 
     
        
-        <div class="col-lg-8">
+        <div class="col-lg-8 prefer1">
             <h5>Preferences</h5>
-            <!-- Preferences-->
             <ul class="profile-ul">
                 <li><h4><strong>Min Price:</strong><span>{{ currentUserPref.min_price }}</span></h4></li>
                 <li><h4><strong>Max Price:</strong><span>{{ currentUserPref.max_price }}</span></h4></li>
@@ -39,21 +29,31 @@
                 <li><h4><strong>City:</strong><span>{{ currentUserPref.city }}</span></h4></li>
                 <li><h4><strong>Zip Code:</strong>{{ currentUserPref.state_code }}<span></span></h4></li>
             </ul>
+
+            <div class="form-group">
+                <input type="submit" value="Edit" class="btn edit btn-lg mt-5">
+            </div>
         </div>
+
     </div>
+</div>
 
-    <!-- searched user//hidden div -->
 
-    <div class="div *ngIf = “!isShow searched-user">
-    <div class="row">
 
-        <div class="col-lg-4">
+
+    <!-- searched user//hidden div---------------------------------------------------- -->
+
+    <!-- <div class="searched-user  shadow-lg p-3 mb-5 bg-white rounded mt-5">
+    <div class="row pt-5 pb-5">
+
+        <div class="col-lg-4 user-details">
            <h5>Details</h5>
                <ul class="profile-ul">
-                   <!-- Insert values into the li elements based on whether the user searched is the currentUser or searchedUser-->
-                   <li><h4><strong>Email:</strong><span>{{ searchedUser.email }}</span></h4></li>
-                   <li><h4><strong>State:</strong><span>{{ searchedUser.state }}</span></h4></li>
-                   <li><h4><strong>Status:</strong><span>{{ searchedUser.status }}</span></h4></li>
+                   <li class="shadow-sm p-3 mb-5 bg-white rounded"><h4><strong>Name:</strong><span>{{ searchedUser.f_name }}</span></h4></li>
+                   <li class="shadow-sm p-3 mb-5 bg-white rounded"><h4><strong>Last Name:</strong><span>{{ searchedUser.l_name }}</span></h4></li>
+                   <li class="shadow-sm p-3 mb-5 bg-white rounded"><h4><strong>Email:</strong><span>{{ searchedUser.email }}</span></h4></li>
+                   <li class="shadow-sm p-3 mb-5 bg-white rounded"><h4><strong>State:</strong><span>{{ searchedUser.current_state }}</span></h4></li>
+                   <li class="shadow-sm p-3 mb-5 bg-white rounded"><h4><strong>Status:</strong><span>{{ searchedUser.user_status }}</span></h4></li>
                </ul>
            </div>  
 
@@ -61,7 +61,6 @@
       
        <div class="col-lg-8">
            <h5>Preferences</h5>
-           <!-- Preferences-->
            <ul class="profile-ul">
                <li><h4><strong>Min Price:</strong><span>{{ searchedUserPref.min_price }}</span></h4></li>
                <li><h4><strong>Max Price:</strong><span>{{ searchedUserPref.max_price }}</span></h4></li>
@@ -71,7 +70,41 @@
                <li><h4><strong>Zip Code:</strong>{{ searchedUserPref.state_code }}<span></span></h4></li>
            </ul>
        </div>
+<<<<<<< HEAD
+   </div>
+</div> -->
+
+<!-- ---------------------------------------------------------------------------- -->
+
+
+  <!-- <div class="col-lg-4 prefer">
+        <h5>Details</h5>
+            <ul class="profile-ul">
+                <li class="shadow-sm p-3 mb-5 bg-white rounded"><h4><strong>First Name:</strong><span>{{ email }}</span></h4></li>
+                <li class="shadow-sm p-3 mb-5 bg-white rounded"><h4><strong>Last Name:</strong><span>{{ email }}</span></h4></li>
+                <li class="shadow-sm p-3 mb-5 bg-white rounded"><h4><strong>Email:</strong><span>{{ email }}</span></h4></li>
+                <li class="shadow-sm p-3 mb-5 bg-white rounded"><h4><strong>State:</strong><span>{{ email }}</span></h4></li>
+                <li class="shadow-sm p-3 mb-5 bg-white rounded"><h4><strong>Status:</strong><span>{{ email }}</span></h4></li>
+            </ul>
+    </div>  
+
+    
+        
+    <div class="col-lg-8 prefer1">
+        <h5>Preferences</h5>
+        <ul class="profile-ul">
+            <li><h4><strong>Min Price:</strong><span>{{ email }}</span></h4></li>
+            <li><h4><strong>Max Price:</strong><span>{{ email }}</span></h4></li>
+            <li><h4><strong>Beds:</strong><span>{{ email }}</span></h4></li>
+            <li><h4><strong>Baths:</strong><span>{{ email }}</span></h4></li>
+            <li><h4><strong>City:</strong><span>{{ email }}</span></h4></li>
+            <li><h4><strong>Zip Code:</strong>{{ email }}<span></span></h4></li>
+        </ul>
+    </div>
+ -->
+=======
     </div>
 </div>
 
 
+>>>>>>> master

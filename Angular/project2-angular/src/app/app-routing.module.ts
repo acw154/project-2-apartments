@@ -6,6 +6,7 @@ import { RentalsearchComponent } from './components/rentalsearch/rentalsearch.co
 import { RegisterComponent } from './components/register/register.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { IndividualPropertyPageComponent } from './components/individual-property-page/individual-property-page.component';
+import { EditprofileComponent } from './components/editprofile/editprofile.component';
 import { CreatepropComponent } from './components/createprop/createprop.component';
 
 
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent },
   { path: 'rentalsearch', component: RentalsearchComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'editprofile', component: EditprofileComponent },
   { path: '', component: LoginpageComponent },
   { path: 'individualpropertypage', component: IndividualPropertyPageComponent },
   { path: 'propcreate', component: CreatepropComponent },
