@@ -9,7 +9,7 @@
             </fieldset>
             <div>
                 <label>Property Type: </label>
-                <select multiple formControlName="type">
+                <select single formControlName="type">
                     <option *ngFor="let proptype of allTypes" [ngValue]="proptype.id">
                         {{proptype.typeName}}
                     </option>

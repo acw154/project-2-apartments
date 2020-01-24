@@ -2,34 +2,51 @@
 <app-background></app-background>
 <div class="container register">
     <div class="row justify-content-center">
-        
         <div class="col-lg-5 register-form">
-
-            <div class="text-muted text-centered"><h3>Register</h3></div>
-            <div class="form-group">
-                <label for="userNameField">User Name:</label>
-                <input [(ngModel)]="username" type="text" class="form-control" placeholder="Enter username" required>
-
-                <label for="passwordField">Password:</label>
-                <input [(ngModel)]="password" type="password" class="form-control" placeholder="Password" required>
-
-                <label for="passwordConfirmField">Confirm Password:</label>
-                <input [(ngModel)]="confirmpassword" type="password" class="form-control" placeholder="Re-enter Password" required>
-
-                <label for="firstNameField">First Name:</label>
-                <input [(ngModel)]="f_name" type="text" class="form-control" placeholder="First Name" required>
-
-                <label for="lastNameField">Last Name:</label>
-                <input [(ngModel)]="l_name" type="text" class="form-control" placeholder="Last Name" required>
-
-                <label for="emailField">Email:</label>
-                <input [(ngModel)]="email" type="text" class="form-control" placeholder="Email" required>
-
-                <button (click)="newUser()" class="btn mt-5 text-center">Register</button>
-                <p id = "warning" style="color:red"></p>
-            </div>
+            <form class="form-group" [formGroup]="registerForm" (ngSubmit)="registerUser()">
+                <div class="text-muted text-centered"><h3>Register</h3></div>
+                <div class="form-group">
+                    <div>
+                        <label>Email: </label>
+                        <input class="Form-control" formControlName="email" type="text"> 
+                    </div>
+                    <div>
+                        <label>Password: </label>
+                        <input class="Form-control" formControlName="password" type="password"> 
+                    </div>
+                    <div>
+                        <label>First Name: </label>
+                        <input class="Form-control" formControlName="f_name" type="text"> 
+                    </div>
+                    <div>
+                        <label>Last Name: </label>
+                        <input class="Form-control" formControlName="l_name" type="text"> 
+                    </div>
+                    <div>
+                        <label>Current State Code: </label>
+                        <input class="Form-control" formControlName="current_state" type="text"> 
+                    </div>
+                    <div>
+                        <label>Status: </label>
+                        <select single formControlName="user_status">
+                            <option *ngFor="let statustype of allStatus" [ngValue]="statustype.statusName">
+                                {{statustype.statusName}}
+                            </option>
+                        </select>
+                    </div>
+                    <div>
+                        <button class="btn-search" type="submit" [disabled]="!registerForm.valid">Register</button>
+                        <div *ngIf="!registerForm.valid" class="alert alert-danger">
+                            <p style="font-size: 10pt;">All fields must be filled out.</p>
+                        </div>
+                    </div>
+                </div>
+            </form>
             
+            
+               
         </div>
 
     </div>
-</div>
+ </div>
+

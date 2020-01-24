@@ -52,7 +52,7 @@ export class CreatepropComponent implements OnInit {
 
   createProp(){
     this.property = new Property(this.propcreateForm.value);
-    this.property.type = this.propcreateForm.controls.type.value[0];
+    this.property.type = this.propcreateForm.controls.type.value;
     this.property.revemp_owned = true;
     console.log(this.property);
     this.propertyService.insertProperty(this.property).subscribe(

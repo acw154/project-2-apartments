@@ -13,7 +13,7 @@ export class PropertyService {
 
   constructor(private http: HttpClient) {
     this.getPropUrl = 'http://localhost:8080/propsearch';
-    this.createPropUrl = 'http://localhost:8080/createprop';
+    this.createPropUrl = 'http://localhost:8080/propsave';
   }
 
   public getPropertiesByPref(preference: Preference): Observable<Property[]> {

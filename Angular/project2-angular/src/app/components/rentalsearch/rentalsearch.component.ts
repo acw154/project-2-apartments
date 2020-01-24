@@ -44,28 +44,14 @@ export class RentalsearchComponent implements OnInit {
     this.preference.min_price = 0;
     console.log(this.preference);
     if(this.preference.max_price == null && this.preference.num_baths == null && this.preference.num_beds == null){
-      this.propertyService.getPropertiesSimple(this.preference).subscribe(
-        data => {
-          if(data != null) {
-            this.response = data;
-          }
-        }, error => {
-          console.log('Error', error);
-        }
-      );
+      // no filter
     } else {
-      this.propertyService.getPropertiesByPref(this.preference).subscribe(
-        data => {
-          if(data != null){
-            this.response = data;
-          }
-        }, error => {
-          console.log('Error', error);
-        }
-      );
+      // filter
     }
     this.prefForm.reset();
   }
+
+  
     searchWithSavedPref(){
       console.log(this.sessionService.getPreference());
       this.preference = this.sessionService.getPreference();
