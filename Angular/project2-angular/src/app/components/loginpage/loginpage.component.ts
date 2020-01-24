@@ -44,6 +44,7 @@ export class LoginpageComponent implements OnInit {
     //     } else {
     //       alert("Invalid Credentials");
     //     }
+
     this.submitted = true;
     console.log(this.submitted);
     console.log(this.loginT);
