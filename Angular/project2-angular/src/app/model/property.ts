@@ -1,17 +1,18 @@
 export class Property {
-    id: number;
-    type: number;
+    type: string;
     street_num: number;
     street: string;
     city: string;
     zip: number;
-    state: string;
     apt_num: number;
     num_beds: number;
     num_baths: number;
     photo: string;
     price: number;
     revemp_owned: boolean;
-    sqft: number;
-    pets: boolean;
+    sq_ft: number;
+
+    public constructor(init?: Partial<Property>) {
+        Object.assign(this, init);
+    }
 }

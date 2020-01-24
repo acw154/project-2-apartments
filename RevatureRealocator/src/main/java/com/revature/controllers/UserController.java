@@ -25,7 +25,9 @@ import com.revature.repositories.UserDAOImpl;
 import com.revature.services.UserService;
 
 //@RestController
-@Controller
+//@CrossOrigin(origins="*", allowCredentials="true", allowedHeaders="*", methods= {RequestMethod.POST, RequestMethod.GET})
+@CrossOrigin(origins="http://localhost:4200")
+@RestController
 public class UserController {
 
 	
@@ -45,9 +47,7 @@ public class UserController {
 //	}
 
 //	@CrossOrigin(origins = "http://localhost:4200")
-	@CrossOrigin(origins = "*")
 	@PostMapping(value = "/login")
-	@ResponseBody
 	public ResponseEntity<User> findByEmail(@RequestBody LoginDTO login) {
 		System.out.println("inside of UserController login method");
 		String email = login.getEmail();
@@ -63,9 +63,8 @@ public class UserController {
 		}
 	}
 	
-	@CrossOrigin(origins = "*")
+	
 	@PostMapping(value = "/user/{email}")
-	@ResponseBody
 	public ResponseEntity<User> saveOrAddUser(@RequestBody UserDTO userdto) {
 		System.out.println("inside of saveOrAddUser method in UserController");
 //		String f_name = userdto.getF_name();
@@ -84,9 +83,7 @@ public class UserController {
 	}
 
 //	@CrossOrigin(origins = "http://localhost:4200")
-	@CrossOrigin(origins = "*")
 	@GetMapping(value = "/state/{st}")
-	@ResponseBody
 	public ResponseEntity<List<User>> findByState(@PathVariable("st") String st) {
 		System.out.println("Inside of findByState method of UserController");
 		if (us.findByState(st) != null) {
@@ -103,9 +100,7 @@ public class UserController {
 	}
 
 //	@CrossOrigin(origins = "http://localhost:4200")
-	@CrossOrigin(origins = "*")
 	@RequestMapping(value = "/users", method = RequestMethod.GET)
-	@ResponseBody
 	public List<User> findAll() {
 		return us.findAll();
 		 

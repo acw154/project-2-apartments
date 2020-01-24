@@ -70,11 +70,7 @@ public class APIUtil {
 		try {
 			c = URLEncoder.encode(pref.getCity(), charset);
 			sc = URLEncoder.encode(pref.getState_code(), charset);
-//			min = URLEncoder.encode(Double.toString(pref.getMinPrice()), charset);
-//			max = URLEncoder.encode(Double.toString(pref.getMaxPrice()), charset);
-//			beds = URLEncoder.encode(Double.toString(pref.getNumBeds()), charset);
-//			baths = URLEncoder.encode(Double.toString(pref.getNumBaths()), charset);
-//			p = URLEncoder.encode(Boolean.toString(pref.isPets()), charset);
+
 			min = pref.getMinPrice();
 			max = pref.getMaxPrice();
 			beds = pref.getNumBeds();
@@ -82,6 +78,7 @@ public class APIUtil {
 			String query = String.format("state_code=%s&limit=50&city=%s&offset=0&"
 					+ "price_min=%.2f&price_max=%.2f&beds_min=%.2f&baths_min=%.2f", sc, c, min, max, beds, baths);
 			System.out.println(query);
+
 			return query;
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();

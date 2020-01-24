@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { Property } from '.././model/Property';
+import { Property } from '../../model/Property';
 
 @Component({
   selector: 'app-individual-property-page',
