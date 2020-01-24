@@ -15,9 +15,9 @@ export class RegisterComponent implements OnInit {
   private user: User;
   private registerForm: FormGroup;
   allStatus = [
-    new Status(0, "Not Searching"),
-    new Status(1, "Searching for roommate"),
-    new Status(2, "Searching for room"),
+    new Status(0, "not looking"),
+    new Status(1, "searching for roommate"),
+    new Status(2, "searching for room"),
   ];
 
   constructor(private sessionService: SessionService,
