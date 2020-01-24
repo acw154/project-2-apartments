@@ -35,6 +35,15 @@ export class LoginpageComponent implements OnInit {
 
   onSubmit() {
     
+    // this.submitted = true;
+    // this.loginService.login(this.loginT).subscribe(
+    //   data => {
+    //     if(data != null){
+    //       this.userService.saveCurrentUser(data);
+    //       this.router.navigate(['/profile']);
+    //     } else {
+    //       alert("Invalid Credentials");
+    //     }
     this.submitted = true;
     console.log(this.submitted);
     console.log(this.loginT);
@@ -47,28 +56,21 @@ export class LoginpageComponent implements OnInit {
           alert("Invalid Credentials");
           
         }
+      }, error => {
+        console.log("Error", error);
+      });
+    }
+  }
+    
          // Saved the user as current User 
         // Send the user value to some other service and save it as currentUser object
         // ex: this.profileService.setCurrentUser()
         // this.router.navigate([]) Navigate to profile of currentUser
-      }, error => {
-        alert("Error submitting login");
-      }
-    );
-    if(this.sessionService.getCurrentUser() != null){
-      this.userService.getUserPreference(this.sessionService.getCurrentUser()).subscribe(
-        data => {
-          if(data != null){
-            this.sessionService.savePreference(data);
-          } else {
-            this.sessionService.savePreference(null); 
-          }
-        }, error => {
-          alert("Error grabbing preference");
-        }
-      );
-      this.router.navigate(['/profile']);
-    }
+  //     }, error => {
+  //       alert("Error submitting login");
+  //     }
+  //   );
+  //   console.log(this.submitted);
+  //   console.log(this.loginT);
+  // }
 
-  }
-}
