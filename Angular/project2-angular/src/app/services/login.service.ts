@@ -8,17 +8,16 @@ import { LoginTemplate } from '../model/login-template';
   providedIn: 'root'
 })
 export class LoginService {
-  private usersUrl: string;
+  private usersUrl = "/api/login";
   headers={
     headers : new HttpHeaders({
       'Content-Type': 'application/json',
     })
   }
   constructor(private http: HttpClient) {
-    this.usersUrl = "/RevatureRealocator/login";
   }
 
   public login(loginT: LoginTemplate): Observable<User> {
-    return this.http.post<User>('/RevatureRealocator/login', JSON.stringify(loginT), this.headers);
+    return this.http.post<User>(this.usersUrl, JSON.stringify(loginT), this.headers);
   }
 }
