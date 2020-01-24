@@ -55,8 +55,7 @@ public class PropertyTypeDAOImpl implements PropertyTypeDAO {
 	@Transactional
 	public PropertyType findByType(String type) {
 		Session s = sf.getCurrentSession();
-		Query<PropertyType> query = s.createQuery("FROM PropertyType WHERE type=:t");
-		query.setParameter(1, type);
+		Query<PropertyType> query = s.createQuery("FROM PropertyType WHERE type = '" + type + "'");
 		return query.getResultList().get(0);
 	}
 

@@ -44,7 +44,7 @@ public class Driver {
 	public static void main(String[] args) {
 		APIUtil api = new APIUtil();
 		String query = api.createSimpleQuery("VA", "Reston");
-		HttpResponse<JsonNode> response = api.getResponse(query);
+		HttpResponse<String> response = api.getResponse(query);
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		JsonParser jp = new JsonParser();
 		JsonElement je = jp.parse(response.getBody().toString());
