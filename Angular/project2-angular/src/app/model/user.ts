@@ -6,4 +6,8 @@ export class User {
 	password: string;
 	user_status: string;
 	current_state: string;
+
+	public constructor(init?: Partial<User>) {
+        Object.assign(this, init);
+    }
 }

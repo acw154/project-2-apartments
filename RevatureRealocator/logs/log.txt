@@ -941,3 +941,6 @@ Caused by: org.postgresql.util.PSQLException: ERROR: duplicate key value violate
 2020-01-22 21:12:11 INFO  UserDAOImpl:104 - User logged in with email: mail28@mail.com
 2020-01-22 21:12:13 INFO  UserDAOImpl:104 - User logged in with email: mail28@mail.com
 2020-01-22 21:12:15 INFO  UserDAOImpl:104 - User logged in with email: mail28@mail.com
+2020-01-23 20:46:24 INFO  UserDAOImpl:104 - Found User with email: mail12@mail.com
+2020-01-23 20:46:26 INFO  UserDAOImpl:104 - Found User with email: mail12@mail.com
+2020-01-23 20:46:26 INFO  UserController:57 - Successful User login with email: mail12@mail.com

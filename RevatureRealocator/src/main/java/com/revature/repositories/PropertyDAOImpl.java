@@ -2,6 +2,8 @@ package com.revature.repositories;
 
 import java.util.List;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
@@ -15,6 +17,8 @@ import com.revature.models.Property;
 @SuppressWarnings({"unchecked", "deprecation"})
 @Repository
 public class PropertyDAOImpl implements PropertyDAO {
+	
+	private static final Logger logger = LogManager.getLogger(PropertyDAOImpl.class);
 	
 	@Autowired
 	private SessionFactory sf;
@@ -103,17 +107,37 @@ public class PropertyDAOImpl implements PropertyDAO {
 
 	@Override
 	public Property findByAddressNoApt(int street_num, String street, String city, String state) {
-		Session s = sf.getCurrentSession();
-		Query<Property> query = (Query<Property>) s.createQuery("FROM Property WHERE street_num=:n, city=:c, state=:s");
-		query.setParameter(1, street_num);
-		query.setParameter(2, street);;
-		query.setParameter(3, city);
-		query.setParameter(4, state);
-		List<Property> list = query.getResultList();
-		if(list.isEmpty()) {
+		//Session s = sf.getCurrentSession();
+		Session s = sf.openSession();
+		
+		Property p = null;
+		try {
+			Query<Property> query = (Query<Property>) s.createQuery("FROM Property WHERE street_num = '" +street_num + "' AND street = '" + street + "' AND city = '" + 
+			city + "' AND state = '" + state + "'", Property.class);
+			 p = query.getResultList().get(0);
+		} catch (IndexOutOfBoundsException e) {
+			logger.warn("Failed attempted to find Address with by: " + street_num + " " + street + " " + city + ", " + state, e);
+			e.printStackTrace();
+		}
+		return p;
+	}
+	
+	@Override
+	public List<Property> findByStateNoApt(String state) {
+		//Session s = sf.getCurrentSession();
+		Session s = sf.openSession();
+		
+		List<Property> list = null;
+		try {
+			list = s.createQuery("FROM Property WHERE state = '" + state + "'", Property.class).list();
+		} catch (IndexOutOfBoundsException e) {
+			logger.warn("Failed attempted to find by State: " + state, e);
+			e.printStackTrace();
+		}
+		if(list.size()==0) {
 			return null;
 		}
-		return list.get(0);
+		return list;
 	}
 	
 }

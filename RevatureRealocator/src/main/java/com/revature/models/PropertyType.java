@@ -45,6 +45,11 @@ public class PropertyType implements Serializable {
 		this.type = type;
 		this.property = new HashSet<>();
 	}
+	
+	public PropertyType(String type) {
+		super();
+		this.type = type;
+	}
 
 	public int getId() {
 		return id;
