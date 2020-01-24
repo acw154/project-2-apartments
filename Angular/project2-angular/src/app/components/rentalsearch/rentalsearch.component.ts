@@ -79,6 +79,7 @@ export class RentalsearchComponent implements OnInit {
     }
 
     goToIndividualPropertyPage(property: Property){
+      this.propertyService.openPropertyPage(property); //Saves property within propertyservice so that individual property page can pull that information
       this.router.navigateByUrl('/individualpropertypage');
     }
   }

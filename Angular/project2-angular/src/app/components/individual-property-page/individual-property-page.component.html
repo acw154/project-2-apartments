@@ -1,11 +1,38 @@
-<h1>Properties Results<h1>
-
-    <tbody>
-        <tr>
-            
-        </tr>
-    </tbody>
-
+<app-navbar></app-navbar>
+<app-background></app-background>
+<div class="container oneprop">
+    <div class="row justify-content-center">
+        <div class="col-lg-5 oneprop-form">
+            <div>
+                <img src="{{viewedProperty.photo}}" class="img-thumbnail mx-auto dblock" style="width:50%"/>
+            </div>
+            <div class="propDetails">
+                <div class="col-lg-5">
+                    <p>Address: {{viewedProperty.street_num}} {{viewedProperty.street}} {{viewedProperty.apt_num}}, {viewedProperty.city}}, {{viewedProperty.zip}}</p>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <p>Price: ${{viewedProperty.price}} </p>
+                    </div>
+                    <div class="col-md-3">
+                        <p>Beds: {{viewedProperty.num_beds}} </p>
+                    </div>
+                    <div class="col-md-3">
+                        <p>Baths: {{viewedProperty.num_baths}} </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <p>Square Feet: {{viewedProperty.sq_ft}} ft. </p>
+                    </div>
+                    <div class="col-md-4">
+                        <p>Property Type: {{viewedProperty.type}} </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 
