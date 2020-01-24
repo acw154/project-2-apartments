@@ -4,6 +4,7 @@ import { FormBuilder } from '@angular/forms';
 import { UserService } from 'src/app/services/user.service';
 import { Session } from 'protractor';
 import { SessionService } from 'src/app/services/session.service';
+import { Preference } from 'src/app/model/preference';
 
 @Component({
   selector: 'app-profile',
@@ -14,6 +15,14 @@ export class ProfileComponent implements OnInit {
   currentUser: User;
   searchedUser: User;
 
+
+  currentUserPref: Preference;
+  searchedUserPref: Preference;
+  // preferences
+  userPreference: Preference;
+  searchedUserPreference: Preference;
+master
+
   
   constructor(
     private formBuilder: FormBuilder,
@@ -22,6 +31,13 @@ export class ProfileComponent implements OnInit {
   ) { 
     this.currentUser = this.sessionService.getCurrentUser();
   }
+
+  // display on button click
+  // isShow = false;
+ 
+  // toggleDisplay() {
+  //   this.isShow = !this.isShow;
+  // }
 
   ngOnInit() { 
   }

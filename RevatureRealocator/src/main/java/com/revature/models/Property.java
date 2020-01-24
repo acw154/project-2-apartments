@@ -50,7 +50,7 @@ public class Property implements Serializable{
 	private int zip;
 	
 	@Column(name="state", nullable=false)
-	private String state;
+	private String state = "N/A";
 	
 	@Column(name="apt_num")
 	private int apt_num;
@@ -89,6 +89,35 @@ public class Property implements Serializable{
 		// TODO Auto-generated constructor stub
 	}
 
+	public Property(PropertyDTO dto) {
+		super();
+		this.propertyType = new PropertyType(dto.getType());
+		this.street_num = dto.getStreet_num();
+		this.street = dto.getStreet();
+		this.city = dto.getCity();
+		this.zip = dto.getZip();
+		this.apt_num = dto.getApt_num();
+		this.num_beds = dto.getNum_beds();
+		this.num_baths = dto.getNum_baths();
+		this.photo = dto.getPhoto();
+		this.price = dto.getPrice();
+		this.revemp_owned = dto.isRevemp_owned();
+		this.sq_ft = dto.getSq_ft();
+		this.state = dto.getState();
+//		int type;
+//		int street_num;
+//		String street;
+//		String city;
+//		int zip;
+//		int apt_num;
+//		int num_beds;
+//		int num_baths;
+//		String photo;
+//		double price;
+//		boolean revemp_owned;
+//		int sq_ft;
+	}
+	
 	public Property(int property_id, PropertyType propertyType, int street_num, String street, String city, int zip,
 			String state, int apt_num, double num_beds, double num_baths, String photo, double sq_ft, boolean pets,
 			boolean furnished, double price, boolean revemp_owned, List<User> users) {
@@ -318,11 +347,11 @@ public class Property implements Serializable{
 				&& pets == other.pets
 				&& Objects.equals(photo, other.photo)
 				&& Double.doubleToLongBits(price) == Double.doubleToLongBits(other.price)
-				&& Objects.equals(propertyType, other.propertyType) && property_id == other.property_id
+						/*&& Objects.equals(propertyType, other.propertyType) && property_id == other.property_id*/
 				&& revemp_owned == other.revemp_owned
 				&& Double.doubleToLongBits(sq_ft) == Double.doubleToLongBits(other.sq_ft)
 				&& Objects.equals(state, other.state) && Objects.equals(street, other.street)
-				&& street_num == other.street_num && Objects.equals(users, other.users) && zip == other.zip;
+				&& street_num == other.street_num /*&& Objects.equals(users, other.users)*/ && zip == other.zip;
 	}
 
 	@Override

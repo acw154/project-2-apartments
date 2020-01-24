@@ -2,6 +2,8 @@ package com.revature.repositories;
 
 import javax.transaction.Transactional;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -16,30 +18,36 @@ import com.revature.models.User;
 @Repository
 public class PreferencesDAOImpl implements PreferencesDAO {
 
-	
+	private static final Logger logger = LogManager.getLogger(PreferencesDAOImpl.class);
 	@Autowired
 	private SessionFactory sf;
 	
 	
 	@Override
 	@Transactional
-	public Preference getPreferenceByPreferenceId(int id) {
+	public Preference getPreferenceByUserId(int userid) {
 		Session s = sf.getCurrentSession();
-		
-		Query<Preference> query = s.createQuery("from Preference where id = "
-				+ id, Preference.class);
-		Preference p = query.getResultList().get(0);
+		Preference p = null;
+		try {
+			Query<Preference> query = s.createQuery("from Preference where user_id = '"
+					+ userid + "'", Preference.class);
+			p = query.getResultList().get(0);
+			return p;
+		} catch (IndexOutOfBoundsException e) {
+			logger.warn("Attempted to find Preference with UserId: " + userid, e);
+			
+		}
 		return p;
-		
 	}
 
 
 	@Override
+	@Transactional
 	public void upsertPreference(Preference preference) {
 		Session s = sf.getCurrentSession();
-		Transaction tx = s.beginTransaction();
+		//Transaction tx = s.getTransaction();
 		s.saveOrUpdate(preference);
-		tx.commit();
+		//tx.commit();
 	
 	}
 
@@ -50,6 +58,13 @@ public class PreferencesDAOImpl implements PreferencesDAO {
 		Transaction tx = s.beginTransaction();
 		s.delete(preference);
 		tx.commit();
+	}
+
+
+	@Override
+	public Preference getPreferenceByPreferenceId(int id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 

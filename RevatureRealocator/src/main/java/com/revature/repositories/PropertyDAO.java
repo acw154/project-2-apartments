@@ -14,6 +14,7 @@ public interface PropertyDAO {
 	public List<Property> getPropertiesByUserId(int user_id);
 	public void delete(Property p);
 	public List<Property> findPropertiesByFilter(Preference pref);
+	List<Property> findByStateNoApt(String state);
 	
 	
 }
