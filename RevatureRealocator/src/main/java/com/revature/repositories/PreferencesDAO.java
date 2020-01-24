@@ -11,5 +11,7 @@ public interface PreferencesDAO {
 	public void upsertPreference(Preference preference);
 	
 	public void deletePreference(Preference preference);
+
+	Preference getPreferenceByUserId(int userid);
 	
 }

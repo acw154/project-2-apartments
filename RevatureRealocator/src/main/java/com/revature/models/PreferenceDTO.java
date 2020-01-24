@@ -4,6 +4,7 @@ import java.util.Objects;
 
 public class PreferenceDTO {
 
+	private String email;
 	private double min_price;
 	private double max_price;
 	private double num_beds;
@@ -23,12 +24,25 @@ public class PreferenceDTO {
 	public PreferenceDTO(double min_price, double max_price, double num_beds, double num_baths, String city,
 			String state_code) {
 		super();
+		this.email = email;
 		this.min_price = min_price;
 		this.max_price = max_price;
 		this.num_beds = num_beds;
 		this.num_baths = num_baths;
 		this.city = city;
 		this.state_code = state_code;
+	}
+
+
+
+	public String getEmail() {
+		return email;
+	}
+
+
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 
