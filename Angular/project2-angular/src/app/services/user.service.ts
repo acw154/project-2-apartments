@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../model/user';
+import { Preference } from '../model/preference';
 
 @Injectable({
   providedIn: 'root'
@@ -16,5 +17,8 @@ export class UserService {
   }
 
   // Create methods for saving and getting the profile information
+  public getUserPreference(user: User): Observable<Preference>{
+    return this.http.post<Preference>(this.usersUrl, user);
+  }
   
 }

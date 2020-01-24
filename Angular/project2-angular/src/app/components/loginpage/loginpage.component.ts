@@ -36,11 +36,13 @@ export class LoginpageComponent implements OnInit {
   onSubmit() {
     
     this.submitted = true;
+    console.log(this.submitted);
+    console.log(this.loginT);
     this.loginService.login(this.loginT).subscribe(
       data => {
         if(data != null){
           this.sessionService.saveCurrentUser(data);
-          this.router.navigate(['/profile']);
+          // save preference 
         } else {
           alert("Invalid Credentials");
           
@@ -53,7 +55,20 @@ export class LoginpageComponent implements OnInit {
         alert("Error submitting login");
       }
     );
-    console.log(this.submitted);
-    console.log(this.loginT);
+    if(this.sessionService.getCurrentUser() != null){
+      this.userService.getUserPreference(this.sessionService.getCurrentUser()).subscribe(
+        data => {
+          if(data != null){
+            this.sessionService.savePreference(data);
+          } else {
+            this.sessionService.savePreference(null); 
+          }
+        }, error => {
+          alert("Error grabbing preference");
+        }
+      );
+      this.router.navigate(['/profile']);
+    }
+
   }
 }

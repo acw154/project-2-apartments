@@ -4,6 +4,7 @@ import { Preference } from 'src/app/model/preference';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { SessionService } from 'src/app/services/session.service';
+import { Property } from 'src/app/model/property';
 
 @Component({
   selector: 'app-rentalsearch',
@@ -99,5 +100,9 @@ export class RentalsearchComponent implements OnInit {
           }
         )
       }
+    }
+
+    goToIndividualPropertyPage(property: Property){
+      this.router.navigateByUrl('/individualpropertypage');
     }
   }
