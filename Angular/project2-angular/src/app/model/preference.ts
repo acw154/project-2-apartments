@@ -1,4 +1,5 @@
 export class Preference {
+    email: string;
     min_price: number;
     max_price: number;
     num_beds: number;

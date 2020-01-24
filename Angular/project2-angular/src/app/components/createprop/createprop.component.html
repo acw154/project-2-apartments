@@ -1,0 +1,72 @@
+<app-navbar></app-navbar>
+<app-background></app-background>
+<div class="container register">
+    <div class="row justify-content-center">
+    <div class="col-lg-6 prop-create">
+        <form class="form-group" [formGroup]="propcreateForm" (ngSubmit)="createProp()">
+            <fieldset>
+                <legend>Create Property</legend>
+            </fieldset>
+            <div>
+                <label>Property Type: </label>
+                <select single formControlName="type">
+                    <option *ngFor="let proptype of allTypes" [ngValue]="proptype.id">
+                        {{proptype.typeName}}
+                    </option>
+                </select>
+            </div>
+            <div>
+                <label>Street Number: </label>
+                <input class="Form-control" formControlName="street_num" type="number" step="1" min="0">
+            </div>
+            <div>
+                <label>Street: </label>
+                <input class="Form-control" formControlName="street" type="text">
+            </div>
+            <div>
+                <label>Apt Number: </label>
+                <input class="Form-control" formControlName="apt_num" type="number" step="1" min="0">
+            </div>
+            <div>
+                <label>City: </label>
+                <input class="Form-control" formControlName="city" type="text">
+            </div>
+            <div>
+                <label>State Code: </label>
+                <input class="Form-control" formControlName="state" type="text">
+            </div>
+            <div>
+                <label>Zip: </label>
+                <input class="Form-control" formControlName="zip" type="number" step="1" min="0">
+            </div>
+            <div>
+                <label>Beds: </label>
+                <input class="Form-control" formControlName="num_beds" type="number" step="0.5" min="0">
+            </div>
+            <div>
+                <label>Baths: </label>
+                <input class="Form-control" formControlName="num_baths" type="number" step="0.5" min="0">
+            </div>
+            <div>
+                <label>Price/Month: </label>
+                <input class="Form-control" formControlName="price" type="number" step="0.01" min="0">
+            </div>
+            <div>
+                <label>Photo URL: </label>
+                <input class="Form-control" formControlName="photo" type="text">
+            </div>
+            <div>
+                <label>Square Feet: </label>
+                <input class="Form-control" formControlName="sq_ft" type="number" step="1" min="0">
+            </div>
+            <div>
+                <button class="btn-search" type="submit" [disabled]="!propcreateForm.valid">Create Property</button>
+                <div *ngIf="!propcreateForm.valid" class="alert alert-danger">
+                    <p style="font-size: 10pt;">All fields except Apartment Number are required. All numbers provided must be non-negative</p>
+                </div>
+            </div>
+        </form>
+    </div>
+    </div>
+
+ </div>

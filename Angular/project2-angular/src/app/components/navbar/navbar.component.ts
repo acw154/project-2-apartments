@@ -68,6 +68,17 @@ export class NavbarComponent implements OnInit {
     }
   }
 
+  toPropCreate(){
+    // if(this.sessionService.getCurrentUser() != null){
+    //   console.log('Moving to CreateProp page');
+    //   return this.router.navigateByUrl('/propcreate');
+    // } else {
+    //   alert('You are not logged in');
+    //   return this.router.navigateByUrl('/loginpage');
+    // }
+    this.router.navigateByUrl('/propcreate');
+  }
+
 
   
 }
