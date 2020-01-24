@@ -27,5 +27,6 @@ export class PropertyService {
   public insertProperty(property: Property): Observable<Boolean> {
     return this.http.post<Boolean>(this.createPropUrl, property);
   }
+
   // Create methods that take in the searchForm with all of its values and post it 
 }
