@@ -53,6 +53,7 @@ public class User implements Serializable {
 	String email;
 
 	@OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JsonIgnoreProperties("user")
 	private Preference preference;
 
 	@Column(name = "current_state")
