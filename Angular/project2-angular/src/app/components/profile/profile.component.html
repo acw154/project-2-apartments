@@ -1,5 +1,5 @@
 <app-navbar></app-navbar>
-<!-- <app-background></app-background> -->
+<app-background></app-background>
 <!-- <div class="profile-page">
     <div style="text-align: center;">
         <h2 *ngIf="currentUser==searchedUser Else elseBlock">Welcome {{currentUser.f_name}} {{currentUser.l_name}}</h2>
@@ -24,24 +24,64 @@
 </div> -->
 
 <div class="container profile-page shadow p-3 mb-5 bg-white rounded">
-    <!-- <div style="text-align: center;">
-        <h2 *ngIf="currentUser==searchedUser Else elseBlock">Welcome {{currentUser.f_name}} {{currentUser.l_name}}</h2>
-        <h2 class="elseBlock">Welcome {{searchedUser.f_name}} {{searchedUser.l_name}}</h2>
-    </div> -->
-    <!-- <div class="shadow p-3 mb-5 bg-white rounded"> -->
-        <div class="row">
+        <div class="profile-username">
+            <h2 *ngIf="currentUser==searchedUser Else elseBlock">Welcome 
+                {{currentUser.f_name}} {{currentUser.l_name}}</h2>
+            <h2 class="elseBlock">Welcome {{searchedUser.f_name}} {{searchedUser.l_name}}</h2>
+        </div>
+        <div class="searchforuser">
+            <button type="button" class="btn btn-success btn-sm">Search for User</button>
+        </div>
+
+<!-- profile info -->
+
+<div class="profile-usermenu">
+    <ul class="nav">
+        <li class="active">
+            <a href="#">
+            <i class="glyphicon glyphicon-home"></i>
+            Email </a>
+        </li>
+        <li>
+            <a href="#">
+            <i class="glyphicon glyphicon-user"></i>
+           State </a>
+        </li>
+        <li>
+            <a href="#" target="_blank">
+            <i class="glyphicon glyphicon-ok"></i>
+            Status </a>
+        </li>
+
+    </ul>
+</div>
+        
+    </div>
+<!--  -->
+<!-- ends here -->
+        <div class="row profile-page">
 
          <div class="col-lg-4">
+<<<<<<< HEAD
             <h5>Details</h5>
                 <ul class="profile-ul">
                     <!-- Insert values into the li elements based on whether the user searched is the currentUser or searchedUser-->
                     <li><h4><strong>Email:</strong><span>{{ currentUser.email }}</span></h4></li>
                     <li><h4><strong>State:</strong><span>{{ currentUser.state }}</span></h4></li>
                     <li><h4><strong>Status:</strong><span>{{ currentUser.status }}</span></h4></li>
+=======
+            <h5>User Details</h5>
+                <ul class="profile-ul">
+                    <!-- Insert values into the li elements based on whether the user searched is the currentUser or searchedUser-->
+                    <li><h4>Email</h4></li>
+                    <li><h4>State</h4></li>
+                    <li><h4>Status</h4></li>
+>>>>>>> master
                 </ul>
             </div>  
 
     
+<<<<<<< HEAD
        
         <div class="col-lg-8">
             <h5>Preferences</h5>
@@ -56,6 +96,21 @@
             </ul>
         </div>
     </div>
+=======
+            <!-- <div class="col-lg-8">
+                <h5>Preferences</h5>
+                <ul>
+                    <li><h4>Min Price</h4></li>
+                    <li><h4>Max Price</h4></li>
+                    <li><h4>Beds</h4></li>
+                    <li><h4>Baths</h4></li>
+                    <li><h4>City</h4></li>
+                    <li><h4>Code</h4></li>
+                </ul>
+            </div>
+        </div> -->
+    <!-- </div> -->
+>>>>>>> master
 
     <!-- searched user//hidden div -->
 
@@ -89,6 +144,88 @@
    </div>
 </div>
 
+<<<<<<< HEAD
+=======
+<div class="row">
+      <!-- <div style="text-align: center;">
+        <h2 *ngIf="currentUser==searchedUser Else elseBlock">Welcome {{currentUser.f_name}} {{currentUser.l_name}}</h2>
+        <h2 class="elseBlock">Welcome {{searchedUser.f_name}} {{searchedUser.l_name}}</h2>
+    </div> -->
+    <div class="col-lg-12">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                  <th>Email</th>
+                  <th>Password</th>
+                  <th>State</th>
+                  <th>Status</th>
+                </tr>
+            </thead>
+
+            <tbody *ngIf="currentUser==searchedUser Else elseBlock">
+              <tr>
+                <td>{{currentUser.email}}</td>
+                <td>{{currentUser.passward}}</td>
+                <td>{{currentUser.state}}</td>
+                <td>{{currentUser.status}}</td>
+              </tr>
+            </tbody>
+
+
+            <tbody class="elseBlock">
+                <tr>
+                  <td>{{searchedUser.email}}</td>
+                  <td>{{searchedUser.passward}}</td>
+                  <td>{{searchedUser.state}}</td>
+                  <td>{{searchedUser.status}}</td>
+                </tr>
+              </tbody>
+
+<!-- preferences -->
+
+            <thead>
+                <tr>
+                <th>Price</th>
+                <th>Beds</th>
+                <th>Baths</th>
+                <th>City</th>
+                <th>State</th>
+                </tr>
+            </thead>
+
+              <tbody *ngIf="currentUser==searchedUser Else elseBlock">
+                <tr>
+                  <td>{{userPreference.max_price}}</td>
+                  <td>{{userPreference.num_beds}}</td>
+                  <td>{{userPreference.num_baths}}</td>
+                  <td>{{userPreference.city}}</td>
+                  <td>{{userPreference.state_code}}</td>
+
+                </tr>
+              </tbody>
+  
+  
+              <tbody class="elseBlock">
+                  <tr>
+                    <td>{{searchedUserPreference.max_price}}</td>
+                    <td>{{searchedUserPreference.num_beds}}</td>
+                    <td>{{searchedUserPreference.num_baths}}</td>
+                    <td>{{searchedUserPreference.city}}</td>
+                    <td>{{searchedUserPreference.state_code}}</td>
+                  </tr>
+                </tbody>
+
+
+              <!-- min_price: number;
+              max_price: number;
+              num_beds: number;
+              num_baths: number;
+              city: string;
+              state_code: string; -->
+   
+          </table>
+    </div>
+>>>>>>> master
 </div>
 
 

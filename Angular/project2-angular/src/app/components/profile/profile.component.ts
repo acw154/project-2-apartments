@@ -15,8 +15,13 @@ export class ProfileComponent implements OnInit {
   currentUser: User;
   searchedUser: User;
 
+
   currentUserPref: Preference;
   searchedUserPref: Preference;
+  // preferences
+  userPreference: Preference;
+  searchedUserPreference: Preference;
+master
 
   
   constructor(

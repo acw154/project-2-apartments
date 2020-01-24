@@ -119,9 +119,13 @@ public class PropertyService {
 //		JsonElement je = jp.parse(api.getResponse(query).getBody().toString());
 //		String prettyJsonString = gson.toJson(je);
 		List<Property> list3 = APIParse.parse(api.getResponse(query).getBody());
+		for(Property p : list3) {
+			p.setState(state);
+		}
 		// from the db
 		//String state = pref.getState_code();
 		List<Property> emplist = pdao.findByStateNoApt(state);
+		System.out.println(emplist);
 		if(emplist != null) {
 		emplist.addAll(list3);
 		return emplist;

@@ -103,6 +103,7 @@ public class Property implements Serializable{
 		this.price = dto.getPrice();
 		this.revemp_owned = dto.isRevemp_owned();
 		this.sq_ft = dto.getSq_ft();
+		this.state = dto.getState();
 //		int type;
 //		int street_num;
 //		String street;

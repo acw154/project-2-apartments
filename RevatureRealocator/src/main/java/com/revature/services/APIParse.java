@@ -65,9 +65,14 @@ public class APIParse {
 							if(streetNo.contains("-")) {
 								streetNo = streetNo.split("-")[0];
 							}
-							int streetNum = Integer.parseInt(streetNo);
+							try {
+								int streetNum = Integer.parseInt(streetNo);
+								p.setStreet_num(streetNum);
+							} catch (Exception e1) {
+								p.setStreet_num(0);
+								e1.printStackTrace();
+							}
 							
-							p.setStreet_num(streetNum);
 							// second is street name
 							if(sa2[j+2].contains("Apt")) {
 								int index2 = sa2[j+2].indexOf("Apt");
@@ -75,8 +80,15 @@ public class APIParse {
 								p.setStreet(streetName);
 								// third is apartment number
 								int index3 = sa2[j+2].indexOf(",");
-								int apartmentNum = Integer.parseInt(sa2[j+2].substring((index2 + 4), (index3)));
-								p.setApt_num(apartmentNum);
+								int apartmentNum;
+								try {
+									apartmentNum = Integer.parseInt(sa2[j+2].substring((index2 + 4), (index3)));
+									p.setApt_num(apartmentNum);
+								} catch (Exception e) {
+									e.printStackTrace();
+									p.setApt_num(0);
+								}
+								
 								// fourth is to get the city
 								String[] sa3 = sa2[j+2].split(",");
 								String city = sa3[1];
@@ -187,6 +199,26 @@ public class APIParse {
 					sqf = sqf.replace(",", "");
 					double sqft = Double.parseDouble(sqf);
 					p.setSq_ft(sqft);
+				}
+				if(p.getSq_ft() == 0) {
+					if(sa2[j].equals("sqft")) {
+						System.out.println(sa2[j]);
+						System.out.println(sa2[j+1]);
+						System.out.println(sa2[j+2]);
+						String sqf = sa2[j+2].replace("sq ft", "");
+						sqf = sqf.replace("+", "");
+						sqf = sqf.replace(" ", "");
+						sqf = sqf.replace(",", "");
+						System.out.println(sqf);
+						Double sqfD;
+						try {
+							sqfD = Double.parseDouble(sqf);
+						} catch (NumberFormatException e) {
+							sqfD = 0.0;
+							e.printStackTrace();
+						}
+						p.setSq_ft(sqfD);
+					}
 				}
 				if(sa2[j].equals("pet_policy")) {
 					if(sa2[j+2].contains("OK")) {
