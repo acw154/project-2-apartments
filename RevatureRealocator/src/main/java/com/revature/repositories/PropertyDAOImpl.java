@@ -126,14 +126,16 @@ public class PropertyDAOImpl implements PropertyDAO {
 	public List<Property> findByStateNoApt(String state) {
 		//Session s = sf.getCurrentSession();
 		Session s = sf.openSession();
-		
+		System.out.println(state);
 		List<Property> list = null;
 		try {
-			list = s.createQuery("FROM Property WHERE state = '" + state + "'", Property.class).list();
+			/*List<Property> */list = s.createQuery("from Property WHERE state = '" + state + "'", Property.class).list();
 		} catch (IndexOutOfBoundsException e) {
 			logger.warn("Failed attempted to find by State: " + state, e);
 			e.printStackTrace();
+			System.out.println("threw exception");
 		}
+		System.out.println(list);
 		if(list.size()==0) {
 			return null;
 		}
