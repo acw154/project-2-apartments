@@ -1,6 +1,25 @@
 .profile-page {
   background-color: rgba(0,0,0,0.5);
   /* margin-top: -40rem; */
+  margin-top: 10rem;
+  text-align: center;
   color: black;
-  border: 3px solid red;
+}
+
+.profile-ul span {
+  margin-left: 2rem;
+}
+
+.profile-ul li {
+  padding: 7px 5px;
+  font-size: 19px;
+  list-style: none;;
+}
+.searched-user {
+  margin-top: 4rem;
+}
+
+hr {
+  height: 1px;
+
 }
