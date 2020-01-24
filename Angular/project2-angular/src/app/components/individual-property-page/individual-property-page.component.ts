@@ -13,7 +13,8 @@ export class IndividualPropertyPageComponent implements OnInit {
   propertyService: PropertyService;
 
   constructor(
-  ) { }
+  ) { 
+  }
 
   ngOnInit() {
     this.viewedProperty = this.propertyService.getViewedProperty();
