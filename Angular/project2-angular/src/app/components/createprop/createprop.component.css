@@ -1,0 +1,176 @@
+.prop-create {
+  min-height: 30vh;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-align: center;
+      align-items: center;
+  background-size: cover;
+  background-position: center center;
+  padding: 15px;
+  font-family: 'Lato', sans-serif;
+  background-color:rgba(0,0,0,0.5);
+  padding: 1rem;
+  margin-top: -80rem;
+} 
+
+.prop-create form {
+  width: 100%;
+  max-width: 870px;
+  margin: 0;
+}
+
+.prop-create form fieldset {
+  margin-bottom: 30px;
+}
+.prop-create form input {
+  height:30px;
+  font-size:12pt;
+}
+
+.prop-create form select {
+  height: 80px;
+  font-size: 12pt;
+}
+
+
+.prop-create form label {
+  display: inline-block;
+  clear: right;
+  width: 250px;
+  text-align: left;
+  font-size: 12pt;
+}
+
+/*
+      "Search Rentals"
+*/
+.prop-create form fieldset legend {
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+}
+
+.prop-create form .btn-search {
+  min-width: 100px;
+  height: 50px;
+  padding: 0 15px;
+
+  background: rgb(47, 129, 253);
+
+  white-space: nowrap;
+  border-radius: 3px;
+  font-size: 16px;
+  color: #fff;
+  transition: all .2s ease-out, color .2s ease-out;
+  border: 0;
+  cursor: pointer;
+  font-weight: 900;
+}
+
+.prop-create form .btn-search:hover {
+
+  background: rgb(33, 93, 184);
+}
+
+.btn {
+  background-color: rgb(111, 183, 189);
+  width: 100px;
+  text-align: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  justify-content: center;
+}
+
+.btn:hover {
+  color: black;
+  background-color: white;
+  }
+
+h3 {
+  color: white;
+  font-size: 1.7rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+label {
+  color: white;
+  padding-top: 1.5rem;
+  font-weight: 500;
+}
+
+button,
+  input,
+  optgroup,
+  select,
+  textarea {
+    font-family: sans-serif;
+    /* 1 */
+    font-size: 100%;
+    /* 1 */
+    line-height: 1.15;
+    /* 1 */
+    margin: 0;
+    /* 2 */
+  }
+
+  button,
+  html [type="button"],
+  [type="reset"],
+  [type="submit"] {
+    -webkit-appearance: button;
+    /* 2 */
+  }
+
+  button::-moz-focus-inner,
+  [type="button"]::-moz-focus-inner,
+  [type="reset"]::-moz-focus-inner,
+  [type="submit"]::-moz-focus-inner {
+    border-style: none;
+    padding: 0;
+  }
+
+  button:-moz-focusring,
+  [type="button"]:-moz-focusring,
+  [type="reset"]:-moz-focusring,
+  [type="submit"]:-moz-focusring {
+    outline: 1px dotted ButtonText;
+  }
+
+  html {
+    height: 100%;
+  }
+  
+  fieldset {
+    margin: 0;
+    padding: 0;
+    -webkit-margin-start: 0;
+    -webkit-margin-end: 0;
+    -webkit-padding-before: 0;
+    -webkit-padding-start: 0;
+    -webkit-padding-end: 0;
+    -webkit-padding-after: 0;
+    border: 0;
+  }
+  
+  legend {
+    margin: 0;
+    padding: 0;
+    display: block;
+    -webkit-padding-start: 0;
+    -webkit-padding-end: 0;
+  }
+  
+  /*===============================
+  =            Choices            =
+  ===============================*/
+
+
+  
+  * {
+    box-sizing: border-box;
+  }

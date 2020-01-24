@@ -30,9 +30,9 @@ export class RentalsearchComponent implements OnInit {
     this.prefForm = this.fb.group({
       city: ['', Validators.required],
       state_code: ['', Validators.required],
-      max_price: ['', ],
-      num_beds: ['', ],
-      num_baths: ['', ],
+      max_price: ['', Validators.min(0)],
+      num_beds: ['', Validators.min(0)],
+      num_baths: ['', Validators.min(0)],
     });
   }
 
@@ -52,7 +52,7 @@ export class RentalsearchComponent implements OnInit {
         }, error => {
           console.log('Error', error);
         }
-      )
+      );
     } else {
       this.propertyService.getPropertiesByPref(this.preference).subscribe(
         data => {
@@ -62,20 +62,10 @@ export class RentalsearchComponent implements OnInit {
         }, error => {
           console.log('Error', error);
         }
-      )
+      );
     }
-    // this.propertyService.getPropertiesByPref(this.preference).subscribe(
-    //   data => {
-    //     if(data != null) {
-    //       this.response = data;
-    //       // Either have properties hide until search is clicked using ngIf or have some update button
-    //     }
-    //   },
-    //   error => {
-    //     console.log('Error', error);
-    //   }
-    // );
-    }
+    this.prefForm.reset();
+  }
     searchWithSavedPref(){
       console.log(this.sessionService.getPreference());
       this.preference = this.sessionService.getPreference();
