@@ -4,6 +4,7 @@ import { FormBuilder } from '@angular/forms';
 import { UserService } from 'src/app/services/user.service';
 import { Session } from 'protractor';
 import { SessionService } from 'src/app/services/session.service';
+import { Preference } from 'src/app/model/preference';
 
 @Component({
   selector: 'app-profile',
@@ -13,6 +14,10 @@ import { SessionService } from 'src/app/services/session.service';
 export class ProfileComponent implements OnInit {
   currentUser: User;
   searchedUser: User;
+
+  // preferences
+  userPreference: Preference;
+  searchedUserPreference: Preference;
 
   
   constructor(
