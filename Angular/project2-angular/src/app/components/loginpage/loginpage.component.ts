@@ -33,9 +33,6 @@ export class LoginpageComponent implements OnInit {
   ngOnInit() {
   }
 
-<<<<<<< HEAD
-   onSubmit() {
-=======
   onSubmit() {
     
     // this.submitted = true;
@@ -47,7 +44,7 @@ export class LoginpageComponent implements OnInit {
     //     } else {
     //       alert("Invalid Credentials");
     //     }
->>>>>>> master
+
     this.submitted = true;
     console.log(this.submitted);
     console.log(this.loginT);
@@ -60,19 +57,12 @@ export class LoginpageComponent implements OnInit {
           alert("Invalid Credentials");
           
         }
-<<<<<<< HEAD
-      });
-    }
-  }
-
-=======
       }, error => {
         console.log("Error", error);
       });
     }
   }
     
->>>>>>> master
          // Saved the user as current User 
         // Send the user value to some other service and save it as currentUser object
         // ex: this.profileService.setCurrentUser()
