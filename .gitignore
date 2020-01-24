@@ -24,4 +24,4 @@ hs_err_pid*
 /.metadata/
 
 
-*.log4j2.properties
+*/RevatureRealocator/src/main/resources/log4j2.properties

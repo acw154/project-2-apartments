@@ -2,14 +2,10 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginpageComponent } from './components/loginpage/loginpage.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-<<<<<<< HEAD
-import { LogoutComponent } from './components/logout/logout.component';
-=======
-import { ProfileComponent } from './components/profile/profile.component';
->>>>>>> master
 import { RentalsearchComponent } from './components/rentalsearch/rentalsearch.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { IndividualPropertyPageComponent } from './components/individual-property-page/individual-property-page.component';
 
 
 const routes: Routes = [
@@ -19,6 +15,7 @@ const routes: Routes = [
   { path: 'rentalsearch', component: RentalsearchComponent },
   { path: 'register', component: RegisterComponent },
   { path: '', component: LoginpageComponent },
+  { path: 'individualpropertypage', component: IndividualPropertyPageComponent },
   { path: '**', redirectTo: 'loginpage', pathMatch: 'full' }
 ];
 

@@ -11,4 +11,8 @@ export class Property {
     price: number;
     revemp_owned: boolean;
     sq_ft: number;
+
+    public constructor(init?: Partial<Property>) {
+        Object.assign(this, init);
+    }
 }

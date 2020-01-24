@@ -33,9 +33,8 @@ export class LoginpageComponent implements OnInit {
   ngOnInit() {
   }
 
-  // onSubmit() {
+  onSubmit() {
     
-<<<<<<< HEAD
     // this.submitted = true;
     // this.loginService.login(this.loginT).subscribe(
     //   data => {
@@ -45,18 +44,24 @@ export class LoginpageComponent implements OnInit {
     //     } else {
     //       alert("Invalid Credentials");
     //     }
-=======
     this.submitted = true;
+    console.log(this.submitted);
+    console.log(this.loginT);
     this.loginService.login(this.loginT).subscribe(
       data => {
         if(data != null){
           this.sessionService.saveCurrentUser(data);
-          this.router.navigate(['/profile']);
+          // save preference 
         } else {
           alert("Invalid Credentials");
           
         }
->>>>>>> master
+      }, error => {
+        console.log("Error", error);
+      });
+    }
+  }
+    
          // Saved the user as current User 
         // Send the user value to some other service and save it as currentUser object
         // ex: this.profileService.setCurrentUser()
@@ -68,4 +73,4 @@ export class LoginpageComponent implements OnInit {
   //   console.log(this.submitted);
   //   console.log(this.loginT);
   // }
-}
+
