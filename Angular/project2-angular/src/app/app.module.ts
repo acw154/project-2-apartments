@@ -14,6 +14,8 @@ import { UsersearchpageComponent } from './components/usersearchpage/usersearchp
 import { IndividualPropertyPageComponent } from './components/individual-property-page/individual-property-page.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { LoginpageComponent } from './components/loginpage/loginpage.component';
+import { EditprofileComponent } from './components/editprofile/editprofile.component';
+
 
 
 
@@ -29,7 +31,8 @@ import { LoginpageComponent } from './components/loginpage/loginpage.component';
     RegisterComponent,
     UsersearchpageComponent,
     IndividualPropertyPageComponent,
-    LoginpageComponent
+    LoginpageComponent,
+    EditprofileComponent
   ],
   imports: [
     BrowserModule,

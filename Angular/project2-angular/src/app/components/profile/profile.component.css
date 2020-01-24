@@ -1,14 +1,18 @@
 .profile-page {
-  background-color: rgba(0,0,0,0.5);
-
-  /* margin-top: -40rem; */
-  margin-top: 10rem;
+  margin-top: -50rem;
   text-align: center;
   color: black;
 }
 
+.profile-ul strong {
+  color: rgb(27, 27, 155);
+  text-transform: uppercase;
+  font-weight: 700;
+
+}
 .profile-ul span {
   margin-left: 2rem;
+  color: rgb(66, 124, 129);
 }
 
 .profile-ul li {
@@ -16,9 +20,35 @@
   font-size: 19px;
   list-style: none;;
 }
-.searched-user {
-  margin-top: 4rem;
+
+.prefer {
+  background-color: rgba(0,0,0,0.5);
 }
+
+.prefer1 {
+  background-color: rgba(0,0,0,0.5);
+}
+
+.user-details h5 {
+  color: rgb(27, 27, 155);
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 1.7rem;
+}
+
+
+.edit{
+  color: white;
+  background-color: rgb(111, 183, 189);
+  width: 100px;
+  text-align: center;
+  justify-content: center;
+  }
+  
+  .edit:hover{
+  color: black;
+  background-color: white;
+  }
 
 
 
