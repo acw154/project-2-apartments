@@ -67,6 +67,14 @@ public class Preference implements Serializable{
 	}
 
 
+	public Preference(PreferenceDTO dto) {
+		this.minPrice = dto.getMin_price();
+		this.maxPrice = dto.getMax_price();
+		this.numBeds = dto.getNum_beds();
+		this.numBaths = dto.getNum_baths();
+		this.city = dto.getCity();
+		this.state_code = dto.getState_code();
+	}
 
 	public Preference(int id, boolean pets, double minPrice, double maxPrice, double numBeds, double numBaths,
 			boolean furnished, String city, String state_code, User user) {
