@@ -6,8 +6,12 @@ import { RentalsearchComponent } from './components/rentalsearch/rentalsearch.co
 import { RegisterComponent } from './components/register/register.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { IndividualPropertyPageComponent } from './components/individual-property-page/individual-property-page.component';
+<<<<<<< HEAD
 import { EditprofileComponent } from './components/editprofile/editprofile.component';
 
+=======
+import { CreatepropComponent } from './components/createprop/createprop.component';
+>>>>>>> master
 
 
 const routes: Routes = [
@@ -19,6 +23,7 @@ const routes: Routes = [
   { path: 'editprofile', component: EditprofileComponent },
   { path: '', component: LoginpageComponent },
   { path: 'individualpropertypage', component: IndividualPropertyPageComponent },
+  { path: 'propcreate', component: CreatepropComponent },
   { path: '**', redirectTo: 'loginpage', pathMatch: 'full' }
 ];
 

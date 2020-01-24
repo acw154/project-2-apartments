@@ -15,6 +15,7 @@ import { IndividualPropertyPageComponent } from './components/individual-propert
 import { ProfileComponent } from './components/profile/profile.component';
 import { LoginpageComponent } from './components/loginpage/loginpage.component';
 import { EditprofileComponent } from './components/editprofile/editprofile.component';
+import { CreatepropComponent } from './components/createprop/createprop.component';
 
 
 
@@ -32,7 +33,9 @@ import { EditprofileComponent } from './components/editprofile/editprofile.compo
     UsersearchpageComponent,
     IndividualPropertyPageComponent,
     LoginpageComponent,
-    EditprofileComponent
+    EditprofileComponent,
+    CreatepropComponent,
+    LoginpageComponent
   ],
   imports: [
     BrowserModule,

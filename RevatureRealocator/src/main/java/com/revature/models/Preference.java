@@ -15,6 +15,8 @@ import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Component
 @Entity
 @Table(name = "user_preferences")
@@ -56,6 +58,7 @@ public class Preference implements Serializable{
 	
 	@OneToOne(fetch = FetchType.EAGER)//(mappedBy="user_id")
 	@JoinColumn(name="user_id")
+	@JsonIgnoreProperties("preference")
 	private User user;
 
 	
