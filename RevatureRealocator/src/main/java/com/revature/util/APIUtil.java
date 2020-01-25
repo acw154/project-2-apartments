@@ -54,7 +54,7 @@ public class APIUtil {
 		try {
 			String sc = URLEncoder.encode(state_code, charset);
 			String c = URLEncoder.encode(city, charset);
-			String query = String.format("state_code=%s&limit=50&city=%s&offset=0", sc, c);
+			String query = String.format("state_code=%s&limit=200&city=%s&offset=0", sc, c);
 			return query;
 		} catch (UnsupportedEncodingException e) {
 			// TODO Auto-generated catch block

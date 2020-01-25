@@ -1,5 +1,6 @@
 package com.revature.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
@@ -48,26 +49,43 @@ public class UserController {
 
 //	@CrossOrigin(origins = "http://localhost:4200")
 	@PostMapping(value = "/login")
-	@ResponseBody
-	public ResponseEntity<User> findByEmail(@RequestBody LoginDTO login) {
+
+	public ResponseEntity<UserDTO> findByEmail(@RequestBody LoginDTO login) {
+
+	//@ResponseBody
+	//public ResponseEntity<User> findByEmail(@RequestBody LoginDTO login) {
+
 		System.out.println("inside of UserController login method");
 		String email = login.getEmail();
 		String pass = login.getPassword();
 		if (us.verifyUser(email, pass)) {
 			User user = us.findByEmail(email);
+			UserDTO dto = new UserDTO(user);
 			logger.info("Successful User login with email: " + user.getEmail());	
-			return ResponseEntity.ok(user);
+
+			return ResponseEntity.ok().body(dto);
 		} else {
-			User user = null;
-			logger.warn("Attempted and failed login with User email: " + email);
+			UserDTO user = null;
+			logger.warn("Attempted and failed login with User email: " + user.getEmail());
+
+		//	return ResponseEntity.ok(user);
+	//	} else {
+		//	User user = null;
+		//	logger.warn("Attempted and failed login with User email: " + email);
+
 			return ResponseEntity.status(HttpStatus.NO_CONTENT).body(user);
 		}
 	}
 	
 	
+
+//	@PostMapping(value = "/user")
+	//public ResponseEntity<UserDTO> saveOrAddUser(@RequestBody UserDTO userdto) {
+
 	@PostMapping(value = "/user/{email}")
 	@ResponseBody
 	public ResponseEntity<User> saveOrAddUser(@RequestBody UserDTO userdto) {
+
 		System.out.println("inside of saveOrAddUser method in UserController");
 //		String f_name = userdto.getF_name();
 //		String l_name = userdto.getL_name();
@@ -77,10 +95,12 @@ public class UserController {
 //		String current_state = userdto.getCurrent_state();
 		User user = new User(userdto);
 		if(us.upsert(user) != null) {
-			return ResponseEntity.status(HttpStatus.CREATED).body(user);
+			UserDTO dto = new UserDTO(user);
+			System.out.println("us.upsert(user) in user controller is not null");
+			return ResponseEntity.status(HttpStatus.CREATED).body(dto);
 		} else {
-			user = null;
-			return ResponseEntity.status(HttpStatus.NO_CONTENT).body(user);
+			UserDTO dto = null;
+			return ResponseEntity.status(HttpStatus.NO_CONTENT).body(dto);
 		}
 	}
 
@@ -92,6 +112,7 @@ public class UserController {
 		if (us.findByState(st) != null) {
 			System.out.println("Inside of findByState method if conditional of UserController");
 			List<User> list = us.findByState(st);
+			
 			System.out.println("used the userService to create a list UserController");
 			return ResponseEntity.ok().body(list);
 		} else {

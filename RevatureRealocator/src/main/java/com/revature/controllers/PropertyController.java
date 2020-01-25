@@ -68,11 +68,11 @@ public class PropertyController {
 		return list;
 	}	
 	
-//	@CrossOrigin(origins = "http://localhost:4200")
-	@CrossOrigin(origins = "*")
+
 	@PostMapping(value = "/propsave")
 	@ResponseBody
-	public ResponseEntity<Property> saveOrAddProperty(@RequestBody PropertyDTO dto) {
+	//public ResponseEntity<Property> saveOrAddProperty(@RequestBody PropertyDTO dto) {
+	public Property saveOrAddProperty(@RequestBody PropertyDTO dto) {
 		System.out.println("inside of saveOrAddProperty method in UserController");
 
 		System.out.println(dto);
@@ -80,11 +80,43 @@ public class PropertyController {
 		System.out.println(property);
 		if(ps.upsert(property) != false) {
 			System.out.println("good creation.. returned true... about to send back a good status with the property in the body");
-			return ResponseEntity.status(HttpStatus.CREATED).body(property);
+			//return ResponseEntity.status(HttpStatus.CREATED).body(property);
+			return property;
 		} else {
 			property = null;
 			System.out.println("bad creation??? returned false in services... about to send back a NO_CONTENT status with a null property");
-			return ResponseEntity.status(HttpStatus.NO_CONTENT).body(property);
+			//return ResponseEntity.status(HttpStatus.NO_CONTENT).body(property);
+			return property;
 		}
+	}
+	
+	
+	
+	@CrossOrigin(origins = "*")
+	@PostMapping(value = "/userpropsave")
+	@ResponseBody
+	public ResponseEntity<UserDTO> saveUserToProperty(@RequestBody PropertyDTO dto) {
+		System.out.println("inside of saveUserToProperty method in UserController");
+		String email = dto.getEmail();
+		System.out.println(dto);
+		Property property = new Property(dto);
+		System.out.println(property);
+		UserDTO uDTO = ps.associateUserAndProperty(property, email);
+		if(uDTO != null) {
+			return ResponseEntity.ok().body(uDTO);
+		} else {
+			uDTO = null;
+			return ResponseEntity.status(HttpStatus.NO_CONTENT).body(uDTO);
+		}
+		
+		
+//		if(ps.upsert(property) != false) {
+//			System.out.println("good creation.. returned true... about to send back a good status with the property in the body");
+//			return ResponseEntity.status(HttpStatus.CREATED).body(property);
+//		} else {
+//			property = null;
+//			System.out.println("bad creation??? returned false in services... about to send back a NO_CONTENT status with a null property");
+//			return ResponseEntity.status(HttpStatus.NO_CONTENT).body(property);
+//		}
 	}
 }

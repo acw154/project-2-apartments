@@ -1,5 +1,6 @@
 package com.revature.services;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,8 @@ import com.mashape.unirest.http.JsonNode;
 import com.revature.models.Preference;
 import com.revature.models.Property;
 import com.revature.models.PropertyType;
+import com.revature.models.User;
+import com.revature.models.UserDTO;
 import com.revature.repositories.PropertyDAO;
 import com.revature.util.APIUtil;
 
@@ -33,6 +36,8 @@ public class PropertyService {
 	@Autowired
 	private PropertyTypeService ptService;
 	
+	@Autowired
+	private UserService us;
 	
 	public PropertyService() {
 		
@@ -44,6 +49,12 @@ public class PropertyService {
 	public PropertyService(PropertyDAO pdao, PropertyTypeService ptService) {
 		this.pdao = pdao;
 		this.ptService = ptService;
+	}
+	
+	public PropertyService(PropertyDAO pdao, PropertyTypeService ptService, UserService us) {
+		this.pdao = pdao;
+		this.ptService = ptService;
+		this.us = us;
 	}
 	
 	public List<Property> findAll(){
@@ -122,12 +133,27 @@ public class PropertyService {
 		for(Property p : list3) {
 			p.setState(state);
 		}
+		//Filter by min max bed bath
+		double prefmin = pref.getMinPrice();
+		double prefmax = pref.getMaxPrice();
+		double prefbath = pref.getNumBaths();
+		double prefbed = pref.getNumBeds();
+		System.out.println(list3);
+		List<Property> list2 = new ArrayList<>();
+		for(Property prop : list3) {
+			//System.out.println(prop);
+			if((prop.getPrice() > prefmin) && (prop.getPrice() < prefmax) &&
+					(prop.getNum_baths() > prefbath) && (prop.getNum_beds() > prefbed)) {
+				list2.add(prop);
+			}
+		}
+		//System.out.println(list3);
 		// from the db
 		//String state = pref.getState_code();
 		List<Property> emplist = pdao.findByStateNoApt(state);
-		System.out.println(emplist);
+		//System.out.println(emplist);
 		if(emplist != null) {
-		emplist.addAll(list3);
+		emplist.addAll(list2);
 		return emplist;
 		}
 		return list3;
@@ -138,5 +164,22 @@ public class PropertyService {
 		PropertyType fullType = ptService.findByType(typeString);
 		return fullType;
 	}
+	
+	public UserDTO associateUserAndProperty(Property property, String email) {
+		User user = us.findByEmail(email);
+		List<Property> list = user.getSavedProperties();
+		list.add(property);
+		user.setSavedProperties(list);
+		try {
+			user = us.upsert(user);
+			property.addUser(user);
+			pdao.upsert(property);
+			UserDTO dto = new UserDTO(user);
+			return dto;
+		} catch (Exception e) {
+			return null;
+		}
+	}
+	
 	
 }
