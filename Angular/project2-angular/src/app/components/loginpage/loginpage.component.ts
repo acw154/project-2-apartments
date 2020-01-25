@@ -9,6 +9,7 @@ import { ProfileService } from 'src/app/services/profile.service';
 import { UserService } from '../../services/user.service';
 import { LoginTemplate } from 'src/app/model/login-template';
 import { SessionService } from 'src/app/services/session.service';
+import { Preference } from 'src/app/model/preference';
 
 @Component({
   selector: 'app-loginpage',
@@ -51,7 +52,20 @@ export class LoginpageComponent implements OnInit {
     this.loginService.login(this.loginT).subscribe(
       data => {
         if(data != null){
+          
           this.sessionService.saveCurrentUser(data);
+          //console.log(this.sessionService.getCurrentUser().user_status);
+          // this.userService.getUserPreference(data).subscribe(
+          //   data => {
+          //     if (data != null) {
+          //       this.sessionService.storePreference(data);
+          //     } else {
+          //       console.log('User does not have a preference');
+          //     }
+          //   }, error => {
+          //     console.log('Error ', error);
+          //   }
+          // );
           // save preference 
         } else {
           alert("Invalid Credentials");

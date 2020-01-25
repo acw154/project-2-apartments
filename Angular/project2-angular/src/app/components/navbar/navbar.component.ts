@@ -55,7 +55,7 @@ export class NavbarComponent implements OnInit {
       console.log('Moving to Register Page');
       return this.router.navigateByUrl('/register');
     } else {
-      alert('You are currently logged in as ' + this.sessionService.getCurrentUser() + ". Please logout to register");
+      alert('You are currently logged in as ' + this.sessionService.getCurrentUser().email + ". Please logout to register");
     }
   }
 
@@ -64,8 +64,19 @@ export class NavbarComponent implements OnInit {
       console.log('Moving to Login Page');
       return this.router.navigateByUrl('/loginpage');
     } else {
-      alert('You are currently logged in as ' + this.sessionService.getCurrentUser() + ". Please logout to change user");
+      alert('You are currently logged in as ' + this.sessionService.getCurrentUser().email + ". Please logout to change user");
     }
+  }
+
+  toPropCreate(){
+    // if(this.sessionService.getCurrentUser() != null){
+    //   console.log('Moving to CreateProp page');
+    //   return this.router.navigateByUrl('/propcreate');
+    // } else {
+    //   alert('You are not logged in');
+    //   return this.router.navigateByUrl('/loginpage');
+    // }
+    this.router.navigateByUrl('/propcreate');
   }
 
 

@@ -27,8 +27,8 @@ import com.revature.services.UserService;
 
 //@RestController
 //@CrossOrigin(origins="*", allowCredentials="true", allowedHeaders="*", methods= {RequestMethod.POST, RequestMethod.GET})
-@CrossOrigin(origins="http://localhost:4200")
-@RestController
+@CrossOrigin
+@Controller
 public class UserController {
 
 	
@@ -49,7 +49,12 @@ public class UserController {
 
 //	@CrossOrigin(origins = "http://localhost:4200")
 	@PostMapping(value = "/login")
+
 	public ResponseEntity<UserDTO> findByEmail(@RequestBody LoginDTO login) {
+
+	//@ResponseBody
+	//public ResponseEntity<User> findByEmail(@RequestBody LoginDTO login) {
+
 		System.out.println("inside of UserController login method");
 		String email = login.getEmail();
 		String pass = login.getPassword();
@@ -57,17 +62,30 @@ public class UserController {
 			User user = us.findByEmail(email);
 			UserDTO dto = new UserDTO(user);
 			logger.info("Successful User login with email: " + user.getEmail());	
+
 			return ResponseEntity.ok().body(dto);
 		} else {
 			UserDTO user = null;
 			logger.warn("Attempted and failed login with User email: " + user.getEmail());
+
+		//	return ResponseEntity.ok(user);
+	//	} else {
+		//	User user = null;
+		//	logger.warn("Attempted and failed login with User email: " + email);
+
 			return ResponseEntity.status(HttpStatus.NO_CONTENT).body(user);
 		}
 	}
 	
 	
-	@PostMapping(value = "/user")
-	public ResponseEntity<UserDTO> saveOrAddUser(@RequestBody UserDTO userdto) {
+
+//	@PostMapping(value = "/user")
+	//public ResponseEntity<UserDTO> saveOrAddUser(@RequestBody UserDTO userdto) {
+
+	@PostMapping(value = "/user/{email}")
+	@ResponseBody
+	public ResponseEntity<User> saveOrAddUser(@RequestBody UserDTO userdto) {
+
 		System.out.println("inside of saveOrAddUser method in UserController");
 //		String f_name = userdto.getF_name();
 //		String l_name = userdto.getL_name();
@@ -88,6 +106,7 @@ public class UserController {
 
 //	@CrossOrigin(origins = "http://localhost:4200")
 	@GetMapping(value = "/state/{st}")
+	@ResponseBody
 	public ResponseEntity<List<User>> findByState(@PathVariable("st") String st) {
 		System.out.println("Inside of findByState method of UserController");
 		if (us.findByState(st) != null) {
@@ -106,6 +125,7 @@ public class UserController {
 
 //	@CrossOrigin(origins = "http://localhost:4200")
 	@RequestMapping(value = "/users", method = RequestMethod.GET)
+	@ResponseBody
 	public List<User> findAll() {
 		return us.findAll();
 		 

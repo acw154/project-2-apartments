@@ -24,4 +24,5 @@ hs_err_pid*
 /.metadata/
 
 
-*/log4j2.properties
+**/log4j2.properties
+**/logs/
