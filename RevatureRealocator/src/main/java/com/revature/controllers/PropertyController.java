@@ -89,7 +89,7 @@ public class PropertyController {
 		if(ps.upsert(property) != false) {
 			System.out.println("good creation.. returned true... about to send back a good status with the property in the body");
 			PropertyDTO prop = new PropertyDTO(property);
-			return ResponseEntity.status(HttpStatus.CREATED).body(prop);
+			return ResponseEntity.ok().body(prop);
 			
 			//return prop;
 		} else {
