@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../model/user';
 import { Preference } from '../model/preference';
+import { ThrowStmt } from '@angular/compiler';
 
 @Injectable({
   providedIn: 'root'
@@ -13,11 +14,17 @@ export class UserService {
   private saveUserUrl: string;
   private prefUrl: string;
   private currentUser: User;
+ 
+  // 
+  private findUserUrl: string;
+
 
   constructor(private http: HttpClient) {
     this.usersUrl = '/RevatureRealocator/preferences/users'; // May need to change this URI 
     this.prefUrl = '/RevatureRealocator/getpref'; // or whatever that uri is
-    this.saveUserUrl = '/RevatureRealocator/user'
+    this.saveUserUrl = '/RevatureRealocator/user';
+    // 
+    this.findUserUrl = 'RevatureRealocator/state/'; //not finished after "/"
   }
 
   // Create methods for saving and getting the profile information
@@ -28,5 +35,12 @@ export class UserService {
   public saveUser(user: User): Observable<User> {
     return this.http.post<User>(this.saveUserUrl, user);
   }
-  
+
+
+  public findByState(users: User): Observable<User[]> {
+    return this.http.post<User[]>(this.findUserUrl + 'simple', users);
+  }
+
+
 }
+
