@@ -82,9 +82,9 @@ public class UserController {
 //	@PostMapping(value = "/user")
 	//public ResponseEntity<UserDTO> saveOrAddUser(@RequestBody UserDTO userdto) {
 
-	@PostMapping(value = "/user/{email}")
+	@PostMapping(value = "/user")
 	@ResponseBody
-	public ResponseEntity<User> saveOrAddUser(@RequestBody UserDTO userdto) {
+	public ResponseEntity<UserDTO> saveOrAddUser(@RequestBody UserDTO userdto) {
 
 		System.out.println("inside of saveOrAddUser method in UserController");
 //		String f_name = userdto.getF_name();
@@ -97,7 +97,7 @@ public class UserController {
 		if(us.upsert(user) != null) {
 			UserDTO dto = new UserDTO(user);
 			System.out.println("us.upsert(user) in user controller is not null");
-			return ResponseEntity.status(HttpStatus.CREATED).body(dto);
+			return ResponseEntity.ok().body(dto);
 		} else {
 			UserDTO dto = null;
 			return ResponseEntity.status(HttpStatus.NO_CONTENT).body(dto);

@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Objects;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -38,7 +39,7 @@ public class UserStatus implements Serializable{
 	private String status;
 	
 	@JsonIgnoreProperties("userStatus")
-	@OneToMany(mappedBy = "userStatus", fetch = FetchType.EAGER)
+	@OneToMany(cascade=CascadeType.ALL, mappedBy = "userStatus", fetch = FetchType.EAGER)
 	private Set<User> user;
 
 	

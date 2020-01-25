@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, createPlatformFactory } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { LoginService } from '../../services/login.service';
@@ -17,8 +17,9 @@ import { Preference } from 'src/app/model/preference';
   styleUrls: ['./loginpage.component.css']
 })
 export class LoginpageComponent implements OnInit {
-  loginT: LoginTemplate;
+  loginT: FormGroup;
   submitted=false;
+  user: User;
   
 
   constructor(
@@ -26,34 +27,32 @@ export class LoginpageComponent implements OnInit {
       private router: Router,
       private userService: UserService,
       private sessionService: SessionService,
+      private fb: FormBuilder,
       //private profileService: ProfileService,
   ) { 
-    this.loginT = new LoginTemplate();
+    this.createForm();
+  }
+
+  createForm(){
+    this.loginT = this.fb.group({
+      email: ['', Validators.required],
+      password: ['', Validators.required]
+    })
   }
 
   ngOnInit() {
   }
 
   onSubmit() {
-    
-    // this.submitted = true;
-    // this.loginService.login(this.loginT).subscribe(
-    //   data => {
-    //     if(data != null){
-    //       this.userService.saveCurrentUser(data);
-    //       this.router.navigate(['/profile']);
-    //     } else {
-    //       alert("Invalid Credentials");
-    //     }
-
     this.submitted = true;
     console.log(this.submitted);
     console.log(this.loginT);
-    this.loginService.login(this.loginT).subscribe(
+    this.loginService.login(this.loginT.value).subscribe(
       data => {
         if(data != null){
-          
-          this.sessionService.saveCurrentUser(data);
+          this.user = new User(data);
+          this.sessionService.saveCurrentUser(this.user);
+          console.log(this.user);
           //console.log(this.sessionService.getCurrentUser().user_status);
           // this.userService.getUserPreference(data).subscribe(
           //   data => {
