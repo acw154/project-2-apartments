@@ -59,7 +59,7 @@ public class Preference implements Serializable{
 	
 	@OneToOne(fetch = FetchType.EAGER)//(mappedBy="user_id")
 	@JoinColumn(name="user_id")
-	@JsonProperty("preference")
+	@JsonIgnoreProperties("preference")
 	private User user;
 
 	
@@ -233,7 +233,7 @@ public class Preference implements Serializable{
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(city, furnished, id, maxPrice, minPrice, numBaths, numBeds, pets, state_code, user);
+		return Objects.hash(city, furnished, id, maxPrice, minPrice, numBaths, numBeds, pets, state_code);
 	}
 
 

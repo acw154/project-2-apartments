@@ -54,7 +54,7 @@ public class User implements Serializable {
 	String email;
 
 	@OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@JsonProperty("user")
+	@JsonIgnoreProperties("user")
 	private Preference preference;
 
 	@Column(name = "current_state")
@@ -67,7 +67,7 @@ public class User implements Serializable {
 	private List<Property> savedProperties = new ArrayList<>();
 	
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JsonProperty("user")
+	@JsonIgnoreProperties("user")
 	private UserStatus userStatus;
 	
 	@OneToMany(mappedBy="sender", fetch = FetchType.EAGER)

@@ -37,7 +37,7 @@ public class UserStatus implements Serializable{
 	@Column
 	private String status;
 	
-	@JsonProperty("userStatus")
+	@JsonIgnoreProperties("userStatus")
 	@OneToMany(mappedBy = "userStatus", fetch = FetchType.EAGER)
 	private Set<User> user;
 

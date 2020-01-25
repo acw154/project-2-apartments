@@ -1084,3 +1084,15 @@ java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
 2020-01-24 16:50:32 INFO  UserDAOImpl:104 - Found User with email: mail97@mail.com
 2020-01-24 16:52:35 INFO  UserDAOImpl:104 - Found User with email: mail1@mail.com
 2020-01-24 16:52:37 INFO  UserDAOImpl:104 - Found User with email: mail1@mail.com
+2020-01-24 20:34:58 INFO  UserDAOImpl:104 - Found User with email: mail1@mail.com
+2020-01-24 20:34:59 INFO  UserDAOImpl:104 - Found User with email: mail1@mail.com
+2020-01-24 20:34:59 INFO  UserController:59 - Successful User login with email: mail1@mail.com
+2020-01-24 20:35:36 INFO  UserStatusDAOImpl:40 - Returned userstatus of: UserStatus [id=2, status=searching for room]
+2020-01-24 20:35:36 INFO  UserDAOImpl:72 - Successful User upsert with email: mail96@mail.com
+2020-01-24 20:35:38 INFO  UserDAOImpl:104 - Found User with email: mail96@mail.com
+2020-01-24 20:35:40 INFO  UserDAOImpl:104 - Found User with email: mail96@mail.com
+2020-01-24 20:35:42 INFO  UserDAOImpl:104 - Found User with email: mail96@mail.com
+2020-01-24 20:41:42 INFO  UserDAOImpl:104 - Found User with email: mail1@mail.com
+2020-01-24 20:41:44 INFO  UserDAOImpl:104 - Found User with email: mail1@mail.com
+2020-01-24 20:42:37 INFO  UserDAOImpl:104 - Found User with email: mail2@mail.com
+2020-01-24 20:42:41 INFO  UserDAOImpl:104 - Found User with email: mail2@mail.com

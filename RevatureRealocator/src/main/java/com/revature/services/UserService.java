@@ -80,14 +80,18 @@ public class UserService {
 		 return false;
 	}
 	
-	public List<UserDTO> findByState(String state){
-		List<User> list = usdao.findByState(state);
-		List<UserDTO> dtoList = new ArrayList<>();
-		for(User u : list) {
-			UserDTO dto = new UserDTO(u);
-			dtoList.add(dto);
-		}
-			return dtoList;
+//	public List<UserDTO> findByState(String state){
+//		List<User> list = usdao.findByState(state);
+//		List<UserDTO> dtoList = new ArrayList<>();
+//		for(User u : list) {
+//			UserDTO dto = new UserDTO(u);
+//			dtoList.add(dto);
+//		}
+//			return dtoList;
+//	}
+	
+	public List<User> findByState(String state){
+		return usdao.findByState(state);
 	}
 	
 	

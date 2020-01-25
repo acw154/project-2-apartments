@@ -88,16 +88,16 @@ public class UserController {
 
 //	@CrossOrigin(origins = "http://localhost:4200")
 	@GetMapping(value = "/state/{st}")
-	public ResponseEntity<List<UserDTO>> findByState(@PathVariable("st") String st) {
+	public ResponseEntity<List<User>> findByState(@PathVariable("st") String st) {
 		System.out.println("Inside of findByState method of UserController");
 		if (us.findByState(st) != null) {
 			System.out.println("Inside of findByState method if conditional of UserController");
-			List<UserDTO> list = us.findByState(st);
+			List<User> list = us.findByState(st);
 			
 			System.out.println("used the userService to create a list UserController");
 			return ResponseEntity.ok().body(list);
 		} else {
-			List<UserDTO> list = null;
+			List<User> list = null;
 			System.out.println("list is null apparently of UserController");
 
 			return ResponseEntity.status(HttpStatus.NO_CONTENT).body(list);
