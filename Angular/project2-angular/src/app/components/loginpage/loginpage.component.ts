@@ -52,18 +52,20 @@ export class LoginpageComponent implements OnInit {
     this.loginService.login(this.loginT).subscribe(
       data => {
         if(data != null){
+          
           this.sessionService.saveCurrentUser(data);
-          this.userService.getUserPreference(this.sessionService.getCurrentUser()).subscribe(
-            data => {
-              if (data != null) {
-                this.sessionService.storePreference(data);
-              } else {
-                console.log('User does not have a preference');
-              }
-            }, error => {
-              console.log('Error ', error);
-            }
-          )
+          //console.log(this.sessionService.getCurrentUser().user_status);
+          // this.userService.getUserPreference(data).subscribe(
+          //   data => {
+          //     if (data != null) {
+          //       this.sessionService.storePreference(data);
+          //     } else {
+          //       console.log('User does not have a preference');
+          //     }
+          //   }, error => {
+          //     console.log('Error ', error);
+          //   }
+          // );
           // save preference 
         } else {
           alert("Invalid Credentials");
