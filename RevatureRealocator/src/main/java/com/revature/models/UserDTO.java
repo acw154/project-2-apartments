@@ -20,6 +20,17 @@ public class UserDTO {
 		super();
 	}
 	
+	public UserDTO(User user) {
+		super();
+		this.id = user.getId();
+		this.f_name = user.getF_name();
+		this.l_name = user.getL_name();
+		this.email = user.getEmail();
+		this.password = user.getPassword();
+		this.user_status = user.getUserStatus().getStatus();
+		this.current_state = user.getCurrent_state();
+		
+	}
 	
 	public UserDTO(String f_name, String l_name, String email, String password, String user_status,
 			String current_state) {

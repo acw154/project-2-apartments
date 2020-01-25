@@ -25,8 +25,6 @@ public class APIParse {
 		pType4.setId(4);
 		pType4.setType("condo");
 		String[] sa = data.split("\"listings\"");
-		System.out.println("sa[0]: " + sa[0]);
-		System.out.println("sa[1]: " + sa[1]);
 		data = sa[1];
 		int index;
 		//int index = data.indexOf("0:", 0);
@@ -51,7 +49,6 @@ public class APIParse {
 				}
 				try {
 					if(sa2[j].equals("address")) {
-						System.out.println(sa2[j+2]);
 						// need to iterate over the whole address here 
 						if((p.getPropertyType().getType().equals("apartment")) || (p.getPropertyType().getType().equals("condo"))) {
 							//iterate over address string if apartment
@@ -70,7 +67,6 @@ public class APIParse {
 								p.setStreet_num(streetNum);
 							} catch (Exception e1) {
 								p.setStreet_num(0);
-								e1.printStackTrace();
 							}
 							
 							// second is street name
@@ -85,7 +81,6 @@ public class APIParse {
 									apartmentNum = Integer.parseInt(sa2[j+2].substring((index2 + 4), (index3)));
 									p.setApt_num(apartmentNum);
 								} catch (Exception e) {
-									e.printStackTrace();
 									p.setApt_num(0);
 								}
 								
@@ -157,7 +152,6 @@ public class APIParse {
 					p.setStreet(null);
 					p.setStreet_num(0);
 					p.setZip(0);
-					e.printStackTrace();
 				}
 				if(sa2[j].equals("beds")) {
 			
@@ -173,11 +167,9 @@ public class APIParse {
 						p.setNum_beds(bedsInt);
 					} catch (NumberFormatException e) {
 						p.setNum_beds(0);
-						e.printStackTrace();
 					}
 				}
 				if(sa2[j].equals("baths")) {
-					//int baths = Integer.parseInt(sa2[j+2]);
 					String baths = sa2[j+2];
 					int k = (baths.length()-1);
 					char bathsIntChar = baths.charAt(k);
@@ -187,7 +179,6 @@ public class APIParse {
 						p.setNum_baths(bathsInt);
 					} catch (NumberFormatException e) {
 						p.setNum_baths(0);
-						e.printStackTrace();
 					}
 				}
 				if(sa2[j].equals("photo")) {
@@ -202,20 +193,15 @@ public class APIParse {
 				}
 				if(p.getSq_ft() == 0) {
 					if(sa2[j].equals("sqft")) {
-						System.out.println(sa2[j]);
-						System.out.println(sa2[j+1]);
-						System.out.println(sa2[j+2]);
 						String sqf = sa2[j+2].replace("sq ft", "");
 						sqf = sqf.replace("+", "");
 						sqf = sqf.replace(" ", "");
 						sqf = sqf.replace(",", "");
-						System.out.println(sqf);
 						Double sqfD;
 						try {
 							sqfD = Double.parseDouble(sqf);
 						} catch (NumberFormatException e) {
 							sqfD = 0.0;
-							e.printStackTrace();
 						}
 						p.setSq_ft(sqfD);
 					}
@@ -227,10 +213,8 @@ public class APIParse {
 				}
 				if(sa2[j].equals("price_raw")) {
 					String priceS = sa2[j+1].replace(":", "");
-					System.out.println(priceS);
 					priceS = priceS.replace(",", "");
 					
-					System.out.println(priceS);
 					double price = Double.parseDouble(priceS);
 					p.setPrice(price);
 				}

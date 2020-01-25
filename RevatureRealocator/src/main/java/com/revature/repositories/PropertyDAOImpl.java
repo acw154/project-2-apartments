@@ -37,21 +37,38 @@ public class PropertyDAOImpl implements PropertyDAO {
 		return s.get(Property.class, id);
 	}
 
+//	@Override
+//	@Transactional
+//	public Property findByAddressWithApt(int street_num, String street, int apt_num, String city, String state) {
+//		Session s = sf.getCurrentSession();
+//		Query<Property> query = (Query<Property>) s.createQuery("FROM Property WHERE street_num=:n, apt_num=:a, city=:c, state=:s");
+//		query.setParameter(1, street_num);
+//		query.setParameter(2, street);
+//		query.setParameter(3, apt_num);
+//		query.setParameter(4, city);
+//		query.setParameter(5, state);
+//		List<Property> list = query.getResultList();
+//		if(list.isEmpty()) {
+//			return null;
+//		}
+//		return list.get(0);
+//	}
+	
 	@Override
-	@Transactional
 	public Property findByAddressWithApt(int street_num, String street, int apt_num, String city, String state) {
-		Session s = sf.getCurrentSession();
-		Query<Property> query = (Query<Property>) s.createQuery("FROM Property WHERE street_num=:n, apt_num=:a, city=:c, state=:s");
-		query.setParameter(1, street_num);
-		query.setParameter(2, street);
-		query.setParameter(3, apt_num);
-		query.setParameter(4, city);
-		query.setParameter(5, state);
-		List<Property> list = query.getResultList();
-		if(list.isEmpty()) {
-			return null;
+		//Session s = sf.getCurrentSession();
+		Session s = sf.openSession();
+		
+		Property p = null;
+		try {
+			Query<Property> query = (Query<Property>) s.createQuery("FROM Property WHERE street_num = '" +street_num + "' AND street = '" + street + "' AND apt_num = '" + apt_num + "' AND city = '" + 
+			city + "' AND state = '" + state + "'", Property.class);
+			 p = query.getResultList().get(0);
+		} catch (IndexOutOfBoundsException e) {
+			logger.warn("Failed attempted to find Address with by: " + street_num + " " + street + " " + city + ", " + state, e);
+			e.printStackTrace();
 		}
-		return list.get(0);
+		return p;
 	}
 
 	@Override

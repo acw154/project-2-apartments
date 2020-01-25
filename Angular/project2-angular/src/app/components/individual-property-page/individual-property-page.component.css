@@ -1,0 +1,24 @@
+.container {
+    min-height: 30vh;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+        justify-content: center;
+    -ms-flex-align: center;
+        align-items: center;
+    background-size: cover;
+    background-position: center center;
+    padding: 5px;
+    font-family: 'Lato', sans-serif;
+    background-color:rgba(0,0,0,0.5);
+    padding: 1rem;
+  } 
+  
+  
+  html {
+      height: 100%;
+    }
+    
+    * {
+      box-sizing: border-box;
+    }

@@ -8,7 +8,10 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { IndividualPropertyPageComponent } from './components/individual-property-page/individual-property-page.component';
 import { EditprofileComponent } from './components/editprofile/editprofile.component';
 import { CreatepropComponent } from './components/createprop/createprop.component';
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
 
 
 const routes: Routes = [

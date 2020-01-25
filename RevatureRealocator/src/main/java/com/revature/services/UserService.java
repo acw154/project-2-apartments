@@ -1,5 +1,6 @@
 package com.revature.services;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.revature.models.Property;
 import com.revature.models.User;
+import com.revature.models.UserDTO;
 import com.revature.models.UserStatus;
 import com.revature.repositories.UserDAO;
 import com.revature.repositories.UserStatusDAO;
@@ -59,8 +61,9 @@ public class UserService {
 		System.out.println("After, it is this: " + usdao.getUserByEmail(u.getEmail()));
 		if(usdao.getUserByEmail(u.getEmail()).equals(u)) {
 			System.out.println("inside if conditional, true, upsert method UserService");
-			
+			System.out.println("Before reassigning in if in upsert user in UserService: "+ u);
 			User user = usdao.getUserByEmail(u.getEmail());
+			System.out.println("After reassigning in if in upsert user in UserService: "+ u);
 			return user;
 		}
 		System.out.println("did not hit if conditional, false, upsert method UserService");
@@ -76,6 +79,16 @@ public class UserService {
 		}
 		 return false;
 	}
+	
+//	public List<UserDTO> findByState(String state){
+//		List<User> list = usdao.findByState(state);
+//		List<UserDTO> dtoList = new ArrayList<>();
+//		for(User u : list) {
+//			UserDTO dto = new UserDTO(u);
+//			dtoList.add(dto);
+//		}
+//			return dtoList;
+//	}
 	
 	public List<User> findByState(String state){
 		return usdao.findByState(state);

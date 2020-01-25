@@ -1,9 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+<<<<<<< HEAD
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Preference } from 'src/app/model/preference';
 import { Router } from '@angular/router';
 import { ProfileService } from 'src/app/services/profile.service';
 import { SessionService } from 'src/app/services/session.service';
+=======
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+>>>>>>> master
 
 @Component({
   selector: 'app-editprofile',

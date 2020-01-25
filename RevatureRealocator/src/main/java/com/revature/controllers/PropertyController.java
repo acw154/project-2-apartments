@@ -2,12 +2,19 @@ package com.revature.controllers;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -34,23 +41,23 @@ public class PropertyController {
 	
 	
 	@PostMapping("/propsearchpref")
-	public List<Property> getProperties(@RequestBody PreferenceDTO pref){
+	public ResponseEntity<List<Property>> getProperties(@RequestBody PreferenceDTO pref){
 		//Get POST request values and create a preference object to create an API call with
 		System.out.println(pref);
 		Preference full = new Preference(pref);
 		List<Property> list = ps.findPropertiesByFilter(full);
 //		String query = api.createQueryByPreference(full);
 //		List<Property> list = APIParse.parse(api.getResponse(query).toString()); //TODO: Map the response body to Properties and return them
-		return list;
+		return ResponseEntity.ok().body(list);
 	}
 	
 	@PostMapping("/propsearchsimple")
-	public List<Property> getPropertiesSimpleSearch(@RequestBody SimpleSearchBody ssb){
+	public ResponseEntity<List<Property>> getPropertiesSimpleSearch(@RequestBody SimpleSearchBody ssb){
 		String state_code = ssb.getState_code();
 		String city = ssb.getCity();
 		String query = api.createSimpleQuery(state_code, city);
 		List<Property> list = APIParse.parse(api.getResponse(query).toString());
-		return list;
+		return ResponseEntity.ok().body(list);
 	}
 	
 //	@PostMapping("/propsearch")
@@ -61,18 +68,19 @@ public class PropertyController {
 //	}
 	
 	@PostMapping("/propsearch")
-	public List<Property> getProperties(String state_code, String city){
+	public ResponseEntity<List<Property>> getProperties(String state_code, String city){
 		//Get POST request values and create a preference object to create an API call with
 		String query = api.createSimpleQuery(state_code, city);
 		List<Property> list = APIParse.parse(api.getResponse(query).toString()); //TODO: Map the response body to Properties and return them
-		return list;
+		return ResponseEntity.ok().body(list);
 	}	
 	
-//	@CrossOrigin(origins = "http://localhost:4200")
-	@CrossOrigin(origins = "*")
-	@PostMapping(value = "/propsave")
+
+	//@PostMapping(value = "/propsave")
+	@RequestMapping(value = "/propsave", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
-	public ResponseEntity<Property> saveOrAddProperty(@RequestBody PropertyDTO dto) {
+	public ResponseEntity<PropertyDTO> saveOrAddProperty(@RequestBody PropertyDTO dto, @RequestHeader HttpHeaders headers, HttpServletRequest httpRequest) {
+	//public Property saveOrAddProperty(@RequestBody PropertyDTO dto) {
 		System.out.println("inside of saveOrAddProperty method in UserController");
 
 		System.out.println(dto);
@@ -80,11 +88,47 @@ public class PropertyController {
 		System.out.println(property);
 		if(ps.upsert(property) != false) {
 			System.out.println("good creation.. returned true... about to send back a good status with the property in the body");
-			return ResponseEntity.status(HttpStatus.CREATED).body(property);
+			PropertyDTO prop = new PropertyDTO(property);
+			return ResponseEntity.ok().body(prop);
+			
+			//return prop;
 		} else {
 			property = null;
 			System.out.println("bad creation??? returned false in services... about to send back a NO_CONTENT status with a null property");
-			return ResponseEntity.status(HttpStatus.NO_CONTENT).body(property);
+			PropertyDTO prop = new PropertyDTO(property);
+			return ResponseEntity.status(HttpStatus.NO_CONTENT).body(prop);
+			//return property;
 		}
+	}
+	
+	
+	
+	@CrossOrigin(origins = "*")
+	@PostMapping(value = "/userpropsave")
+	@ResponseBody
+	public ResponseEntity<UserDTO> saveUserToProperty(@RequestBody PropertyDTO dto) {
+		System.out.println("inside of saveUserToProperty method in UserController");
+		String email = dto.getEmail();
+		System.out.println(dto);
+		Property property = new Property(dto);
+		System.out.println(property);
+		UserDTO uDTO = ps.associateUserAndProperty(property, email);
+		System.out.println(uDTO);
+		if(uDTO != null) {
+			return ResponseEntity.ok().body(uDTO);
+		} else {
+			uDTO = null;
+			return ResponseEntity.status(HttpStatus.NO_CONTENT).body(uDTO);
+		}
+		
+		
+//		if(ps.upsert(property) != false) {
+//			System.out.println("good creation.. returned true... about to send back a good status with the property in the body");
+//			return ResponseEntity.status(HttpStatus.CREATED).body(property);
+//		} else {
+//			property = null;
+//			System.out.println("bad creation??? returned false in services... about to send back a NO_CONTENT status with a null property");
+//			return ResponseEntity.status(HttpStatus.NO_CONTENT).body(property);
+//		}
 	}
 }

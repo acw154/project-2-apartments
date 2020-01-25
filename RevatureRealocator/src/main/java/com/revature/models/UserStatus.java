@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Objects;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -16,6 +17,7 @@ import javax.persistence.Table;
 import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Component
 @Entity
@@ -37,7 +39,7 @@ public class UserStatus implements Serializable{
 	private String status;
 	
 	@JsonIgnoreProperties("userStatus")
-	@OneToMany(mappedBy = "userStatus", fetch = FetchType.EAGER)
+	@OneToMany(cascade=CascadeType.ALL, mappedBy = "userStatus", fetch = FetchType.EAGER)
 	private Set<User> user;
 
 	
