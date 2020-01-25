@@ -23,6 +23,22 @@ public class PropertyDTO {
 		super();
 	}
 
+	public PropertyDTO(Property p) {
+		this.type = p.getPropertyType().getType();
+		this.street_num = p.getStreet_num();
+		this.street = p.getStreet();
+		this.city = p.getCity();
+		this.zip = p.getZip();
+		this.apt_num = p.getApt_num();
+		this.num_beds = (int) p.getNum_beds();
+		this.num_baths = p.getNum_baths();
+		this.photo = p.getPhoto();
+		this.price = p.getPrice();
+		this.revemp_owned = p.isRevemp_owned();
+		this.sq_ft = (int) p.getSq_ft();
+		this.state = p.getState();
+	}
+	
 	public PropertyDTO(String type, int street_num, String street, String city, int zip, int apt_num, int num_beds,
 			int num_baths, String photo, double price, boolean revemp_owned, int sq_ft, String state) {
 		super();
@@ -176,29 +192,38 @@ public class PropertyDTO {
 		this.state = state;
 	}
 
+	@Override
+	public int hashCode() {
+		return Objects.hash(apt_num, city, email, num_baths, num_beds, photo, price, revemp_owned, sq_ft, state, street,
+				street_num, type, zip);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		if (!(obj instanceof PropertyDTO)) {
+			return false;
+		}
+		PropertyDTO other = (PropertyDTO) obj;
+		return apt_num == other.apt_num && Objects.equals(city, other.city) && Objects.equals(email, other.email)
+				&& Double.doubleToLongBits(num_baths) == Double.doubleToLongBits(other.num_baths)
+				&& num_beds == other.num_beds && Objects.equals(photo, other.photo)
+				&& Double.doubleToLongBits(price) == Double.doubleToLongBits(other.price)
+				&& revemp_owned == other.revemp_owned && sq_ft == other.sq_ft && Objects.equals(state, other.state)
+				&& Objects.equals(street, other.street) && street_num == other.street_num
+				&& Objects.equals(type, other.type) && zip == other.zip;
+	}
+
+	@Override
+	public String toString() {
+		return "PropertyDTO [type=" + type + ", street_num=" + street_num + ", street=" + street + ", city=" + city
+				+ ", zip=" + zip + ", apt_num=" + apt_num + ", num_beds=" + num_beds + ", num_baths=" + num_baths
+				+ ", photo=" + photo + ", price=" + price + ", revemp_owned=" + revemp_owned + ", sq_ft=" + sq_ft
+				+ ", state=" + state + ", email=" + email + "]";
+	}
+
 	
-	  @Override public int hashCode() { return Objects.hash(apt_num, city, email,
-	  num_baths, num_beds, photo, price, revemp_owned, sq_ft, state, street,
-	  street_num, type, zip); }
-	  
-	  @Override public boolean equals(Object obj) { if (this == obj) { return true;
-	  } if (!(obj instanceof PropertyDTO)) { return false; } PropertyDTO other =
-	  (PropertyDTO) obj; return apt_num == other.apt_num && Objects.equals(city,
-	  other.city) && Objects.equals(email, other.email) &&
-	  Double.doubleToLongBits(num_baths) ==
-	  Double.doubleToLongBits(other.num_baths) && num_beds == other.num_beds &&
-	  Objects.equals(photo, other.photo) && Double.doubleToLongBits(price) ==
-	  Double.doubleToLongBits(other.price) && revemp_owned == other.revemp_owned &&
-	  sq_ft == other.sq_ft && Objects.equals(state, other.state) &&
-	  Objects.equals(street, other.street) && street_num == other.street_num &&
-	  Objects.equals(type, other.type) && zip == other.zip; }
-	  
-	  @Override public String toString() { return "PropertyDTO [type=" + type +
-	  ", street_num=" + street_num + ", street=" + street + ", city=" + city +
-	  ", zip=" + zip + ", apt_num=" + apt_num + ", num_beds=" + num_beds +
-	  ", num_baths=" + num_baths + ", photo=" + photo + ", price=" + price +
-	  ", revemp_owned=" + revemp_owned + ", sq_ft=" + sq_ft + ", state=" + state +
-	  ", email=" + email + "]"; }
-	 
 
 }

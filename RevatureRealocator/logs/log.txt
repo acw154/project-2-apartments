@@ -1096,3 +1096,5 @@ java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
 2020-01-24 20:41:44 INFO  UserDAOImpl:104 - Found User with email: mail1@mail.com
 2020-01-24 20:42:37 INFO  UserDAOImpl:104 - Found User with email: mail2@mail.com
 2020-01-24 20:42:41 INFO  UserDAOImpl:104 - Found User with email: mail2@mail.com
+2020-01-24 21:18:55 INFO  UserDAOImpl:104 - Found User with email: mail3@mail.com
+2020-01-24 21:18:57 INFO  UserDAOImpl:104 - Found User with email: mail3@mail.com
