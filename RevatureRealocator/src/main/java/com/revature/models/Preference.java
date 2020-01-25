@@ -232,7 +232,7 @@ public class Preference implements Serializable{
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(city, furnished, id, maxPrice, minPrice, numBaths, numBeds, pets, state_code, user);
+		return Objects.hash(city, furnished, id, maxPrice, minPrice, numBaths, numBeds, pets, state_code);
 	}
 
 
