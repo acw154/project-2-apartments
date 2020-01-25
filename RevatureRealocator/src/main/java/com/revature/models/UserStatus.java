@@ -16,6 +16,7 @@ import javax.persistence.Table;
 import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Component
 @Entity
@@ -36,7 +37,7 @@ public class UserStatus implements Serializable{
 	@Column
 	private String status;
 	
-	@JsonIgnoreProperties("userStatus")
+	@JsonProperty("userStatus")
 	@OneToMany(mappedBy = "userStatus", fetch = FetchType.EAGER)
 	private Set<User> user;
 

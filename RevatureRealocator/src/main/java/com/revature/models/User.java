@@ -27,6 +27,7 @@ import org.hibernate.annotations.LazyCollectionOption;
 import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Component
 @Entity
@@ -53,7 +54,7 @@ public class User implements Serializable {
 	String email;
 
 	@OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@JsonIgnoreProperties("user")
+	@JsonProperty("user")
 	private Preference preference;
 
 	@Column(name = "current_state")
@@ -66,7 +67,7 @@ public class User implements Serializable {
 	private List<Property> savedProperties = new ArrayList<>();
 	
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JsonIgnoreProperties("user")
+	@JsonProperty("user")
 	private UserStatus userStatus;
 	
 	@OneToMany(mappedBy="sender", fetch = FetchType.EAGER)
