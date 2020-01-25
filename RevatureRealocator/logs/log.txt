@@ -1650,3 +1650,10 @@ Caused by: org.postgresql.util.PSQLException: ERROR: duplicate key value violate
 2020-01-25 13:56:18 INFO  UserDAOImpl:104 - Found User with email: omartinez@dmifflin.com
 2020-01-25 13:56:19 INFO  UserDAOImpl:104 - Found User with email: omartinez@dmifflin.com
 2020-01-25 13:56:19 INFO  UserController:64 - Successful User login with email: omartinez@dmifflin.com
+2020-01-25 15:37:39 INFO  UserDAOImpl:104 - Found User with email: kmalone@dmifflin.com
+2020-01-25 15:38:13 INFO  UserDAOImpl:104 - Found User with email: creedbratton@dmifflin.com
+2020-01-25 15:38:14 INFO  UserDAOImpl:104 - Found User with email: creedbratton@dmifflin.com
+2020-01-25 15:38:14 INFO  UserController:64 - Successful User login with email: creedbratton@dmifflin.com
+2020-01-25 16:59:25 INFO  UserDAOImpl:104 - Found User with email: mail1@mail.com
+2020-01-25 16:59:27 INFO  UserDAOImpl:104 - Found User with email: mail1@mail.com
+2020-01-25 16:59:27 INFO  UserController:64 - Successful User login with email: mail1@mail.com

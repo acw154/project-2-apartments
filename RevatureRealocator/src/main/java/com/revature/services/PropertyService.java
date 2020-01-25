@@ -153,8 +153,8 @@ public class PropertyService {
 		List<Property> emplist = pdao.findByStateNoApt(state);
 		//System.out.println(emplist);
 		if(emplist != null) {
-		emplist.addAll(list2);
-		return emplist;
+			emplist.addAll(list2);
+			return emplist;
 		}
 		return list3;
 	}

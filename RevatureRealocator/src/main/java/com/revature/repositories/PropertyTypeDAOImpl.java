@@ -56,6 +56,7 @@ public class PropertyTypeDAOImpl implements PropertyTypeDAO {
 	public PropertyType findByType(String type) {
 		Session s = sf.getCurrentSession();
 		Query<PropertyType> query = s.createQuery("FROM PropertyType WHERE type = '" + type + "'");
+		System.out.println(query.getResultList());
 		return query.getResultList().get(0);
 	}
 

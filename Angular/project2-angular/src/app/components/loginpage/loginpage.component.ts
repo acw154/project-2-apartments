@@ -52,7 +52,7 @@ export class LoginpageComponent implements OnInit {
         if(data != null){
           this.user = new User(data);
           this.sessionService.saveCurrentUser(this.user);
-          console.log(this.user)
+          console.log(this.user);
           //this.userService.getUserPreference(this.user).subscribe(
           //  data => {
           //     if (data != null) {

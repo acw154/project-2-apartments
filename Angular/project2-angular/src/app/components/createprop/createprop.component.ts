@@ -15,10 +15,10 @@ export class CreatepropComponent implements OnInit {
   property: Property;
   propcreateForm: FormGroup;
   allTypes = [
-    new Type(1, "Single Family"),
-    new Type(2, "Apartment"),
-    new Type(3, "Condo"),
-    new Type(4, "Town Home")
+    new Type("single_family", "Single Family"),
+    new Type("apartment", "Apartment"),
+    new Type("condo", "Condo"),
+    new Type("townhome", "Town Home")
   ];
 
   
@@ -53,11 +53,12 @@ export class CreatepropComponent implements OnInit {
   createProp(){
     this.property = new Property(this.propcreateForm.value);
     this.property.type = this.propcreateForm.controls.type.value;
+    this.property.state = this.property.state.toUpperCase();
     this.property.revemp_owned = true;
     console.log(this.property);
     this.propertyService.insertProperty(this.property).subscribe(
       data => {
-        if(data === true) {
+        if(data != null) {
           alert('Property created');
        } else {
           alert('Property creation failed');
@@ -66,7 +67,7 @@ export class CreatepropComponent implements OnInit {
         console.log('Error ', error);
       }
     )
-    this.propcreateForm.reset();
+    //this.propcreateForm.reset();
     // Prop service stuff
   }
 

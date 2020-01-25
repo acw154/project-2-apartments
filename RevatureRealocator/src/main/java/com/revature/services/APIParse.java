@@ -45,105 +45,110 @@ public class APIParse {
 						p.setPropertyType(pType3);
 					} else if(sa2[j+2].equals(pType4.getType())) {
 						p.setPropertyType(pType4);
-					} 
+					} else {
+						p.setPropertyType(pType2);
+					}
 				}
 				try {
 					if(sa2[j].equals("address")) {
 						// need to iterate over the whole address here 
-						if((p.getPropertyType().getType().equals("apartment")) || (p.getPropertyType().getType().equals("condo"))) {
-							//iterate over address string if apartment
-							
-							//first is the street number
-							index = sa2[j+2].indexOf(" ");
-							String streetNo = new String();
-							for(int k = 0; k < index; k++) {
-								streetNo += sa2[j+2].charAt(k);
-							}
-							if(streetNo.contains("-")) {
-								streetNo = streetNo.split("-")[0];
-							}
-							try {
-								int streetNum = Integer.parseInt(streetNo);
-								p.setStreet_num(streetNum);
-							} catch (Exception e1) {
-								p.setStreet_num(0);
-							}
-							
-							// second is street name
-							if(sa2[j+2].contains("Apt")) {
-								int index2 = sa2[j+2].indexOf("Apt");
-								String streetName = sa2[j+2].substring((index + 1), (index2 - 1));
-								p.setStreet(streetName);
-								// third is apartment number
-								int index3 = sa2[j+2].indexOf(",");
-								int apartmentNum;
+						if(p.getPropertyType().getType() != null){
+							if((p.getPropertyType().getType().equals("apartment")) || (p.getPropertyType().getType().equals("condo"))) {
+						
+								//iterate over address string if apartment
+								
+								//first is the street number
+								index = sa2[j+2].indexOf(" ");
+								String streetNo = new String();
+								for(int k = 0; k < index; k++) {
+									streetNo += sa2[j+2].charAt(k);
+								}
+								if(streetNo.contains("-")) {
+									streetNo = streetNo.split("-")[0];
+								}
 								try {
-									apartmentNum = Integer.parseInt(sa2[j+2].substring((index2 + 4), (index3)));
-									p.setApt_num(apartmentNum);
-								} catch (Exception e) {
-									p.setApt_num(0);
+									int streetNum = Integer.parseInt(streetNo);
+									p.setStreet_num(streetNum);
+								} catch (Exception e1) {
+									p.setStreet_num(0);
 								}
 								
-								// fourth is to get the city
-								String[] sa3 = sa2[j+2].split(",");
-								String city = sa3[1];
-								city = city.replace(" ", "");
-								p.setCity(city);
-								// fifth is to get the zip
-								String zipString = sa3[2];
-								zipString = zipString.replace(" ", "");
-								int zip = Integer.parseInt(zipString);
-								p.setZip(zip);
+								// second is street name
+								if(sa2[j+2].contains("Apt")) {
+									int index2 = sa2[j+2].indexOf("Apt");
+									String streetName = sa2[j+2].substring((index + 1), (index2 - 1));
+									p.setStreet(streetName);
+									// third is apartment number
+									int index3 = sa2[j+2].indexOf(",");
+									int apartmentNum;
+									try {
+										apartmentNum = Integer.parseInt(sa2[j+2].substring((index2 + 4), (index3)));
+										p.setApt_num(apartmentNum);
+									} catch (Exception e) {
+										p.setApt_num(0);
+									}
+									
+									// fourth is to get the city
+									String[] sa3 = sa2[j+2].split(",");
+									String city = sa3[1];
+									city = city.replace(" ", "");
+									p.setCity(city);
+									// fifth is to get the zip
+									String zipString = sa3[2];
+									zipString = zipString.replace(" ", "");
+									int zip = Integer.parseInt(zipString);
+									p.setZip(zip);
+								} else {
+									int index2 = sa2[j+2].indexOf(",");
+									String streetName = sa2[j+2].substring((index + 1), (index2));
+									p.setStreet(streetName);
+									// third is apartment number
+									/*
+									 * int index3 = sa2[j+2].indexOf(","); int apartmentNum =
+									 * Integer.parseInt(sa2[j+2].substring((index2 + 4), (index3)));
+									 * p.setApt_num(apartmentNum);
+									 */
+									// fourth is to get the city
+									String[] sa3 = sa2[j+2].split(",");
+									String city = sa3[1];
+									city = city.replace(" ", "");
+									p.setCity(city);
+									// fifth is to get the zip
+									String zipString = sa3[2];
+									zipString = zipString.replace(" ", "");
+									int zip = Integer.parseInt(zipString);
+									p.setZip(zip);
+								}
+								
+								
+								
 							} else {
+								// iterate over address string for no apt. num
+								// first is street num
+								index = sa2[j+2].indexOf(" ");
+								String streetNo = new String();
+								for(int k = 0; k < index; k++) {
+									streetNo += sa2[j+2].charAt(k);
+								}
+								int streetNum = Integer.parseInt(streetNo);
+								p.setStreet_num(streetNum);
+								// second is street name
 								int index2 = sa2[j+2].indexOf(",");
 								String streetName = sa2[j+2].substring((index + 1), (index2));
 								p.setStreet(streetName);
-								// third is apartment number
-								/*
-								 * int index3 = sa2[j+2].indexOf(","); int apartmentNum =
-								 * Integer.parseInt(sa2[j+2].substring((index2 + 4), (index3)));
-								 * p.setApt_num(apartmentNum);
-								 */
-								// fourth is to get the city
+								// third is to get the city
 								String[] sa3 = sa2[j+2].split(",");
 								String city = sa3[1];
 								city = city.replace(" ", "");
 								p.setCity(city);
-								// fifth is to get the zip
+								// fourth is to get the zip
 								String zipString = sa3[2];
 								zipString = zipString.replace(" ", "");
 								int zip = Integer.parseInt(zipString);
 								p.setZip(zip);
+								
 							}
-							
-							
-							
-						} else {
-							// iterate over address string for no apt. num
-							// first is street num
-							index = sa2[j+2].indexOf(" ");
-							String streetNo = new String();
-							for(int k = 0; k < index; k++) {
-								streetNo += sa2[j+2].charAt(k);
-							}
-							int streetNum = Integer.parseInt(streetNo);
-							p.setStreet_num(streetNum);
-							// second is street name
-							int index2 = sa2[j+2].indexOf(",");
-							String streetName = sa2[j+2].substring((index + 1), (index2));
-							p.setStreet(streetName);
-							// third is to get the city
-							String[] sa3 = sa2[j+2].split(",");
-							String city = sa3[1];
-							city = city.replace(" ", "");
-							p.setCity(city);
-							// fourth is to get the zip
-							String zipString = sa3[2];
-							zipString = zipString.replace(" ", "");
-							int zip = Integer.parseInt(zipString);
-							p.setZip(zip);
-							
-						}
+					}
 					}
 				} catch (NumberFormatException e) {
 					p.setApt_num(0);

@@ -15,6 +15,7 @@ export class IndividualPropertyPageComponent implements OnInit {
 
   constructor(
   ) { 
+    
   }
 
   ngOnInit() {
