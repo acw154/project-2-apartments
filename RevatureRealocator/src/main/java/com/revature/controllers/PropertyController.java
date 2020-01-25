@@ -2,12 +2,19 @@ package com.revature.controllers;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -69,10 +76,11 @@ public class PropertyController {
 	}	
 	
 
-	@PostMapping(value = "/propsave")
+	//@PostMapping(value = "/propsave")
+	@RequestMapping(value = "/propsave", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
-	//public ResponseEntity<Property> saveOrAddProperty(@RequestBody PropertyDTO dto) {
-	public Property saveOrAddProperty(@RequestBody PropertyDTO dto) {
+	public ResponseEntity<PropertyDTO> saveOrAddProperty(@RequestBody PropertyDTO dto, @RequestHeader HttpHeaders headers, HttpServletRequest httpRequest) {
+	//public Property saveOrAddProperty(@RequestBody PropertyDTO dto) {
 		System.out.println("inside of saveOrAddProperty method in UserController");
 
 		System.out.println(dto);
@@ -80,13 +88,16 @@ public class PropertyController {
 		System.out.println(property);
 		if(ps.upsert(property) != false) {
 			System.out.println("good creation.. returned true... about to send back a good status with the property in the body");
-			//return ResponseEntity.status(HttpStatus.CREATED).body(property);
-			return property;
+			PropertyDTO prop = new PropertyDTO(property);
+			return ResponseEntity.status(HttpStatus.CREATED).body(prop);
+			
+			//return prop;
 		} else {
 			property = null;
 			System.out.println("bad creation??? returned false in services... about to send back a NO_CONTENT status with a null property");
-			//return ResponseEntity.status(HttpStatus.NO_CONTENT).body(property);
-			return property;
+			PropertyDTO prop = new PropertyDTO(property);
+			return ResponseEntity.status(HttpStatus.NO_CONTENT).body(prop);
+			//return property;
 		}
 	}
 	
@@ -102,6 +113,7 @@ public class PropertyController {
 		Property property = new Property(dto);
 		System.out.println(property);
 		UserDTO uDTO = ps.associateUserAndProperty(property, email);
+		System.out.println(uDTO);
 		if(uDTO != null) {
 			return ResponseEntity.ok().body(uDTO);
 		} else {
