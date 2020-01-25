@@ -8,7 +8,7 @@
             <h5>Details</h5>
                 <ul class="profile-ul">
 
-                    <li class="shadow-sm p-3 mb-5 bg-white rounded"><h4><strong>Name:</strong><span>{{ currentUser.f_name }}</span></h4></li>
+                    <li class="shadow-sm p-3 mb-5 bg-white rounded"><h4><strong>First Name:</strong><span>{{ currentUser.f_name }}</span></h4></li>
                     <li class="shadow-sm p-3 mb-5 bg-white rounded"><h4><strong>Last Name:</strong><span>{{ currentUser.l_name }}</span></h4></li>
                     <li class="shadow-sm p-3 mb-5 bg-white rounded"><h4><strong>Email:</strong><span>{{ currentUser.email }}</span></h4></li>
                     <li class="shadow-sm p-3 mb-5 bg-white rounded"><h4><strong>State:</strong><span>{{ currentUser.current_state }}</span></h4></li>
@@ -31,7 +31,7 @@
             </ul>
 
             <div class="form-group">
-                <input type="submit" value="Edit" class="btn edit btn-lg mt-5">
+                <input routerLink="/editprofile" type="submit" value="Edit" class="btn edit btn-lg mt-5">
             </div>
         </div>
 
@@ -70,7 +70,6 @@
                <li><h4><strong>Zip Code:</strong>{{ searchedUserPref.state_code }}<span></span></h4></li>
            </ul>
        </div>
-<<<<<<< HEAD
    </div>
 </div> -->
 
@@ -102,9 +101,3 @@
         </ul>
     </div>
  -->
-=======
-    </div>
-</div>
-
-
->>>>>>> master
