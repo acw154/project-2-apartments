@@ -13,8 +13,8 @@ export class ProfileService {
   private prefUrl: string;
 
   constructor(private http: HttpClient) {
-    this.usersUrl = 'http://localhost:8080/users'; // May need to change this URI 
-    this.prefUrl = 'http://localhost:8080/savepref';
+    this.usersUrl = '/RevatureRealocator/users'; // May need to change this URI 
+    this.prefUrl = '/RevatureRealocator/preferences/update';
   }
 
   public savePreference(preference: Preference){

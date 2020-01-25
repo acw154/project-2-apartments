@@ -14,9 +14,9 @@ export class PropertyService {
   private viewedProperty: Property;
 
   constructor(private http: HttpClient) {
-    this.getPropUrl = 'http://localhost:8080/propsearch';
-    this.createPropUrl = 'http://localhost:8080/propsave';
-    this.savePropUrl = 'http://localhost:8080/propusersave'; //idk what it is
+    this.getPropUrl = '/RevatureRealocator/propsearch';
+    this.createPropUrl = '/RevatureRealocator/propsave';
+    this.savePropUrl = '/RevatureRealocator/userpropsave'; 
   }
 
   public getPropertiesByPref(preference: Preference): Observable<Property[]> {
