@@ -43,39 +43,55 @@ export class RentalsearchComponent implements OnInit {
     this.preference = new Preference(this.prefForm.value);
     this.preference.min_price = 0;
     console.log(this.preference);
-    if(this.preference.max_price == null && this.preference.num_baths == null && this.preference.num_beds == null){
-      // no filter
-    } else {
-      // filter
-    }
+    this.propertyService.getPropertiesByPref(this.preference).subscribe(
+      data => {
+        if(data != null){
+            this.response = data;
+            console.log('Found properties');
+        }
+      }, error => {
+          console.log('Error ', error);
+        }
+      )
     this.prefForm.reset();
   }
 
   
     searchWithSavedPref(){
-      console.log(this.sessionService.getPreference());
-      this.preference = this.sessionService.getPreference();
-      if(this.preference.max_price == null && this.preference.num_baths == null && this.preference.num_beds == null){
-        this.propertyService.getPropertiesSimple(this.preference).subscribe(
-          data => {
-            if(data != null) {
+      console.log(this.sessionService.getStoredPreference());
+      this.preference = this.sessionService.getStoredPreference();
+      this.propertyService.getPropertiesByPref(this.preference).subscribe(
+        data => {
+          if(data != null){
               this.response = data;
-            }
-          }, error => {
-            console.log('Error', error);
+              console.log('Found properties');
+          }
+        }, error => {
+            console.log('Error ', error);
           }
         )
-      } else {
-        this.propertyService.getPropertiesByPref(this.preference).subscribe(
-          data => {
-            if(data != null){
-              this.response = data;
-            }
-          }, error => {
-            console.log('Error', error);
-          }
-        )
-      }
+      this.prefForm.reset();
+      // if(this.preference.max_price == null && this.preference.num_baths == null && this.preference.num_beds == null){
+      //   this.propertyService.getPropertiesSimple(this.preference).subscribe(
+      //     data => {
+      //       if(data != null) {
+      //         this.response = data;
+      //       }
+      //     }, error => {
+      //       console.log('Error', error);
+      //     }
+      //   )
+      // } else {
+      //   this.propertyService.getPropertiesByPref(this.preference).subscribe(
+      //     data => {
+      //       if(data != null){
+      //         this.response = data;
+      //       }
+      //     }, error => {
+      //       console.log('Error', error);
+      //     }
+      //   )
+      // }
     }
 
     goToIndividualPropertyPage(property: Property){

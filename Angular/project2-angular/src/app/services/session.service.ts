@@ -28,11 +28,11 @@ export class SessionService {
     sessionStorage.clear();
   }
 
-  public savePreference(pref: Preference){
+  public storePreference(pref: Preference){
     sessionStorage.setItem('currPreference', JSON.stringify(pref));
   }
 
-  public getPreference(): Preference {
+  public getStoredPreference(): Preference {
     if(sessionStorage.getItem('currentUser') != null && sessionStorage.getItem('currPreference') != null){
       return JSON.parse(sessionStorage.getItem('currPreference'));
     } else {

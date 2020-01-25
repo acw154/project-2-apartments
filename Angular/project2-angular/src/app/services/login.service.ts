@@ -8,7 +8,7 @@ import { LoginTemplate } from '../model/login-template';
   providedIn: 'root'
 })
 export class LoginService {
-  private usersUrl = "/api/login";
+  private usersUrl = "/RevatureRealocator/login";
   headers={
     headers : new HttpHeaders({
       'Content-Type': 'application/json',
