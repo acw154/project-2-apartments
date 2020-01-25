@@ -167,14 +167,29 @@ public class PropertyService {
 	
 	public UserDTO associateUserAndProperty(Property property, String email) {
 		User user = us.findByEmail(email);
+		System.out.println("user from userservice findbyemail(): "+user);
 		List<Property> list = user.getSavedProperties();
-		list.add(property);
+		System.out.println("list from the user from last method: "+list);
+		upsert(property);
+		int streetnum = property.getStreet_num();
+		String street = property.getStreet();
+		int apt = property.getApt_num();
+		String cty = property.getCity();
+		String st = property.getState();
+		Property p = findByAddress(streetnum, street, apt, cty, st);
+		list.add(p);
+		System.out.println("list with property injected added to it: "+list);
 		user.setSavedProperties(list);
+		System.out.println("user with list set to it: "+user);
 		try {
 			user = us.upsert(user);
-			property.addUser(user);
-			pdao.upsert(property);
+			System.out.println("user returned after upserted using userservice: "+user);
+			//property.addUser(user);
+			System.out.println("property after adding the user returned from last method: "+property);
+			//pdao.upsert(property);
+			System.out.println("property returned from pdao upsert method: "+property);
 			UserDTO dto = new UserDTO(user);
+			System.out.println("dto from injecting the user into dto constructor"+dto);
 			return dto;
 		} catch (Exception e) {
 			return null;
