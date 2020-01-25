@@ -17,8 +17,7 @@ export class ProfileService {
     this.prefUrl = '/RevatureRealocator/preferences/update';
   }
 
-  public savePreference(preference: Preference){
-    this.http.post(this.prefUrl, preference);
+  public savePreference(preference: Preference): Observable<Preference>{
+    return this.http.post<Preference>(this.prefUrl, preference);
   }
-  // Create methods for saving and getting the profile information
 }
