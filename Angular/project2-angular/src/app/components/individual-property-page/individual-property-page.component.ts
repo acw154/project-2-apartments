@@ -11,6 +11,7 @@ import { PropertyService } from 'src/app/services/property.service';
 export class IndividualPropertyPageComponent implements OnInit {
   viewedProperty: Property;
   propertyService: PropertyService;
+  alreadySaved = false;
 
   constructor(
   ) { 
@@ -22,6 +23,10 @@ export class IndividualPropertyPageComponent implements OnInit {
   
   ngOnDestroy(){
     this.propertyService.closePropertyPage();
+  }
+
+  saveProperty(){
+    this.propertyService.saveProperty(this.viewedProperty);
   }
 
 }

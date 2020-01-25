@@ -10,11 +10,13 @@ import { Preference } from '../model/preference';
 export class PropertyService {
   private getPropUrl: string;
   private createPropUrl: string;
+  private savePropUrl: string;
   private viewedProperty: Property;
 
   constructor(private http: HttpClient) {
     this.getPropUrl = 'http://localhost:8080/propsearch';
     this.createPropUrl = 'http://localhost:8080/propsave';
+    this.savePropUrl = 'http://localhost:8080/propusersave'; //idk what it is
   }
 
   public getPropertiesByPref(preference: Preference): Observable<Property[]> {
@@ -39,6 +41,10 @@ export class PropertyService {
 
   public getViewedProperty(){
     return this.viewedProperty;
+  }
+
+  public saveProperty(property: Property){
+    this.http.post(this.savePropUrl, property);
   }
 
   // Create methods that take in the searchForm with all of its values and post it 
