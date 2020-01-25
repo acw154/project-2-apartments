@@ -74,6 +74,7 @@ public class PropertyDTO {
 		this.sq_ft = sq_ft;
 		this.state = state;
 		this.email = email;
+		
 	}
 
 	public String getEmail() {
@@ -82,10 +83,6 @@ public class PropertyDTO {
 
 	public void setEmail(String email) {
 		this.email = email;
-	}
-
-	public void setNum_baths(double num_baths) {
-		this.num_baths = num_baths;
 	}
 
 	public String getType() {
@@ -147,8 +144,9 @@ public class PropertyDTO {
 	public double getNum_baths() {
 		return num_baths;
 	}
+	
 
-	public void setNum_baths(int num_baths) {
+	public void setNum_baths(double num_baths) {
 		this.num_baths = num_baths;
 	}
 

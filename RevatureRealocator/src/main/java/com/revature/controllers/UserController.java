@@ -82,9 +82,9 @@ public class UserController {
 //	@PostMapping(value = "/user")
 	//public ResponseEntity<UserDTO> saveOrAddUser(@RequestBody UserDTO userdto) {
 
-	@PostMapping(value = "/user/{email}")
+	@PostMapping(value = "/user")
 	@ResponseBody
-	public ResponseEntity<User> saveOrAddUser(@RequestBody UserDTO userdto) {
+	public ResponseEntity<UserDTO> saveOrAddUser(@RequestBody UserDTO userdto) {
 
 		System.out.println("inside of saveOrAddUser method in UserController");
 //		String f_name = userdto.getF_name();
