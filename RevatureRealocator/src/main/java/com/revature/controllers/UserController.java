@@ -97,7 +97,7 @@ public class UserController {
 		if(us.upsert(user) != null) {
 			UserDTO dto = new UserDTO(user);
 			System.out.println("us.upsert(user) in user controller is not null");
-			return ResponseEntity.status(HttpStatus.CREATED).body(dto);
+			return ResponseEntity.ok().body(dto);
 		} else {
 			UserDTO dto = null;
 			return ResponseEntity.status(HttpStatus.NO_CONTENT).body(dto);

@@ -17,7 +17,7 @@ export class UserService {
   constructor(private http: HttpClient) {
     this.usersUrl = '/RevatureRealocator/preferences/users'; // May need to change this URI 
     this.prefUrl = '/RevatureRealocator/getpref'; // or whatever that uri is
-    this.saveUserUrl = '/RevatureRealocator/user/'
+    this.saveUserUrl = '/RevatureRealocator/user'
   }
 
   // Create methods for saving and getting the profile information
@@ -26,7 +26,7 @@ export class UserService {
   }
 
   public saveUser(user: User): Observable<User> {
-    return this.http.post<User>(this.saveUserUrl + user, user);
+    return this.http.post<User>(this.saveUserUrl, user);
   }
   
 }

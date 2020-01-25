@@ -39,15 +39,15 @@ export class NavbarComponent implements OnInit {
   }
   
   toSearch(){
-    // if(this.sessionService.getCurrentUser() != null){
-    //   console.log("Moving to rental search");
-    //   //Something about profile service
-    //   return this.router.navigateByUrl('/rentalsearch');
-    // } else {
-    //   alert('You are not logged in');
-    //   return this.router.navigateByUrl('/loginpage');
-    // }
-    return this.router.navigateByUrl('/rentalsearch');
+    if(this.sessionService.getCurrentUser() != null){
+      console.log("Moving to rental search");
+      //Something about profile service
+      return this.router.navigateByUrl('/rentalsearch');
+    } else {
+      alert('You are not logged in');
+      return this.router.navigateByUrl('/loginpage');
+    }
+    // return this.router.navigateByUrl('/rentalsearch');
   }
 
   toRegister(){
@@ -69,14 +69,14 @@ export class NavbarComponent implements OnInit {
   }
 
   toPropCreate(){
-    // if(this.sessionService.getCurrentUser() != null){
-    //   console.log('Moving to CreateProp page');
-    //   return this.router.navigateByUrl('/propcreate');
-    // } else {
-    //   alert('You are not logged in');
-    //   return this.router.navigateByUrl('/loginpage');
-    // }
-    this.router.navigateByUrl('/propcreate');
+    if(this.sessionService.getCurrentUser() != null){
+      console.log('Moving to CreateProp page');
+      return this.router.navigateByUrl('/propcreate');
+    } else {
+      alert('You are not logged in');
+      return this.router.navigateByUrl('/loginpage');
+    }
+    // this.router.navigateByUrl('/propcreate');
   }
 
 

@@ -41,23 +41,23 @@ public class PropertyController {
 	
 	
 	@PostMapping("/propsearchpref")
-	public List<Property> getProperties(@RequestBody PreferenceDTO pref){
+	public ResponseEntity<List<Property>> getProperties(@RequestBody PreferenceDTO pref){
 		//Get POST request values and create a preference object to create an API call with
 		System.out.println(pref);
 		Preference full = new Preference(pref);
 		List<Property> list = ps.findPropertiesByFilter(full);
 //		String query = api.createQueryByPreference(full);
 //		List<Property> list = APIParse.parse(api.getResponse(query).toString()); //TODO: Map the response body to Properties and return them
-		return list;
+		return ResponseEntity.ok().body(list);
 	}
 	
 	@PostMapping("/propsearchsimple")
-	public List<Property> getPropertiesSimpleSearch(@RequestBody SimpleSearchBody ssb){
+	public ResponseEntity<List<Property>> getPropertiesSimpleSearch(@RequestBody SimpleSearchBody ssb){
 		String state_code = ssb.getState_code();
 		String city = ssb.getCity();
 		String query = api.createSimpleQuery(state_code, city);
 		List<Property> list = APIParse.parse(api.getResponse(query).toString());
-		return list;
+		return ResponseEntity.ok().body(list);
 	}
 	
 //	@PostMapping("/propsearch")
@@ -68,11 +68,11 @@ public class PropertyController {
 //	}
 	
 	@PostMapping("/propsearch")
-	public List<Property> getProperties(String state_code, String city){
+	public ResponseEntity<List<Property>> getProperties(String state_code, String city){
 		//Get POST request values and create a preference object to create an API call with
 		String query = api.createSimpleQuery(state_code, city);
 		List<Property> list = APIParse.parse(api.getResponse(query).toString()); //TODO: Map the response body to Properties and return them
-		return list;
+		return ResponseEntity.ok().body(list);
 	}	
 	
 
@@ -89,7 +89,7 @@ public class PropertyController {
 		if(ps.upsert(property) != false) {
 			System.out.println("good creation.. returned true... about to send back a good status with the property in the body");
 			PropertyDTO prop = new PropertyDTO(property);
-			return ResponseEntity.status(HttpStatus.CREATED).body(prop);
+			return ResponseEntity.ok().body(prop);
 			
 			//return prop;
 		} else {

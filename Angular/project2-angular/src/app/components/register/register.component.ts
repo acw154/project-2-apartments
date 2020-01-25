@@ -15,7 +15,7 @@ export class RegisterComponent implements OnInit {
   private user: User;
   private registerForm: FormGroup;
   allStatus = [
-    new Status(0, "not looking"),
+    new Status(3, "not looking"),
     new Status(1, "searching for roommate"),
     new Status(2, "searching for room"),
   ];
@@ -45,6 +45,7 @@ export class RegisterComponent implements OnInit {
   registerUser(){
     this.user = new User(this.registerForm.value);
     this.user.user_status = this.registerForm.controls.user_status.value;
+    this.user.id = 0;
     console.log(this.user);
     // register user
     this.userService.saveUser(this.user).subscribe(
