@@ -13,30 +13,42 @@
             </fieldset>
 
             <div class="input-field mt-3">
-                <input class="form-control wdth" formControlName="current_state" type="text" placeholder="State"/>
+                <input class="form-control wdth" formControlName="current_state" type="text" placeholder="VA"/>
             </div>
 
             <div class="row last justify-content-center">
-                <input type="submit" value="Search" class="btn-searchusears mt-5" [disabled]="!prefForm.valid">
+                <input type="submit" value="Search" class="btn-searchusears mt-5" [disabled]="!usearchForm.valid">
             </div>
+            <div *ngIf="!usearchForm.valid" class="alert alert-danger mt-2">
+                <p>State is required</p>
+            </div>
+
         </form>
         </div>
     </div>
 </div>
     <!-- show users -->
-<div class="container text-center">
+<div class="container user-results">
     <div class="row">
         <div class="col-lg-12">
 
 
               <table class="table-table-bordered table-hover">
                   <thead class="row">
-                      <th class="col-lg-6">Users</th>     
+                      <th class="col-lg-3">First Name</th>
+                      <th class="col-lg-3">Last Name</th> 
+                      <th class="col-lg-2">Email</th>
+                      <th class="col-lg-2">State</th> 
+                      <th class="col-lg-2">Status</th>     
                   </thead>
 
                   <tbody>
-                      <tr class="row" *ngFor="let u of user">
-                          <td class="col-lg-6">{{u.current_state}}</td>
+                      <tr class="row" *ngFor="let u of responce">
+                          <td class="col-lg-3">{{u.f_name}}</td>
+                          <td class="col-lg-3">{{u.l_name}}</td>
+                          <td class="col-lg-2">{{u.email}}</td>
+                          <td class="col-lg-2">{{u.current_state}}</td>
+                          <td class="col-lg-2">{{u.user_status}}</td>
                       </tr>
                   </tbody>
 
@@ -45,7 +57,6 @@
           </div>
       </div>
   </div>
-
 
 
 

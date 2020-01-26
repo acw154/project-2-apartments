@@ -11,11 +11,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./usersearchpage.component.css']
 })
 export class UsersearchpageComponent implements OnInit {
-
-  currant_state = "dsdfsdsgs"
-  editForm: FormGroup;
+  state: string;
   response: any;
-  user: User; 
   submitted = false;
   simple = true;
   usearchForm: FormGroup;
@@ -30,29 +27,32 @@ export class UsersearchpageComponent implements OnInit {
   
   createForm(){
     this.usearchForm = this.fb.group({
-      currant_state: ['', Validators.required],
+      f_name: ['', Validators.required],
+      l_name: ['', Validators.required],
+      email: ['', Validators.required],
+      user_status: ['', Validators.required],
+      current_state: ['', Validators.required],
     });
   }
 
 
-  // findUsersByState(){
-  //   this.user = new User(this.usearchForm.value);
-  //   this.userService.findByState(this.user).subscribe(
-  //     data => {
-  //       if(data != null){
-  //           this.response = data;
-  //           console.log('Found users');
-  //       }
-  //     }, error => {
-  //         console.log('Error ', error);
-  //       }
-  //     )
-  //   this.usearchForm.reset();
-  // }
+  findUsersByState(){
+    this.state = this.usearchForm.value.toUpperCase();
+    this.userService.findByState(this.state).subscribe(
+      data => {
+        if(data != null){
+            this.response = data;
+            console.log('Found users');
+        }
+      }, error => {
+          console.log('Error ', error);
+        }
+      )
+    this.usearchForm.reset();
+  }
 
 
   ngOnInit() {
   }
 
 }
-
