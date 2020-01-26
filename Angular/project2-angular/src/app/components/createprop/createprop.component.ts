@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { PropertyService } from 'src/app/services/property.service';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { SessionService } from 'src/app/services/session.service';
 import { Property } from 'src/app/model/property';
 import { Type } from 'src/app/model/type';
 

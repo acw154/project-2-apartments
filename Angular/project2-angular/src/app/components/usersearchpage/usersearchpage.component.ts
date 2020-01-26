@@ -33,22 +33,22 @@ export class UsersearchpageComponent implements OnInit {
   }
 
 
-  findUsers(){
-    this.user = new User(this.usearchForm.value);
-    this.preference.min_price = 0;
-    console.log(this.preference);
-    this.propertyService.getPropertiesByPref(this.preference).subscribe(
-      data => {
-        if(data != null){
-            this.response = data;
-            console.log('Found users');
-        }
-      }, error => {
-          console.log('Error ', error);
-        }
-      )
-    this.prefForm.reset();
-  }
+  // findUsers(){
+  //   this.user = new User(this.usearchForm.value);
+  //   this.preference.min_price = 0;
+  //   console.log(this.preference);
+  //   this.propertyService.getPropertiesByPref(this.preference).subscribe(
+  //     data => {
+  //       if(data != null){
+  //           this.response = data;
+  //           console.log('Found users');
+  //       }
+  //     }, error => {
+  //         console.log('Error ', error);
+  //       }
+  //     )
+  //   this.prefForm.reset();
+  // }
 
 
   ngOnInit() {

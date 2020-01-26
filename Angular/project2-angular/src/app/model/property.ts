@@ -17,4 +17,5 @@ export class Property {
     public constructor(init?: Partial<Property>) {
         Object.assign(this, init);
     }
+
 }
