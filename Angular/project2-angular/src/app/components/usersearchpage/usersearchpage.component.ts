@@ -34,7 +34,7 @@ export class UsersearchpageComponent implements OnInit {
   }
 
 
-  // findUsers(){
+  // findByState{
   //   this.user = new User(this.usearchForm.value);
 
   //   this.user.current_state;
