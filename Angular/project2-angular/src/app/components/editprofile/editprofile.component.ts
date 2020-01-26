@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Preference } from 'src/app/model/preference';
+import { Router } from '@angular/router';
+import { ProfileService } from 'src/app/services/profile.service';
+import { SessionService } from 'src/app/services/session.service';
 
 @Component({
   selector: 'app-editprofile',
@@ -8,9 +12,53 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class EditprofileComponent implements OnInit {
 
-  constructor() { }
+  preference: Preference;
+  editForm: FormGroup;
+
+
+  constructor(
+    private sessionService: SessionService, //?
+    private profileService: ProfileService,
+    private router: Router,
+    private fb: FormBuilder,) {
+      this.createForm();
+  }
+
+  
+  createForm(){
+    this.editForm = this.fb.group({
+      min_price: ['', [Validators.required, Validators.min(0)]],
+      max_price: ['', [Validators.required, Validators.max(50000)]],
+      num_beds: ['', [Validators.required, Validators.min(0)]],
+      num_baths: ['', [Validators.required, Validators.min(0)]],
+      city: ['', [Validators.required]],
+      state_code: ['', [Validators.required]],
+    })
+  }
 
   ngOnInit() {
   }
 
+ 
+  savePreference(){
+    this.preference = new Preference(this.editForm.value);
+
+    this.profileService.savePreference(this.preference).subscribe(
+      data => {
+        if(data != null){
+          console.log('Successfylly changed preferences');
+          this.sessionService.storePreference(data);
+          alert('Successfylly changed preferences');
+        } else {
+          alert('Error editing preference');
+          this.editForm.reset();
+        }
+        this.router.navigateByUrl('/profile');
+      }, error => {
+        console.log('Error ', error);
+        this.editForm.reset();
+      }
+    );
 }
+}
+

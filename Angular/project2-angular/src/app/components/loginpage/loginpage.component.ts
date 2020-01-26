@@ -20,6 +20,7 @@ export class LoginpageComponent implements OnInit {
   loginT: FormGroup;
   submitted=false;
   user: User;
+  preference: Preference;
   
 
   constructor(
@@ -53,19 +54,7 @@ export class LoginpageComponent implements OnInit {
           this.user = new User(data);
           this.sessionService.saveCurrentUser(this.user);
           console.log(this.user);
-          //console.log(this.sessionService.getCurrentUser().user_status);
-          // this.userService.getUserPreference(data).subscribe(
-          //   data => {
-          //     if (data != null) {
-          //       this.sessionService.storePreference(data);
-          //     } else {
-          //       console.log('User does not have a preference');
-          //     }
-          //   }, error => {
-          //     console.log('Error ', error);
-          //   }
-          // );
-          // save preference 
+          this.checkPref();
         } else {
           alert("Invalid Credentials");
           
@@ -74,17 +63,28 @@ export class LoginpageComponent implements OnInit {
         console.log("Error", error);
       });
     }
+
+
+    checkPref(){
+      if(this.sessionService.getCurrentUser() != null){
+        this.userService.getUserPreference(this.sessionService.getCurrentUser()).subscribe(
+          data => {
+            if(data != null){
+              this.preference = data;
+              this.sessionService.storePreference(this.preference);
+              console.log(this.preference);
+            } else {
+              console.log('User does not have a preference');
+            }
+            this.router.navigateByUrl('/profile');
+          }, error => {
+            console.log('Error ', error);
+          }
+        );
+
+        
+      }
+    }
   }
     
-         // Saved the user as current User 
-        // Send the user value to some other service and save it as currentUser object
-        // ex: this.profileService.setCurrentUser()
-        // this.router.navigate([]) Navigate to profile of currentUser
-  //     }, error => {
-  //       alert("Error submitting login");
-  //     }
-  //   );
-  //   console.log(this.submitted);
-  //   console.log(this.loginT);
-  // }
-
+        
