@@ -30,7 +30,20 @@ export class IndividualPropertyPageComponent implements OnInit {
 
   saveProperty(){
     this.viewedProperty.email = this.sessionService.getCurrentUser().email;
-    this.propertyService.saveProperty(this.viewedProperty);
+    this.propertyService.saveProperty(this.viewedProperty).subscribe(
+      data => {
+        if(data != null ){
+          console.log(data);
+          alert("Saved Property");
+        } else {
+          console.log("Not saved")
+          alert("Error saving property");
+        }
+      }, error => {
+        console.log('Error ', error);
+        alert("Error saving property");
+      }
+    )
 
   }
 

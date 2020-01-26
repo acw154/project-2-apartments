@@ -170,12 +170,12 @@
                 <!-- Table with ngFor for every object in the response body-->
                 <table class="table-table-bordered table-hover" *ngIf="response">
                     <thead class="row">
-                        <th class="col-lg-2">Address</th>
-                        <th class="col-lg-2">Price</th>
-                        <th class="col-lg-2">Beds</th>
-                        <th class="col-lg-2">Baths</th>
-                        <th class="col-lg-2">Revature Owned</th>
-                        <th class="col-lg-2">Link</th>
+                        <th class="col-lg-4">  Address  </th>
+                        <th class="col-lg-2">  Price  </th>
+                        <th class="col-lg-1">  Beds  </th>
+                        <th class="col-lg-1">  Baths  </th>
+                        <th class="col-lg-2">  Revature Owned  </th>
+                        <th class="col-lg-2">  Link  </th>
                     </thead>
                     <tbody>
                         <!-- <tr class="row">
@@ -187,11 +187,11 @@
                             <td class="col-lg-2"><button class="btn-btn-success" (click)="goToIndividualPropertyPage(dummy)">Go To</button> </td>
                         </tr> -->
                         <tr class="row" *ngFor="let property of response">
-                            <td class="col-lg-4">{{property.street_num}} {{property.street}}<p *ngIf="property.apt_num > 0"> {{property.apt_num}}</p>, {{property.city}}, {{property.zip}}</td>
-                            <td class="col-lg-2">${{property.price}}</td>
-                            <td class="col-lg-1">{{property.num_beds}}</td>
-                            <td class="col-lg-1">{{property.num_baths}}</td>
-                            <td class="col-lg-2">{{property.revemp_owned}}</td>
+                            <td class="col-lg-4">  {{property.street_num}} {{property.street}}<span *ngIf="property.apt_num > 0"> {{property.apt_num}}</span>, {{property.city}}, {{property.zip}}  </td>
+                            <td class="col-lg-2">  ${{property.price}}  </td>
+                            <td class="col-lg-1">  {{property.num_beds}}  </td>
+                            <td class="col-lg-1">  {{property.num_baths}}  </td>
+                            <td class="col-lg-2">  {{property.revemp_owned}}  </td>
                             <td class="col-lg-2"><button class="btn-btn-success" (click)="goToIndividualPropertyPage(property)">Go To</button> </td>
                             <!-- Perhaps use a DTO instead of a property so that the address, price, & property type are more 
                                 easily displayed and formatted

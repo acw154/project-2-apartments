@@ -14,6 +14,7 @@ import com.google.gson.JsonParser;
 import com.mashape.unirest.http.JsonNode;
 import com.revature.models.Preference;
 import com.revature.models.Property;
+import com.revature.models.PropertyDTO;
 import com.revature.models.PropertyType;
 import com.revature.models.User;
 import com.revature.models.UserDTO;
@@ -91,7 +92,7 @@ public class PropertyService {
 	
 	
 
-	public List<Property> findPropertiesByFilter(Preference pref){
+	public List<PropertyDTO> findPropertiesByFilter(Preference pref){
 		// from the api
 		String city = pref.getCity();
 		String state = pref.getState_code();
@@ -115,11 +116,19 @@ public class PropertyService {
 		}
 		// from the db
 		List<Property> emplist = pdao.findByStateNoApt(state);
+		List<PropertyDTO> dtoList2 = new ArrayList<>();
 		if(emplist != null) {
 			emplist.addAll(list2);
-			return emplist;
+			for(Property p: emplist) {
+				dtoList2.add(new PropertyDTO(p));
+			}
+			return dtoList2;
 		}
-		return list3;
+		List<PropertyDTO> dtoList = new ArrayList<>();
+		for(Property p: list3) {
+			dtoList.add(new PropertyDTO(p));
+		}
+		return dtoList;
 	}
 	
 	public PropertyType grabActualPropertyType(Property property) {

@@ -80,6 +80,7 @@ export class RentalsearchComponent implements OnInit {
           if(data != null){
               this.response = data;
               console.log('Found properties');
+              console.log(this.response);
           }
         }, error => {
             console.log('Error ', error);

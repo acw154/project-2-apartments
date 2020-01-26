@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Property } from '../model/property';
 import { Preference } from '../model/preference';
+import { User } from '../model/user';
 
 @Injectable({
   providedIn: 'root'
@@ -48,8 +49,8 @@ export class PropertyService {
     return this.viewedProperty;
   }
 
-  public saveProperty(property: Property){
-    this.http.post(this.savePropUrl, property);
+  public saveProperty(property: Property): Observable<User>{
+    return this.http.post<User>(this.savePropUrl, property);
   }
 
   // Create methods that take in the searchForm with all of its values and post it 

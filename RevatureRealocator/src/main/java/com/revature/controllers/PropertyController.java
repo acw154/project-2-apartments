@@ -41,11 +41,11 @@ public class PropertyController {
 	
 	
 	@PostMapping("/propsearchpref")
-	public ResponseEntity<List<Property>> getProperties(@RequestBody PreferenceDTO pref){
+	public ResponseEntity<List<PropertyDTO>> getProperties(@RequestBody PreferenceDTO pref){
 		//Get POST request values and create a preference object to create an API call with
 		System.out.println(pref);
 		Preference full = new Preference(pref);
-		List<Property> list = ps.findPropertiesByFilter(full);
+		List<PropertyDTO> list = ps.findPropertiesByFilter(full);
 //		String query = api.createQueryByPreference(full);
 //		List<Property> list = APIParse.parse(api.getResponse(query).toString()); //TODO: Map the response body to Properties and return them
 		return ResponseEntity.ok().body(list);
