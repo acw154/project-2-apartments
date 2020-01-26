@@ -1,9 +1,116 @@
+<app-navbar ></app-navbar>
+<!-- <app-background></app-background> -->
+
+<!-- <div class="container text-center searchusers">
+    <div class="col">
+        <div class="row">
+            <h5>Search Users</h5>
+
+            <div class="col-lg-3 mt-5">
+                <label for="usersearch"></label>
+                <input [(ngModel)]="user" type="text" class="form-control" placeholder="State" required>
+
+            </div>
+
+            <div class="col-lg-9 display-users">
+
+            </div>
+        </div>
+    </div>
+</div> -->
 
 
-<h1>Search users here</h1>
+
+
+<!-- ------------------------start------------------------------------- -->
+<div class="container">
+    <div class="row">
+
+        <div class="col-lg-3 mt-5 this">
+            <label for="usersearch"></label>
+            <input [(ngModel)]="user" type="text" class="form-control" placeholder="State" required>
+            <button (click)="findUsers()"  class="btn">Find</button>
+        </div>
+
+    
+
+<div class ="display-users" *ngIf="findUsers">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">State</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let u of users">
+                <td>{{u.current_state}}</td>
+
+                    <button name="reimRec" value={{}} (click)="showRec($event)" class="btn btn-secondary">Show</button>
+            </tr>
+        </tbody>
+
+    </table>
+</div>
+
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       
         
-<label for="usersearch"></label>
+<!-- <label for="usersearch"></label>
  <input [(ngModel)]="user" type="text" class="form-control" placeholder="Name" required>
 
 <h1>Search users here</h1>  
@@ -11,6 +118,6 @@
 <input [(ngModel)]="user" type="text" class="form-control" placeholder="Name" required>
 
 <button (click)="User()" class="btn mt-5 text-center">Search</button>
-<p id = "warning" style="color:red"></p>
+<p id = "warning" style="color:red"></p> -->
 
 

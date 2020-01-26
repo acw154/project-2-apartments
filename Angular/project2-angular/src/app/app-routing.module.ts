@@ -17,6 +17,7 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent },
   { path: 'rentalsearch', component: RentalsearchComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'usersearchpage', component: UsersearchpageComponent },
   { path: 'editprofile', component: EditprofileComponent },
   { path: '', component: LoginpageComponent },
   { path: 'individualpropertypage', component: IndividualPropertyPageComponent },
