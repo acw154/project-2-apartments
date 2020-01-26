@@ -25,7 +25,7 @@ export class UserService {
 
 
   constructor(private http: HttpClient) {
-    this.usersUrl = '/RevatureRealocator/preferences/users'; // May need to change this URI 
+    this.usersUrl = '/RevatureRealocator/preferences/user'; // May need to change this URI 
     this.prefUrl = '/RevatureRealocator/getpref'; // or whatever that uri is
     this.saveUserUrl = '/RevatureRealocator/user'; 
     this.findUserUrl = 'RevatureRealocator/state/'; //not finished after "/"
