@@ -44,7 +44,7 @@ export class RentalsearchComponent implements OnInit {
   createForm(){
     this.prefForm = this.fb.group({
       city: ['', Validators.required],
-      state_code: ['', Validators.required],
+      state_code: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(2)]],
       min_price: ['', [Validators.required, Validators.min(0)]],
       max_price: ['', [Validators.required, Validators.min(0), Validators.max(50000)]],
       num_beds: ['', Validators.min(0)],
