@@ -11,13 +11,21 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./usersearchpage.component.css']
 })
 export class UsersearchpageComponent implements OnInit {
-
-  editForm: FormGroup;
+  state: string;
   response: any;
-  user: User; 
   submitted = false;
   simple = true;
-  prefForm: FormGroup;
+  usearchForm: FormGroup;
+  // --------------------
+
+	
+	// f_name ="sdfsdfsdfs";
+	// l_name = "sdfsdfsdfs";
+	// email = "sdfsdfsdfs";
+	// password = "sdfsdfsdfs";
+	// user_status = "sdfsdfsdfs";
+	// current_state = "sdfsdfsdfs";
+  // --------------------
 
   constructor(
     private userService: UserService,
@@ -28,37 +36,33 @@ export class UsersearchpageComponent implements OnInit {
   }
   
   createForm(){
-    this.prefForm = this.fb.group({
-      currant_state: ['', Validators.required],
+    this.usearchForm = this.fb.group({
+      f_name: ['', Validators.required],
+      l_name: ['', Validators.required],
+      email: ['', Validators.required],
+      user_status: ['', Validators.required],
+      current_state: ['', Validators.required],
     });
   }
 
 
-  // findByState{
-  //   this.user = new User(this.usearchForm.value);
-
-  //   this.user.current_state;
-  //   console.log(this.user);
-
-  //   this.userService.findUsers(this.user).subscribe(
-  //     data => {
-  //       if(data != null){
-  //           this.response = data;
-  //           console.log('Found users');
-  //       }
-  //     }, error => {
-  //         console.log('Error ', error);
-  //       }
-  //     )
-  //   this.usearchForm.reset();
-  // }
-
- 
-
+  findUsersByState(){
+    this.state = this.usearchForm.value.toUpperCase();
+    this.userService.findByState(this.state).subscribe(
+      data => {
+        if(data != null){
+            this.response = data;
+            console.log('Found users');
+        }
+      }, error => {
+          console.log('Error ', error);
+        }
+      )
+    this.usearchForm.reset();
+  }
 
 
   ngOnInit() {
   }
 
 }
-
