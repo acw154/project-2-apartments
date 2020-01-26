@@ -26,11 +26,17 @@
 <div class="container">
     <div class="row">
 
-        <div class="col-lg-3 mt-5 this">
-            <label for="usersearch"></label>
-            <input [(ngModel)]="user" type="text" class="form-control" placeholder="State" required>
-            <button (click)="findUsers()"  class="btn">Find</button>
-        </div>
+        <form [formGroup]="usearchForm" (ngSubmit)="findUsers()" >
+            <fieldset>
+                <legend>Search Users</legend>
+            </fieldset>
+
+            <div class="input-field">
+                <label>State</label>
+                <input class="form-control" formControlName="current_state" type="text" placeholder="VA"/>
+            </div>
+
+        </form>
 
     
 
@@ -43,10 +49,9 @@
         </thead>
 
         <tbody>
-            <tr *ngFor="let u of users">
+            <tr *ngFor="let u of user">
                 <td>{{u.current_state}}</td>
 
-                    <button name="reimRec" value={{}} (click)="showRec($event)" class="btn btn-secondary">Show</button>
             </tr>
         </tbody>
 
