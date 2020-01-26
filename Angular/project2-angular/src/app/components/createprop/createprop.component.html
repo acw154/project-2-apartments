@@ -10,8 +10,8 @@
             <div>
                 <label>Property Type: </label>
                 <select single formControlName="type">
-                    <option *ngFor="let proptype of allTypes" [ngValue]="proptype.id">
-                        {{proptype.typeName}}
+                    <option *ngFor="let proptype of allTypes" [ngValue]="proptype.typeString">
+                        {{proptype.typeFormat}}
                     </option>
                 </select>
             </div>

@@ -1,4 +1,4 @@
 export class Type {
-    constructor(public id:number, public typeName:string) {
+    constructor(public typeString:string, public typeFormat:string) {
     }
 }

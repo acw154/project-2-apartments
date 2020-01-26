@@ -22,7 +22,7 @@ export class NavbarComponent implements OnInit {
       console.log(this.sessionService.getCurrentUser());
       
     } else {
-      alert("You were not logged in");
+      alert("You must be logged in to use this feature");
     }
     return this.router.navigateByUrl('/loginpage');
   }
@@ -33,7 +33,7 @@ export class NavbarComponent implements OnInit {
       //Something about profile service
       return this.router.navigateByUrl('/profile');
     } else {
-      alert('You are not logged in');
+      alert('You must be logged in to use this feature');
       return this.router.navigateByUrl('/loginpage');
     }
   }
@@ -44,7 +44,7 @@ export class NavbarComponent implements OnInit {
       //Something about profile service
       return this.router.navigateByUrl('/rentalsearch');
     } else {
-      alert('You are not logged in');
+      alert('You must be logged in to use this feature');
       return this.router.navigateByUrl('/loginpage');
     }
     // return this.router.navigateByUrl('/rentalsearch');
@@ -73,10 +73,20 @@ export class NavbarComponent implements OnInit {
       console.log('Moving to CreateProp page');
       return this.router.navigateByUrl('/propcreate');
     } else {
-      alert('You are not logged in');
+      alert('You must be logged in to use this feature');
       return this.router.navigateByUrl('/loginpage');
     }
     // this.router.navigateByUrl('/propcreate');
+  }
+
+  toUserSearch(){
+    if(this.sessionService.getCurrentUser() != null){
+      console.log('Moving to User Search');
+      return this.router.navigateByUrl('/usersearch');
+    } else {
+      alert('You must be logged in to use this feature');
+      return this.router.navigateByUrl('/loginpage');
+    }
   }
 
 

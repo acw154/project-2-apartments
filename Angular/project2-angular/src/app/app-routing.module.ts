@@ -22,6 +22,7 @@ const routes: Routes = [
   { path: '', component: LoginpageComponent },
   { path: 'individualpropertypage', component: IndividualPropertyPageComponent },
   { path: 'propcreate', component: CreatepropComponent },
+  { path: 'usersearch', component: UsersearchpageComponent },
   { path: '**', redirectTo: 'loginpage', pathMatch: 'full' }
 ];
 

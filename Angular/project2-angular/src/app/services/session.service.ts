@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Session } from 'protractor';
 import { User } from '../model/user';
 import { Preference } from '../model/preference';
+import { Property } from '../model/property';
 
 @Injectable({
   providedIn: 'root'
@@ -39,4 +40,17 @@ export class SessionService {
       return null;
     }
   }
+
+  public storeUserProperties(properties: Property[]){
+    sessionStorage.setItem('userProperties', JSON.stringify(properties));
+  }
+
+  public getUserProperties(){
+    if(sessionStorage.getItem('currentUser') != null && sessionStorage.getItem('userProperties') != null){
+     return JSON.parse(sessionStorage.getItem('userProperties'));
+    } else {
+      return null;
+    }
+  }
+
 }
