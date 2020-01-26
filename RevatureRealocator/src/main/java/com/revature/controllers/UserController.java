@@ -3,6 +3,7 @@ package com.revature.controllers;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,6 +61,7 @@ public class UserController {
 		System.out.println("inside of UserController login method");
 		String email = login.getEmail();
 		String pass = login.getPassword();
+		pass = DigestUtils.sha256Hex(pass);
 		if (us.verifyUser(email, pass)) {
 			User user = us.findByEmail(email);
 			UserDTO dto = new UserDTO(user);

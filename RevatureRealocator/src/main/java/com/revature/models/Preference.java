@@ -261,7 +261,7 @@ public class Preference implements Serializable{
 	public String toString() {
 		return "Preference [id=" + id + ", pets=" + pets + ", minPrice=" + minPrice + ", maxPrice=" + maxPrice
 				+ ", numBeds=" + numBeds + ", numBaths=" + numBaths + ", furnished=" + furnished + ", city=" + city
-				+ ", state_code=" + state_code + ", user=" + user + "]";
+				+ ", state_code=" + state_code  + "]";
 	}
 
 	
