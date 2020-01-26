@@ -27,14 +27,16 @@
         </div>
     </div>
 </div>
+<div style="text-align: center;">
+    <h2 *ngIf="response; else NRF">Found {{response.length}} Results</h2>
+    <ng-template #NRF>No Results Found</ng-template>
+</div>
     <!-- show users -->
 <div class="container user-results">
     <div class="row">
         <div class="col-lg-12">
-
-
               <table class="table-table-bordered table-hover" *ngIf="response">
-                  <thead>
+                  <thead class="row">
                       <th class="col-lg-3">Name</th>      
                       <th class="col-lg-3">Email</th>
                       <th class="col-lg-3">State</th> 
@@ -43,15 +45,16 @@
 
                   <tbody>
                       <!-- <tr class="row" *ngFor="let u of responce"> -->
-                    <tr class="row" *ngFor="let u of responce"> 
-                          <td class="col-lg-3">{{f_name}}{{l_name}}</td>
-                          <td class="col-lg-3">{{email}}</td>
-                          <td class="col-lg-3">{{current_state}}</td>
-                          <td class="col-lg-3">{{user_status}}</td>
+                    <tr class="row" *ngFor="let u of response"> 
+                          <td class="col-lg-3">{{u.f_name}} {{u.l_name}}</td>
+                          <td class="col-lg-3">{{u.email}}</td>
+                          <td class="col-lg-3">{{u.current_state}}</td>
+                          <td class="col-lg-3">{{u.user_status}}</td>
                       </tr>
                   </tbody>
 
               </table>
+
 
           </div>
       </div>

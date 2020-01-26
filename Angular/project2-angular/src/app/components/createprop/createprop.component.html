@@ -63,6 +63,7 @@
                 <button class="btn-search" type="submit" [disabled]="!propcreateForm.valid">Create Property</button>
                 <div *ngIf="!propcreateForm.valid" class="alert alert-danger">
                     <p style="font-size: 10pt;">All fields except Apartment Number are required. All numbers provided must be non-negative</p>
+                    <p style="font-size: 10pt;">Zip must be of length 5 and State Code must be of length 2</p>
                 </div>
             </div>
         </form>
