@@ -32,3 +32,31 @@ label {
     padding-top: 1.5rem;
     font-weight: 500;
 }
+
+.edit{
+    color: white;
+    background-color: rgb(111, 183, 189);
+    width: 100px;
+    text-align: center;
+    justify-content: center;
+    }
+    
+    .edit:hover{
+    color: black;
+    background-color: white;
+    }
+
+    label{
+        display: inline-block;
+        float: left;
+        clear: left;
+        width: 250px;
+        text-align: right;
+        padding-right: 5rem;
+        
+    }
+    input {
+      display: inline-block;
+      float: left;
+      margin-top: 10px;
+    }

@@ -5,11 +5,10 @@
     <div class="row justify-content-center">
         <div class="col-lg-5 register-form">
 
-            <form class="form-group" [formGroup]= "editForm" (ngSubmit)= "editUser()">
+            <form class="form-group mt-5" [formGroup]= "editForm" (ngSubmit)= "editUser()">
 
                 <div class="text-muted text-centered"><h3>Edit Preferences</h3></div>
                 <div class="form-group">
-
 
                     <div>
                         <label>Min Price: </label>
@@ -20,11 +19,6 @@
                     <div>
                         <label>Max Price: </label>
                         <input class="Form-control" formControlName="max_price" type="number"> 
-                    </div>
-
-                    <div>
-                        <label>Max Price: </label>
-                        <input class="Form-control" formControlName="max_price" type="text"> 
                     </div>
 
                     <div>
@@ -49,8 +43,12 @@
                         <input class="Form-control" formControlName="state_code" type="text"> 
                     </div>
 
-                    <div>
-                        <button class="btn-search" type="submit" [disabled]="!editForm.valid">OK</button>
+                    <!-- <div>
+                        <button class="btn-search edit" type="submit" [disabled]="!editForm.valid">OK</button>
+                    </div> -->
+
+                    <div class="form-group">
+                        <input type="submit" value="Edit" class="btn edit btn-lg mt-5">
                     </div>
 
                 </div>
