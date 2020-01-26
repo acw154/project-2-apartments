@@ -27,3 +27,13 @@
         box-shadow: 0 0 0 0 !important;
         border: none!important
     }
+
+    .user-results {
+        padding-bottom: 5rem;
+    }
+
+    table {
+        width: 70%;
+        margin: auto;
+    }
+
