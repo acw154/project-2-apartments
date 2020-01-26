@@ -16,6 +16,16 @@ export class UsersearchpageComponent implements OnInit {
   submitted = false;
   simple = true;
   usearchForm: FormGroup;
+  // --------------------
+
+	
+	// f_name ="sdfsdfsdfs";
+	// l_name = "sdfsdfsdfs";
+	// email = "sdfsdfsdfs";
+	// password = "sdfsdfsdfs";
+	// user_status = "sdfsdfsdfs";
+	// current_state = "sdfsdfsdfs";
+  // --------------------
 
   constructor(
     private userService: UserService,
