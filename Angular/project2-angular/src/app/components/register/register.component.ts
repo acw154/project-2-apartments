@@ -45,6 +45,7 @@ export class RegisterComponent implements OnInit {
   registerUser(){
     this.user = new User(this.registerForm.value);
     this.user.user_status = this.registerForm.controls.user_status.value;
+    this.user.current_state = this.user.current_state.toUpperCase();
     this.user.id = 0;
     console.log(this.user);
     // register user
