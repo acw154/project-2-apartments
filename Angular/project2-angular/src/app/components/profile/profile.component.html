@@ -1,26 +1,34 @@
 <app-navbar></app-navbar>
 <app-background></app-background>
      
-<div class="container profile-page p-3 mb-5">
+<div class="container profile-page p-3 mb-5 text-light">
         <div class="row">
   
          <div class="col-lg-4 prefer">
             <h5>Details</h5>
                 <ul class="profile-ul">
 
-                    <li class="shadow-sm p-3 mb-5 bg rounded"><h4><strong>First Name:</strong><span>{{ currentUser.f_name }}</span></h4></li>
-                    <li class="shadow-sm p-3 mb-5 bg-white rounded"><h4><strong>Last Name:</strong><span>{{ currentUser.l_name }}</span></h4></li>
-                    <li class="shadow-sm p-3 mb-5 bg-white rounded"><h4><strong>Email:</strong><span>{{ currentUser.email }}</span></h4></li>
-                    <li class="shadow-sm p-3 mb-5 bg-white rounded"><h4><strong>State:</strong><span>{{ currentUser.current_state }}</span></h4></li>
-                    <li class="shadow-sm p-3 mb-5 bg-white rounded"><h4><strong>Email:</strong><span>{{ currentUser.email }}</span></h4></li>
-                    <li class="shadow-sm p-3 mb-5 bg-white rounded"><h4><strong>Status:</strong><span>{{ currentUser.user_status }}</span></h4></li>
+                    <li><h4><strong>First Name:</strong><span>{{ currentUser.f_name }}</span></h4></li>
+
+                    <li><h4><strong>Last Name:</strong><span>{{ currentUser.l_name }}</span></h4></li>
+
+                    <li><h4><strong>Email:</strong><span>{{ currentUser.email }}</span></h4></li>
+
+                    <li><h4><strong>State:</strong><span>{{ currentUser.current_state }}</span></h4></li>
+
+                    <li><h4><strong>Email:</strong><span>{{ currentUser.email }}</span></h4></li>
+
+                    <li><h4><strong>Status:</strong><span>{{ currentUser.user_status }}</span></h4></li>
                 </ul>
-            </div>  
+            </div> 
+
+            <span class=" col-lg-1 vl"></span>
   <!--preferences-->
   
-        <div class="col-lg-8 prefer1">
+        <div class="col-lg-7 prefer1 prefer">
             <h5>Preferences</h5>
             <ul class="profile-ul">
+
                 <li ><h4><strong>Min Price:</strong><span *ngIf="currUserPref">{{ currentUserPref.min_price }}</span></h4></li>
                 <li><h4><strong>Max Price:</strong><span *ngIf="currUserPref">{{ currentUserPref.max_price }}</span></h4></li>
                 <li><h4><strong>Beds:</strong><span *ngIf="currUserPref">{{ currentUserPref.num_beds }}</span></h4></li>
@@ -33,8 +41,40 @@
                 <input routerLink="/editprofile" type="submit" value="Edit" class="btn edit btn-lg mt-5">
             </div>
         </div>
+        <!-- ------------------------------------------------------ -->
+
+
+      
+        <!-- ---------------------------------------------------------- -->
 
     </div>
+</div>
+
+<div class="col-lg-6 pt-5 savedproperty text-center"> <!--*ngIf="response"   *ngIf="savedproperty"-->
+    <h5>Saved Properties</h5>
+    <table class="table-table-bordered table-hover">
+
+        <thead class="row">
+            <th class="col-lg-4">  Address  </th>
+            <th class="col-lg-2">  Price  </th>
+            <th class="col-lg-1">  Beds  </th>
+            <th class="col-lg-1">  Baths  </th>
+            <th class="col-lg-2">  Revature Owned  </th>
+            <th class="col-lg-2">  Link  </th>
+        </thead>
+
+        <tbody>
+        <tr class="row">
+            <td class="col-lg-4">  {{savedProperty.street_num}} {{savedProperty.street}}<span *ngIf="property.apt_num > 0"> {{savedProperty.apt_num}}</span>, {{savedProperty.city}}, {{savedProperty.zip}}  </td>
+            <td class="col-lg-2">  ${{savedProperty.price}}  </td>
+            <td class="col-lg-1">  {{savedProperty.num_beds}}  </td>
+            <td class="col-lg-1">  {{savedProperty.num_baths}}  </td>
+            <td class="col-lg-2">  {{savedProperty.revemp_owned}}  </td>
+            <td class="col-lg-2">  {{saved}}  </td>
+
+        </tr>
+        </tbody>
+    </table>
 </div>
 
 

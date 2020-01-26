@@ -1,39 +1,49 @@
 .profile-page {
-  margin-top: -50rem;
+  margin-top: -55rem;
   text-align: center;
   color: black;
 }
 
-.profile-ul strong {
+/* .profile-ul strong {
   color: rgb(27, 27, 155);
   text-transform: uppercase;
   font-weight: 700;
 
-}
-.profile-ul span {
+} */
+/* .profile-ul span {
   margin-left: 2rem;
   color: rgb(66, 124, 129);
-}
+} */
 
 .profile-ul li {
   padding: 7px 5px;
   font-size: 19px;
-  list-style: none;;
+  list-style: none;
 }
 
 .prefer {
+  padding: 3rem 0;
   background-color: rgba(0,0,0,0.5);
 }
 
-.prefer1 {
+/* .prefer1 {
+  padding-top: 3rem;
   background-color: rgba(0,0,0,0.5);
+} */
+
+span {
+  padding-left: 1.4rem;
 }
 
-.user-details h5 {
-  color: rgb(27, 27, 155);
-  text-align: center;
-  text-transform: uppercase;
-  font-size: 1.7rem;
+strong {
+  text-decoration: underline;
+}
+
+h5 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  padding-bottom: 3rem;
+  /* text-decoration: underline; */
 }
 
 
@@ -49,9 +59,10 @@
   color: black;
   background-color: white;
   }
+/* property */
 
-  .bg {
-    border: 1px solid white;
-  }
+.savedproperty {
+  margin: 0 auto;
+}
 
 
