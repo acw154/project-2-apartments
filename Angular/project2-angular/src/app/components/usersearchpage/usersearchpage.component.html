@@ -7,7 +7,7 @@
 
     <div class="row justify-content-center">
         <div class="col-lg-5 user-search">
-        <form class ="user-search1" [formGroup]="usearchForm" (ngSubmit)="findByState()" >
+        <form class ="user-search1" [formGroup]="usearchForm" (ngSubmit)="findUsersByState()" >
             <fieldset>
                 <legend>Search Users by State</legend>
             </fieldset>
@@ -22,31 +22,29 @@
         </form>
         </div>
     </div>
-    <!-- show users -->
-
-  <div class="container text-center">
-      <div class="row">
-          <div class="col-lg-12">
-
-
-                <table class="table-table-bordered table-hover">
-                    <thead class="row">
-                        <th class="col-lg-6">Users</th>     
-                    </thead>
-
-                    <tbody>
-                        <tr class="row" *ngFor="let u of user">
-                            <td class="col-lg-6">{{u.current_state}}</td>
-                        </tr>
-                    </tbody>
-
-                </table>
-
-            </div>
-        </div>
-    </div>
-
 </div>
+    <!-- show users -->
+<div class="container text-center">
+    <div class="row">
+        <div class="col-lg-12">
+
+
+              <table class="table-table-bordered table-hover">
+                  <thead class="row">
+                      <th class="col-lg-6">Users</th>     
+                  </thead>
+
+                  <tbody>
+                      <tr class="row" *ngFor="let u of user">
+                          <td class="col-lg-6">{{u.current_state}}</td>
+                      </tr>
+                  </tbody>
+
+              </table>
+
+          </div>
+      </div>
+  </div>
 
 
 

@@ -12,12 +12,13 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class UsersearchpageComponent implements OnInit {
 
+  currant_state = "dsdfsdsgs"
   editForm: FormGroup;
   response: any;
   user: User; 
   submitted = false;
   simple = true;
-  prefForm: FormGroup;
+  usearchForm: FormGroup;
 
   constructor(
     private userService: UserService,
@@ -28,19 +29,15 @@ export class UsersearchpageComponent implements OnInit {
   }
   
   createForm(){
-    this.prefForm = this.fb.group({
+    this.usearchForm = this.fb.group({
       currant_state: ['', Validators.required],
     });
   }
 
 
-  // findByState{
+  // findUsersByState(){
   //   this.user = new User(this.usearchForm.value);
-
-  //   this.user.current_state;
-  //   console.log(this.user);
-
-  //   this.userService.findUsers(this.user).subscribe(
+  //   this.userService.findByState(this.user).subscribe(
   //     data => {
   //       if(data != null){
   //           this.response = data;
@@ -52,9 +49,6 @@ export class UsersearchpageComponent implements OnInit {
   //     )
   //   this.usearchForm.reset();
   // }
-
- 
-
 
 
   ngOnInit() {
