@@ -17,29 +17,9 @@ public class PropertyTypeService {
 		this.ptdao = ptdao;
 	}
 	
-	public List<PropertyType> findAll(){
-		return ptdao.findAll();
-	}
 	
-	public boolean upsert(PropertyType pt) {
-		ptdao.upsert(pt);
-		if(ptdao.findById(pt.getId()).equals(pt)) {
-			return true;
-		}
-		return false;
-	}
 	
-	public boolean delete(PropertyType pt) {
-		ptdao.delete(pt);
-		if(ptdao.findById(pt.getId()) == null) {
-			return true;
-		}
-		return false;
-	}
 	
-	public PropertyType findById(int id) {
-		return ptdao.findById(id);
-	}
 	
 	public PropertyType findByType(String type) {
 		return ptdao.findByType(type);

@@ -25,8 +25,8 @@ import com.revature.models.PropertyDTO;
 import com.revature.models.SimpleSearchBody;
 import com.revature.models.User;
 import com.revature.models.UserDTO;
-import com.revature.services.APIParse;
 import com.revature.services.PropertyService;
+import com.revature.util.APIParse;
 import com.revature.util.APIUtil;
 
 @RestController
