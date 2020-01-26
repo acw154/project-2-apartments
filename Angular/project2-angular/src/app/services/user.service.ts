@@ -42,7 +42,7 @@ export class UserService {
 
 
   public findByState(state: string): Observable<User[]> {
-    return this.http.post<User[]>(this.findUserUrl + state, JSON.stringify(state), this.headers);
+    return this.http.get<User[]>(this.findUserUrl + state, this.headers);
   }
 
 

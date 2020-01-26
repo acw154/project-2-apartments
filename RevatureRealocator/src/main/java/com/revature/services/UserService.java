@@ -76,8 +76,14 @@ public class UserService {
 	
 
 	
-	public List<User> findByState(String state){
-		return usdao.findByState(state);
+	public List<UserDTO> findByState(String state){
+		
+		List<User> userList = usdao.findByState(state);
+		List<UserDTO> dtoList = new ArrayList<>();
+		for(User u: userList) {
+			dtoList.add(new UserDTO(u));
+		}
+		return dtoList;
 	}
 	
 	

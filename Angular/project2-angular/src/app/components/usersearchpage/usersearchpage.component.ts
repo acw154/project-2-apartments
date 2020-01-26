@@ -37,28 +37,26 @@ export class UsersearchpageComponent implements OnInit {
   
   createForm(){
     this.usearchForm = this.fb.group({
-      f_name: ['', Validators.required],
-      l_name: ['', Validators.required],
-      email: ['', Validators.required],
-      user_status: ['', Validators.required],
-      current_state: ['', Validators.required],
+      current_state: ['',[Validators.required, Validators.minLength(2), Validators.maxLength(2)]],
     });
   }
 
 
   findUsersByState(){
-    this.state = this.usearchForm.value.toUpperCase();
+    this.state = this.usearchForm.controls.current_state.value;
+    console.log(this.state);
+    this.state = this.state.toUpperCase();
     this.userService.findByState(this.state).subscribe(
       data => {
         if(data != null){
             this.response = data;
             console.log('Found users');
-        }
+            console.log(this.response);
+        } 
       }, error => {
           console.log('Error ', error);
         }
       )
-    this.usearchForm.reset();
   }
 
 
