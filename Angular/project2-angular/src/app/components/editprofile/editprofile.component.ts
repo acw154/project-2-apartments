@@ -40,7 +40,7 @@ export class EditprofileComponent implements OnInit {
   }
 
  
-  savePreference(){
+  editUser(){
     this.preference = new Preference(this.editForm.value);
 
     this.profileService.savePreference(this.preference).subscribe(
