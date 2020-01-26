@@ -20,6 +20,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.models.LoginDTO;
+import com.revature.models.Property;
+import com.revature.models.PropertyDTO;
 import com.revature.models.User;
 import com.revature.models.UserDTO;
 import com.revature.repositories.UserDAOImpl;
@@ -77,6 +79,25 @@ public class UserController {
 		}
 	}
 	
+	@PostMapping(value = "/user/properties")
+	public ResponseEntity<List<PropertyDTO>> findPropertiesByEmail(@RequestBody LoginDTO login) {
+			String email = login.getEmail();
+			String pass = login.getPassword();
+			if (us.verifyUser(email, pass)) {
+				User user = us.findByEmail(email);
+				List<PropertyDTO> dtoList = new ArrayList<>();
+				List<Property> userList = user.getSavedProperties();
+				for(Property p : userList) {
+					PropertyDTO dto = new PropertyDTO(p);
+					dtoList.add(dto);
+				}
+				return ResponseEntity.ok().body(dtoList);
+			} else {
+				List<PropertyDTO> dtoList = null;
+				return ResponseEntity.status(HttpStatus.NO_CONTENT).body(dtoList);
+			}
+		}
+	
 	
 
 //	@PostMapping(value = "/user")
@@ -86,13 +107,7 @@ public class UserController {
 	@ResponseBody
 	public ResponseEntity<UserDTO> saveOrAddUser(@RequestBody UserDTO userdto) {
 
-		System.out.println("inside of saveOrAddUser method in UserController");
-//		String f_name = userdto.getF_name();
-//		String l_name = userdto.getL_name();
-//		String email = userdto.getEmail();
-//		String password = userdto.getPassword();
-//		String user_status = userdto.getUser_status();
-//		String current_state = userdto.getCurrent_state();
+
 		User user = new User(userdto);
 		if(us.upsert(user) != null) {
 			UserDTO dto = new UserDTO(user);
@@ -123,13 +138,6 @@ public class UserController {
 		}
 	}
 
-//	@CrossOrigin(origins = "http://localhost:4200")
-	@RequestMapping(value = "/users", method = RequestMethod.GET)
-	@ResponseBody
-	public List<User> findAll() {
-		return us.findAll();
-		 
-		
-	}
+
 
 }

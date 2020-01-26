@@ -9,7 +9,7 @@ import com.google.gson.JsonParser;
 import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.JsonNode;
 import com.revature.models.Property;
-import com.revature.services.APIParse;
+import com.revature.util.APIParse;
 import com.revature.util.APIUtil;
 
 public class Driver {
