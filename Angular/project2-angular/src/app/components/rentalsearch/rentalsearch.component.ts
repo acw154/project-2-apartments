@@ -30,7 +30,8 @@ export class RentalsearchComponent implements OnInit {
     this.prefForm = this.fb.group({
       city: ['', Validators.required],
       state_code: ['', Validators.required],
-      max_price: ['', Validators.min(0)],
+      min_price: ['', [Validators.required, Validators.min(0)]],
+      max_price: ['', [Validators.required, Validators.min(0), Validators.max(50000)]],
       num_beds: ['', Validators.min(0)],
       num_baths: ['', Validators.min(0)],
     });
@@ -41,7 +42,7 @@ export class RentalsearchComponent implements OnInit {
 
   doSearch(){
     this.preference = new Preference(this.prefForm.value);
-    this.preference.min_price = 0;
+    this.preference.state_code = this.preference.state_code.toUpperCase();
     console.log(this.preference);
     this.propertyService.getPropertiesByPref(this.preference).subscribe(
       data => {

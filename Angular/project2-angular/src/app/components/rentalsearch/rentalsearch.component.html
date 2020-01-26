@@ -33,6 +33,7 @@
                             <label>City</label>
                             <input class="form-control" formControlName="city" type="text" placeholder="name of city"/>
                         </div>
+                        
                         <!-- <div *ngIf="prefForm.controls['city'].invalid && (prefForm.controls['city'].dirty || prefForm.controls['city'].touched)" class="alert alert-danger">
                             <div *ngIf="prefForm.controls['city'].errors.required">
                             City is required.
@@ -79,16 +80,25 @@
                             <input formControlName="max_price" class="datepicker flatpickr-input form-control" type="number" placeholder="$ xxx.xx / Month" min="0" step=".01" value="$" />
                         </div>
                     </div>
+                    
                     <div class="input-wrap">
                         <div class="input-field">
                             <label>BEDS</label>
                             <input formControlName="num_beds" class="datepicker flatpickr-input" type="number" placeholder="#" min="0" step="0.5" />
                         </div>
                     </div>
+
                     <div class="input-wrap">
                         <div class="input-field">
                             <label>BATHS</label>
                             <input formConntrolName="num_baths" class="datepicker flatpickr-input" type="number" placeholder="#" min="0" step=".5" />
+                        </div>
+                    </div>
+
+                    <div class="input-wrap">
+                        <div class="input-field">
+                            <label>MIN PRICE</label>
+                            <input formControlName="min_price" class="datepicker flatpickr-input form-control" type="number" placeholder="$ xxx.xx / Month" min="0" step=".01" value="$" />
                         </div>
                     </div>
                   
@@ -98,7 +108,7 @@
                 <div class="row last">
                     <button class="btn-search" type="submit" [disabled]="!prefForm.valid">Search</button>
                     <div *ngIf="!prefForm.valid" class="alert alert-danger">
-                        <p>City and State Necessary</p>
+                        <p>City, State, Min Price, and Max Price are all necessary</p>
                     </div>
                 </div>
                 <div class="row last">
@@ -111,45 +121,74 @@
         </div>
     </form>
 </div>
+<div>
+    <div style="text-align: center;">
+        <h1 >Search Results</h1>
+        <h2 *ngIf="response; else NRF">Found {{response.length}} Results</h2>
+        <ng-template #NRF>No Results Found</ng-template>
+    
 
-<div style="text-align: center;">
-    <h1 >Search Results</h1>
-    <h2 *ngIf="response; else NRF">Found {{response.length}}</h2>
-    <ng-template #NRF>No Results Found</ng-template>
-</div>
-<div class="container">
-    <!-- Search component right here
-        button must be able to do get request from spring application
-    -->
-
-    <div *ngIf="response">
-        <!-- Table with ngFor for every object in the response body-->
-        <table class="table-table-bordered table-hover">
-            <thead>
-                <th>Address</th>
-                <th>Price</th>
-                <th>Beds</th>
-                <th>Baths</th>
-                <!-- <th>Sq Ft</th>
-                <th>Type</th>
-                <th>Photo</th> -->
-                <th>Link</th>
-            </thead>
-            <tbody>
-                <tr *ngFor="let property of response">
-                    <td>{{property.street_num}} {{property.street}} {{property.apt_num}}, {{property.city}}, {{property.zip}}</td>
-                    <td>${{property.price}}</td>
-                    <td>{{property.num_beds}}</td>
-                    <td>{{property.num_baths</td>
-                    <!-- <td>{{property.sqft}}ft.</td>
-                    <td>{{property.type}}</td>
-                    <td><img src="{{property.photo}}" class="img-thumbnail mx-auto dblock" style="width:30%"/></td> -->
-                    <td><button class="btn-btn-success" (click)="goToIndividualPropertyPage(property)">Go To</button> </td>
-                    <!-- Perhaps use a DTO instead of a property so that the address, price, & property type are more 
-                        easily displayed and formatted
-                    -->
-                </tr>
-            </tbody>
-        </table>
-    </div>
+        <!-- Search component right here
+            button must be able to do get request from spring application
+        -->
+        <div class="container-fluid">
+            <!-- <div class="column-lg-8">
+                <table class="table-table-bordered table-hover">
+                    <thead>
+                        <th>Address</th>
+                        <th>Price</th>
+                        <th>Beds</th>
+                        <th>Baths</th>
+                         <th>Sq Ft</th>
+                        <th>Type</th>
+                        <th>Photo</th> 
+                        <th>Link</th>
+                    </thead>
+                    <tbody>
+                        <tr><td>123 That Actually Exists Place</td>
+                            <td>$5000</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td><button class="btn-btn-success">Go To</button> </td>
+                        </tr>
+                        <tr><td>123 That Actually Exists Place</td>
+                            <td>$5000</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td><button class="btn-btn-success">Go To</button> </td>
+                        </tr>
+                        <tr><td>123 That Actually Exists Place</td>
+                            <td>$5000</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td><button class="btn-btn-success">Go To</button> </td>
+                        </tr>   
+                    </tbody>
+                </table>
+            </div> -->
+            <div class="col-lg-12" *ngIf="response">
+                <!-- Table with ngFor for every object in the response body-->
+                <table class="table-table-bordered table-hover">
+                    <thead class="row">
+                        <th class="col-lg-4">Address</th>
+                        <th class="col-lg-2">Price</th>
+                        <th class="col-lg-2">Beds</th>
+                        <th class="col-lg-2">Baths</th>
+                        <th class="col-lg-2">Link</th>
+                    </thead>
+                    <tbody>
+                        <tr class="row" *ngFor="let property of response">
+                            <td class="col-lg-4">{{property.street_num}} {{property.street}}<p *ngIf="property.apt_num > 0"> {{property.apt_num}}</p>, {{property.city}}, {{property.zip}}</td>
+                            <td class="col-lg-2">${{property.price}}</td>
+                            <td class="col-lg-2">{{property.num_beds}}</td>
+                            <td class="col-lg-2">{{property.num_baths}}</td>
+                            <td class="col-lg-2"><button class="btn-btn-success" (click)="goToIndividualPropertyPage(property)">Go To</button> </td>
+                            <!-- Perhaps use a DTO instead of a property so that the address, price, & property type are more 
+                                easily displayed and formatted
+                            -->
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
 </div>

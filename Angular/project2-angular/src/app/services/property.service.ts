@@ -27,8 +27,8 @@ export class PropertyService {
     return this.http.post<Property[]>(this.getPropUrl + 'simple', preference);
   }
 
-  public insertProperty(property: Property): Observable<Boolean> {
-    return this.http.post<Boolean>(this.createPropUrl, property);
+  public insertProperty(property: Property): Observable<Property> {
+    return this.http.post<Property>(this.createPropUrl, property);
   }
 
   public openPropertyPage(property: Property){
