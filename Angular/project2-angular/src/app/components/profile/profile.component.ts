@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/model/user';
 import { FormBuilder } from '@angular/forms';
 import { UserService } from 'src/app/services/user.service';
-import { Session } from 'protractor';
 import { SessionService } from 'src/app/services/session.service';
 import { Preference } from 'src/app/model/preference';
 import { Property } from 'src/app/model/property';

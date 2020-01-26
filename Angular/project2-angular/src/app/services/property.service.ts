@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Property } from '../model/property';
 import { Preference } from '../model/preference';
 
@@ -12,6 +12,11 @@ export class PropertyService {
   private createPropUrl: string;
   private savePropUrl: string;
   private viewedProperty: Property;
+  headers={
+    headers : new HttpHeaders({
+      'Content-Type': 'application/json',
+    })
+  };
 
   constructor(private http: HttpClient) {
     this.getPropUrl = '/RevatureRealocator/propsearch';
@@ -20,15 +25,15 @@ export class PropertyService {
   }
 
   public getPropertiesByPref(preference: Preference): Observable<Property[]> {
-    return this.http.post<Property[]>(this.getPropUrl + 'pref', preference);
+    return this.http.post<Property[]>(this.getPropUrl + 'pref', JSON.stringify(preference), this.headers);
   }
 
   public getPropertiesSimple(preference: Preference): Observable<Property[]> {
-    return this.http.post<Property[]>(this.getPropUrl + 'simple', preference);
+    return this.http.post<Property[]>(this.getPropUrl + 'simple', JSON.stringify(preference), this.headers);
   }
 
   public insertProperty(property: Property): Observable<Property> {
-    return this.http.post<Property>(this.createPropUrl, property);
+    return this.http.post<Property>(this.createPropUrl,  JSON.stringify(property), this.headers);
   }
 
   public openPropertyPage(property: Property){

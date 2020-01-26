@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { Property } from '../../model/Property';
 import { PropertyService } from 'src/app/services/property.service';
+import { Property } from 'src/app/model/property';
+import { SessionService } from 'src/app/services/session.service';
+
 
 @Component({
   selector: 'app-individual-property-page',
@@ -9,17 +10,18 @@ import { PropertyService } from 'src/app/services/property.service';
   styleUrls: ['./individual-property-page.component.css']
 })
 export class IndividualPropertyPageComponent implements OnInit {
+  
   viewedProperty: Property;
-  propertyService: PropertyService;
   alreadySaved = false;
 
-  constructor(
+
+  constructor(private propertyService: PropertyService,
+    private sessionService: SessionService,
   ) { 
-    
+    this.viewedProperty = this.propertyService.getViewedProperty();
   }
 
   ngOnInit() {
-    this.viewedProperty = this.propertyService.getViewedProperty();
   }
   
   ngOnDestroy(){
@@ -27,7 +29,9 @@ export class IndividualPropertyPageComponent implements OnInit {
   }
 
   saveProperty(){
+    this.viewedProperty.email = this.sessionService.getCurrentUser().email;
     this.propertyService.saveProperty(this.viewedProperty);
+
   }
 
 }
