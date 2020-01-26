@@ -1724,3 +1724,9 @@ java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [?:1.8.0_231]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-util.jar:9.0.30]
 	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_231]
+2020-01-26 14:21:50 INFO  UserDAOImpl:73 - Found User with email: mail1@mail.com
+2020-01-26 14:21:51 INFO  UserDAOImpl:73 - Found User with email: mail1@mail.com
+2020-01-26 14:21:51 INFO  UserController:68 - Successful User login with email: mail1@mail.com
+2020-01-26 14:22:07 INFO  UserDAOImpl:73 - Found User with email: mail7@mail.com
+2020-01-26 14:22:08 INFO  UserDAOImpl:73 - Found User with email: mail7@mail.com
+2020-01-26 14:22:08 INFO  UserController:68 - Successful User login with email: mail7@mail.com
