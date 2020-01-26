@@ -21,12 +21,12 @@
         <div class="col-lg-8 prefer1">
             <h5>Preferences</h5>
             <ul class="profile-ul">
-                <li><h4><strong>Min Price:</strong><span>{{ currentUserPref.min_price }}</span></h4></li>
-                <li><h4><strong>Max Price:</strong><span>{{ currentUserPref.max_price }}</span></h4></li>
-                <li><h4><strong>Beds:</strong><span>{{ currentUserPref.num_beds }}</span></h4></li>
-                <li><h4><strong>Baths:</strong><span>{{ currentUserPref.num_baths }}</span></h4></li>
-                <li><h4><strong>City:</strong><span>{{ currentUserPref.city }}</span></h4></li>
-                <li><h4><strong>Zip Code:</strong>{{ currentUserPref.state_code }}<span></span></h4></li>
+                <li ><h4><strong>Min Price:</strong><span *ngIf="currUserPref">{{ currentUserPref.min_price }}</span></h4></li>
+                <li><h4><strong>Max Price:</strong><span *ngIf="currUserPref">{{ currentUserPref.max_price }}</span></h4></li>
+                <li><h4><strong>Beds:</strong><span *ngIf="currUserPref">{{ currentUserPref.num_beds }}</span></h4></li>
+                <li><h4><strong>Baths:</strong><span *ngIf="currUserPref">{{ currentUserPref.num_baths }}</span></h4></li>
+                <li><h4><strong>City:</strong><span *ngIf="currUserPref">{{ currentUserPref.city }}</span></h4></li>
+                <li><h4><strong>Zip Code:</strong><span *ngIf="currUserPref">{{ currentUserPref.state_code }}</span></h4></li>
             </ul>
 
             <div class="form-group">

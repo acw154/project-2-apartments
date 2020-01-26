@@ -18,12 +18,27 @@ export class RentalsearchComponent implements OnInit {
   submitted = false;
   simple = true;
   prefForm: FormGroup;
+  // dummy: Property;
 
   constructor(private propertyService: PropertyService,
     private router: Router,
     private sessionService: SessionService,
     private fb: FormBuilder) {
       this.createForm();
+      // this.dummy = new Property();
+      // this.dummy.type = "apartment";
+      // this.dummy.street_num = 2224;
+      // this.dummy.street = "Astoria Circle";
+      // this.dummy.zip = 20170;
+      // this.dummy.city = "Herndon";
+      // this.dummy.num_baths = 2;
+      // this.dummy.num_beds = 3;
+      // this.dummy.photo = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSO2VsXHibPII0M9jCDlH9h019dEXrWF2JQ6p7JuySoW0BB2o1-&s"
+      // this.dummy.price = 2700;
+      // this.dummy.revemp_owned = true;
+      // this.dummy.sq_ft = 1200;
+      
+
   }
   
   createForm(){
@@ -54,7 +69,6 @@ export class RentalsearchComponent implements OnInit {
           console.log('Error ', error);
         }
       )
-    this.prefForm.reset();
   }
 
   
@@ -71,7 +85,6 @@ export class RentalsearchComponent implements OnInit {
             console.log('Error ', error);
           }
         )
-      this.prefForm.reset();
       // if(this.preference.max_price == null && this.preference.num_baths == null && this.preference.num_beds == null){
       //   this.propertyService.getPropertiesSimple(this.preference).subscribe(
       //     data => {
@@ -96,7 +109,8 @@ export class RentalsearchComponent implements OnInit {
     }
 
     goToIndividualPropertyPage(property: Property){
-      this.propertyService.openPropertyPage(property); //Saves property within propertyservice so that individual property page can pull that information
+      this.propertyService.openPropertyPage(property);
+       //Saves property within propertyservice so that individual property page can pull that information
       this.router.navigateByUrl('/individualpropertypage');
     }
   }

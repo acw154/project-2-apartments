@@ -1,13 +1,9 @@
 import { Component, OnInit, createPlatformFactory } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import { LoginService } from '../../services/login.service';
-import { Observable } from 'rxjs';
 import { User } from '../../model/user';
-import { stringify } from 'querystring';
-import { ProfileService } from 'src/app/services/profile.service';
 import { UserService } from '../../services/user.service';
-import { LoginTemplate } from 'src/app/model/login-template';
 import { SessionService } from 'src/app/services/session.service';
 import { Preference } from 'src/app/model/preference';
 

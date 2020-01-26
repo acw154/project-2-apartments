@@ -37,13 +37,7 @@ public class UserService {
 	@Autowired
 	private UserStatusDAO ustatdao;
 	
-	public List<User> findAll() {
-		return usdao.findAll();
-	}
 	
-	public User findById(int id) {
-		return usdao.findById(id);
-	}
 	
 	public User findByEmail(String email) {
 		return usdao.getUserByEmail(email);
@@ -80,15 +74,7 @@ public class UserService {
 		 return false;
 	}
 	
-//	public List<UserDTO> findByState(String state){
-//		List<User> list = usdao.findByState(state);
-//		List<UserDTO> dtoList = new ArrayList<>();
-//		for(User u : list) {
-//			UserDTO dto = new UserDTO(u);
-//			dtoList.add(dto);
-//		}
-//			return dtoList;
-//	}
+
 	
 	public List<User> findByState(String state){
 		return usdao.findByState(state);
