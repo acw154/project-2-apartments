@@ -12,6 +12,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class UsersearchpageComponent implements OnInit {
 
+  editForm: FormGroup;
   response: any;
   user: User; 
   submitted = false;
@@ -19,7 +20,7 @@ export class UsersearchpageComponent implements OnInit {
   prefForm: FormGroup;
 
   constructor(
-    private UserService: UserService,
+    private userService: UserService,
     private router: Router,
     private sessionService: SessionService,
     private fb: FormBuilder) {
@@ -35,9 +36,11 @@ export class UsersearchpageComponent implements OnInit {
 
   // findUsers(){
   //   this.user = new User(this.usearchForm.value);
-  //   this.preference.min_price = 0;
-  //   console.log(this.preference);
-  //   this.propertyService.getPropertiesByPref(this.preference).subscribe(
+
+  //   this.user.current_state;
+  //   console.log(this.user);
+
+  //   this.userService.findUsers(this.user).subscribe(
   //     data => {
   //       if(data != null){
   //           this.response = data;
@@ -47,8 +50,11 @@ export class UsersearchpageComponent implements OnInit {
   //         console.log('Error ', error);
   //       }
   //     )
-  //   this.prefForm.reset();
+  //   this.usearchForm.reset();
   // }
+
+ 
+
 
 
   ngOnInit() {
