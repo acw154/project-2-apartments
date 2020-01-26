@@ -3,35 +3,37 @@
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-lg-12 prop-view">
-            <div>
-                <img src="{{viewedProperty.photo}}" class="img-thumbnail mx-auto dblock" style="width:80%"/>
-            </div>
             <div class="propDetails">
                 <div class="row">
-                    <div class="col-lg-8">
-                        <p>Address: {{viewedProperty.street_num}} {{viewedProperty.street}} {{viewedProperty.apt_num}}, {{viewedProperty.city}}, {{viewedProperty.zip}}</p>
+                    <div class="column">
+                        <img src="{{viewedProperty.photo}}" class="img-thumbnail mx-auto dblock" style="width:50%"/>
+                    </div>
+                </div>  
+                <div class="row">
+                    <div class="column">
+                        <span>  Address: {{viewedProperty.street_num}} {{viewedProperty.street}} {{viewedProperty.apt_num}}, {{viewedProperty.city}}, {{viewedProperty.zip}}</span>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-4">
-                        <p>Price: ${{viewedProperty.price}} </p>
+                        <span>Price: ${{viewedProperty.price}} </span>
                     </div>
                     <div class="col-lg-4">
-                        <p>Beds: {{viewedProperty.num_beds}} </p>
+                        <span>Beds: {{viewedProperty.num_beds}} </span>
                     </div>
                     <div class="col-lg-4">
-                        <p>Baths: {{viewedProperty.num_baths}} </p>
+                        <span>Baths: {{viewedProperty.num_baths}} </span>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-4">
-                        <p>Square Feet: {{viewedProperty.sq_ft}} ft. </p>
+                        <span>Square Feet: {{viewedProperty.sq_ft}} ft. </span>
                     </div>
                     <div class="col-lg-4">
-                        <p>Property Type: {{viewedProperty.type}} </p>
+                        <span>Type: {{viewedProperty.type}} </span>
                     </div>
                     <div class="col-lg-4">
-                        <p>Revature Employee Owned? {{viewedProperty.revemp_owned}}</p>
+                        <span>Emp Owned? {{viewedProperty.revemp_owned}}</span>
                     </div>
                 </div>
             </div>

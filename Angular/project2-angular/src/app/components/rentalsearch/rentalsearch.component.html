@@ -188,7 +188,7 @@
                             <td class="col-lg-2"><button class="btn-btn-success" (click)="goToIndividualPropertyPage(dummy)">Go To</button> </td>
                         </tr> -->
                         <tr class="row" *ngFor="let property of response">
-                            <td class="col-lg-4">  {{property.street_num}} {{property.street}}  <span *ngIf="property.apt_num > 0"> {{property.apt_num}}</span>, {{property.city}}, {{property.zip}}</td>
+                            <td class="col-lg-4">  {{property.street_num}} {{property.street}}<span *ngIf="property.apt_num > 0"> {{property.apt_num}}</span>, {{property.city}}, {{property.zip}}  </td>
                             <td class="col-lg-2">  ${{property.price}}  </td>
                             <td class="col-lg-1">  {{property.num_beds}}  </td>
                             <td class="col-lg-1">  {{property.num_baths}}  </td>

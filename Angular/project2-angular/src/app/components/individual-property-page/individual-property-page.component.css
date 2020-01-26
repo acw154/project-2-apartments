@@ -138,7 +138,7 @@ button,
     box-sizing: border-box;
   }
 
-  .row p {
-    font-size: 14pt;
+  .row span {
+    font-size: 12pt;
     color: #fff;
   }
