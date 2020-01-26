@@ -1,11 +1,29 @@
-/* .searchusers {
- 
-} */
-
-.this {
-    background-color: rgb(175, 175, 212);;
+.user-search {
+    background-color: rgba(0,0,0,0.5);
+    margin-top: -50%;
+    height: 70vh;
+    /* padding: 5rem; */
 }
 
-.display-users {
-    background-color: rgb(144, 144, 223);
+.user-search1 {
+    padding-top: 20%;
 }
+     
+.btn-searchusears{
+    color: white;
+    background-color: rgb(111, 183, 189)!important;
+    padding: 10px;
+    text-align: center;
+    justify-content: center;
+    }
+    
+    .btn-searchusears:hover{
+    color: rgb(114, 111, 111)!important;
+    background-color: white!important;
+    }
+
+    input:focus, input:active{
+        outline: 0 0 0 0  !important;
+        box-shadow: 0 0 0 0 !important;
+        border: none!important
+    }
