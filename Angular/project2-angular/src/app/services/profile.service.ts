@@ -28,6 +28,7 @@ export class ProfileService {
   public savePreference(preference: Preference): Observable<Preference>{
     return this.http.post<Preference>(this.prefUrl,  JSON.stringify(preference), this.headers);
   }
+
   // Create methods for saving and getting the profile information
 
 
