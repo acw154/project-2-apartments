@@ -1,7 +1,12 @@
+<app-navbar></app-navbar>
+<app-background></app-background>
+
 <div class="container register">
     <div class="row justify-content-center">
         <div class="col-lg-5 register-form">
-            <!-- <form class="form-group" [formGroup]="registerForm" (ngSubmit)="registerUser()"> -->
+
+            <form class="form-group" [formGroup]= "editForm" (ngSubmit)= "editUser()">
+
                 <div class="text-muted text-centered"><h3>Edit Preferences</h3></div>
                 <div class="form-group">
 
@@ -10,44 +15,47 @@
                         <label>Min Price: </label>
                         <input class="Form-control" formControlName="min_price" type="number"> 
                     </div>
+
+
+                    <div>
+                        <label>Max Price: </label>
+                        <input class="Form-control" formControlName="max_price" type="number"> 
+                    </div>
+
                     <div>
                         <label>Max Price: </label>
                         <input class="Form-control" formControlName="max_price" type="text"> 
                     </div>
+
                     <div>
                         <label>Number of Beds: </label>
                         <input class="Form-control" formControlName="num_beds" type="number"> 
                     </div>
+
                     <div>
                         <label>Number of Baths: </label>
                         <input class="Form-control" formControlName="num_baths" type="number"> 
                     </div>
+
+
                     <div>
                         <label>City: </label>
                         <input class="Form-control" formControlName="city" type="text"> 
                     </div>
+
+
                     <div>
                         <label>Current State Code: </label>
                         <input class="Form-control" formControlName="state_code" type="text"> 
                     </div>
-                    <!-- <div>
-                        <label>Status: </label>
 
-                        <select single formControlName="user_status">
-                            <option *ngFor="let statustype of allStatus" [ngValue]="statustype.statusName">
-                                {{statustype.statusName}}
-                            </option>
-                        </select>
-                    </div> -->
                     <div>
-                        <button class="btn-search" type="submit" [disabled]="!registerForm.valid">Edit</button>
+                        <button class="btn-search" type="submit" [disabled]="!editForm.valid">OK</button>
                     </div>
-                </div>
-            <!-- </form> -->
-            
-            
-               
-        </div>
 
+                </div>
+            </form>      
+        </div>         
     </div>
- </div>
+</div>
+

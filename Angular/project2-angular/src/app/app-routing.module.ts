@@ -8,6 +8,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { IndividualPropertyPageComponent } from './components/individual-property-page/individual-property-page.component';
 import { EditprofileComponent } from './components/editprofile/editprofile.component';
 import { CreatepropComponent } from './components/createprop/createprop.component';
+import { UsersearchpageComponent } from './components/usersearchpage/usersearchpage.component';
 
 
 const routes: Routes = [
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: '', component: LoginpageComponent },
   { path: 'individualpropertypage', component: IndividualPropertyPageComponent },
   { path: 'propcreate', component: CreatepropComponent },
+  { path: 'usersearch', component: UsersearchpageComponent },
   { path: '**', redirectTo: 'loginpage', pathMatch: 'full' }
 ];
 
