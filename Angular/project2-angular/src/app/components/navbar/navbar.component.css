@@ -5,6 +5,7 @@
     width: 100%;
     padding: 1.7rem;
     /* z-index: 1; */
+    font-size: 2em;
   }
   
   .nav li a {
