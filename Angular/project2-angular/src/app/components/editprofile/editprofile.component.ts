@@ -27,10 +27,10 @@ export class EditprofileComponent implements OnInit {
   
   createForm(){
     this.editForm = this.fb.group({
-      min_price: ['', [Validators.required, Validators.min(0)]],
-      max_price: ['', [Validators.required, Validators.max(50000)]],
-      num_beds: ['', [Validators.required, Validators.min(0)]],
-      num_baths: ['', [Validators.required, Validators.min(0)]],
+      minPrice: ['', [Validators.required, Validators.min(0)]],
+      maxPrice: ['', [Validators.required, Validators.max(50000)]],
+      numBeds: ['', [Validators.required, Validators.min(0)]],
+      numBaths: ['', [Validators.required, Validators.min(0)]],
       city: ['', [Validators.required]],
       state_code: ['', [Validators.required]],
     })
@@ -42,6 +42,8 @@ export class EditprofileComponent implements OnInit {
  
   editUser(){
     this.preference = new Preference(this.editForm.value);
+    this.preference.email = this.sessionService.getCurrentUser().email;
+    console.log(this.preference);
 
     this.profileService.savePreference(this.preference).subscribe(
       data => {
@@ -55,6 +57,7 @@ export class EditprofileComponent implements OnInit {
         }
         this.router.navigateByUrl('/profile');
       }, error => {
+        alert('hitting error')
         console.log('Error ', error);
         this.editForm.reset();
       }
