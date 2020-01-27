@@ -35,6 +35,7 @@ export class IndividualPropertyPageComponent implements OnInit {
         if(data != null ){
           console.log(data);
           alert("Saved Property");
+          this.sessionService.addSavedProperty(this.viewedProperty);
         } else {
           console.log("Not saved")
           alert("Error saving property");

@@ -27,10 +27,10 @@ export class EditprofileComponent implements OnInit {
   
   createForm(){
     this.editForm = this.fb.group({
-      minPrice: ['', [Validators.required, Validators.min(0)]],
-      maxPrice: ['', [Validators.required, Validators.max(50000)]],
-      numBeds: ['', [Validators.required, Validators.min(0)]],
-      numBaths: ['', [Validators.required, Validators.min(0)]],
+      min_price: ['', [Validators.required, Validators.min(0)]],
+      max_price: ['', [Validators.required, Validators.max(50000)]],
+      num_beds: ['', [Validators.required, Validators.min(0)]],
+      num_baths: ['', [Validators.required, Validators.min(0)]],
       city: ['', [Validators.required]],
       state_code: ['', [Validators.required]],
     })

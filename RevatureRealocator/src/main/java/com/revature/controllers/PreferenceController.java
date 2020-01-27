@@ -29,28 +29,30 @@ public class PreferenceController {
 	
 	
 	@PostMapping(value = "/preferences/user")
-	public ResponseEntity<Preference> findByEmail(@RequestBody UserDTO dto) {
+	public ResponseEntity<PreferenceDTO> findByEmail(@RequestBody UserDTO dto) {
 		String email = dto.getEmail();
 		if(ps.findByEmail(email) != null) {
 			Preference pref = ps.findByEmail(email);
-			return ResponseEntity.ok().body(pref);
+			PreferenceDTO pdto = new PreferenceDTO(pref);
+			return ResponseEntity.ok().body(pdto);
 		} else {
-			Preference pref = null;
+			PreferenceDTO pref = null;
 			return ResponseEntity.status(HttpStatus.NO_CONTENT).body(pref);
 		}
 	}
 	
 	
 	@PostMapping(value = "/preferences/update")
-	public ResponseEntity<Preference> saveOrAddPreference(@RequestBody PreferenceDTO dto) {
+	public ResponseEntity<PreferenceDTO> saveOrAddPreference(@RequestBody PreferenceDTO dto) {
 		String email = dto.getEmail();
 		Preference pref = new Preference(dto);
 		if(ps.upsert(pref, email) != null) {
 			pref = ps.findByEmail(email);
-			return ResponseEntity.status(HttpStatus.CREATED).body(pref);
+			PreferenceDTO pdto = new PreferenceDTO(pref);
+			return ResponseEntity.status(HttpStatus.CREATED).body(pdto);
 		} else {
-			pref = null;
-			return ResponseEntity.status(HttpStatus.NO_CONTENT).body(pref);
+			PreferenceDTO pdto = null;
+			return ResponseEntity.status(HttpStatus.NO_CONTENT).body(pdto);
 		}
 	}
 }

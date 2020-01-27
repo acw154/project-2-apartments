@@ -53,4 +53,25 @@ export class SessionService {
     }
   }
 
+  public storeSavedProperties(properties: Property[]){
+    sessionStorage.setItem('savedProperties', JSON.stringify(properties));
+  }
+
+  public addSavedProperty(property: Property){
+    let proparray: Property[];
+    proparray = JSON.parse(sessionStorage.getItem('savedProperties'));
+    console.log(proparray);
+    proparray.push(property);
+    console.log(proparray);
+    sessionStorage.setItem('savedProperties', JSON.stringify(proparray));
+  }
+
+  public getSavedProperties(): Property[]{
+    if(sessionStorage.getItem('savedProperties') != null && sessionStorage.getItem('currentUser') != null){
+      return JSON.parse(sessionStorage.getItem('savedProperties'));
+    } else {
+      return null;
+    }
+  }
+
 }
