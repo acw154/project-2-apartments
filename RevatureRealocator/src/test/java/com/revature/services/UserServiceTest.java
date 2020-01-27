@@ -17,6 +17,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import com.revature.models.User;
+import com.revature.models.UserDTO;
 import com.revature.models.UserStatus;
 import com.revature.repositories.UserDAOImpl;
 import com.revature.repositories.UserStatusDAOImpl;
@@ -100,11 +101,15 @@ public class UserServiceTest {
 		User user2 = new User(1, "TestPass", "Firstname2", "Lastname", "Testmail2@mail.com", null, "VA", status);
 		User user3 = new User(1, "TestPass", "Firstname3", "Lastname", "Testmail3@mail.com", null, "VA", status);
 		List<User> list = new ArrayList<>();
+		List<UserDTO> dtolist = new ArrayList<>();
 		list.add(user);
 		list.add(user2);
 		list.add(user3);
+		for(User u : list) {
+			dtolist.add(new UserDTO(u));
+		}
 		when(uDAOMock.findByState("VA")).thenReturn(list);
-		assertEquals(uService.findByState("VA"), list);
+		assertEquals(uService.findByState("VA"), dtolist);
 	}
 
 
