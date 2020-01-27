@@ -53,6 +53,7 @@ export class ProfileComponent implements OnInit {
     }
     console.log(this.currentUserPref);
     console.log(this.showPref);
+    console.log(this.currentUser.user_status);
   }
 
   goToIndividualPropertyPage(property: Property){

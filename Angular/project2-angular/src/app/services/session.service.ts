@@ -3,6 +3,7 @@ import { Session } from 'protractor';
 import { User } from '../model/user';
 import { Preference } from '../model/preference';
 import { Property } from '../model/property';
+import { UserFull } from '../model/user-full';
 
 @Injectable({
   providedIn: 'root'
@@ -13,11 +14,11 @@ export class SessionService {
 
   }
 
-  public saveCurrentUser(user: User){
+  public saveCurrentUser(user: UserFull){
     sessionStorage.setItem('currentUser', JSON.stringify(user));
   }
 
-  public getCurrentUser(): User{
+  public getCurrentUser(): UserFull{
     if(sessionStorage.getItem('currentUser') != null){
       return JSON.parse(sessionStorage.getItem('currentUser'));
     } else {
