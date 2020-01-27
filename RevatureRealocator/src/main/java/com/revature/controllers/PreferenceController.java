@@ -34,6 +34,7 @@ public class PreferenceController {
 		if(ps.findByEmail(email) != null) {
 			Preference pref = ps.findByEmail(email);
 			PreferenceDTO pdto = new PreferenceDTO(pref);
+			System.out.println(pdto);
 			return ResponseEntity.ok().body(pdto);
 		} else {
 			PreferenceDTO pref = null;
