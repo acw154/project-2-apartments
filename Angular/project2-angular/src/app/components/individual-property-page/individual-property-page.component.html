@@ -38,7 +38,10 @@
                 </div>
             </div>
             <div>
-                <button class="btn-search" (click)="saveProperty()">Save Property</button>
+                <div *ngIf="alreadySaved" class="alert alert-danger">
+                    <p style="font-size:10pt;">You have already saved this property.</p>
+                </div>
+                <button class="btn-search" (click)="saveProperty()" [disabled]="alreadySaved">Save Property</button>
             </div>
         </div>
     </div>

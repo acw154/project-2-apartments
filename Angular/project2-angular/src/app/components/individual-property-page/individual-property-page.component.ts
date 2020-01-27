@@ -12,13 +12,27 @@ import { SessionService } from 'src/app/services/session.service';
 export class IndividualPropertyPageComponent implements OnInit {
   
   viewedProperty: Property;
-  alreadySaved = false;
+  alreadySaved: boolean;
 
 
   constructor(private propertyService: PropertyService,
     private sessionService: SessionService,
   ) { 
     this.viewedProperty = this.propertyService.getViewedProperty();
+    let savedProperties = this.sessionService.getSavedProperties();
+    console.log(savedProperties);
+    if(savedProperties != null){
+      for(let i=0; i < savedProperties.length; i++){
+        if(savedProperties[i].street_num === this.viewedProperty.street_num && savedProperties[i].street === this.viewedProperty.street){
+          this.alreadySaved = true;
+          break;
+        }
+      }
+    }
+    if(this.alreadySaved === undefined){
+      this.alreadySaved = false;
+    }
+    console.log(this.alreadySaved);
   }
 
   ngOnInit() {
@@ -47,5 +61,7 @@ export class IndividualPropertyPageComponent implements OnInit {
     )
 
   }
+
+
 
 }
