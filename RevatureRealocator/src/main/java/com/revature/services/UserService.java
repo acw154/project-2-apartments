@@ -80,10 +80,15 @@ public class UserService {
 		
 		List<User> userList = usdao.findByState(state);
 		List<UserDTO> dtoList = new ArrayList<>();
-		for(User u: userList) {
-			dtoList.add(new UserDTO(u));
+		try{
+			for(User u: userList) {
+				dtoList.add(new UserDTO(u));
+			}
+				return dtoList;
+			} catch (NullPointerException e){
+				System.out.println("Exception " + e.getMessage());;
 		}
-		return dtoList;
+		return null;
 	}
 	
 	
