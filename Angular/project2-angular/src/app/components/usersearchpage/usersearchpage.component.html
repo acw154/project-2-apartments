@@ -9,11 +9,11 @@
         <div class="col-lg-5 user-search">
         <form class ="user-search1" [formGroup]="usearchForm" (ngSubmit)="findUsersByState()" >
             <fieldset>
-                <legend>Search Users by State</legend>
+                <legend style="font-size: 2em;">Search Users by State</legend>
             </fieldset>
 
             <div class="input-field mt-3">
-                <input class="form-control wdth" formControlName="current_state" type="text" placeholder="VA"/>
+                <input class="form-control wdth" style="font-size: 1.2em;" formControlName="current_state" type="text" placeholder="VA"/>
             </div>
 
             <div class="row last justify-content-center">
@@ -31,6 +31,10 @@
     <h2 *ngIf="response; else NRF">Found {{response.length}} Results</h2>
     <ng-template #NRF>No Results Found</ng-template>
 </div>
+<br/>
+<br/>
+<br/>
+<br/>
     <!-- show users -->
 <div class="container user-results">
     <div class="row">
