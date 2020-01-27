@@ -168,7 +168,7 @@
             </div> -->
             <div class="col-lg-12"> <!--*ngIf="response"-->
                 <!-- Table with ngFor for every object in the response body-->
-                <table class="table-table-bordered table-hover" *ngIf="response" id="resulttable">
+                <table class="table-table-bordered table-hover table-striped" *ngIf="response" id="resulttable">
                     <input type="text" id="myInput" (keyup)="searchTable()" placeholder="Search...">
                     <thead class="row">
                         <th class="col-lg-4" (click)="sortTable(0)">  Address  </th>
