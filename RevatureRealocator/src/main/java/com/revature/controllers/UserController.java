@@ -109,11 +109,8 @@ public class UserController {
 	@ResponseBody
 	public ResponseEntity<UserDTO> saveOrAddUser(@RequestBody UserDTO userdto) {
 
-
 		User user = new User(userdto);
-		String pass = user.getPassword();
-		pass = DigestUtils.sha256Hex(pass);
-		user.setPassword(pass);
+		user.setPassword(DigestUtils.sha256Hex(user.getPassword()));
 		if(us.upsert(user) != null) {
 			UserDTO dto = new UserDTO(user);
 			System.out.println("us.upsert(user) in user controller is not null");
