@@ -18,6 +18,7 @@ export class RentalsearchComponent implements OnInit {
   submitted = false;
   simple = true;
   prefForm: FormGroup;
+  currPref: boolean;
   // dummy: Property;
 
   constructor(private propertyService: PropertyService,
@@ -25,6 +26,11 @@ export class RentalsearchComponent implements OnInit {
     private sessionService: SessionService,
     private fb: FormBuilder) {
       this.createForm();
+      if(this.sessionService.getStoredPreference() != null){
+        this.currPref = true;
+      } else {
+        this.currPref = false;
+      }
       // this.dummy = new Property();
       // this.dummy.type = "apartment";
       // this.dummy.street_num = 2224;

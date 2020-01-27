@@ -42,7 +42,7 @@ export class LoginpageComponent implements OnInit {
   ngOnInit() {
   }
 
-  async onSubmit() {
+  onSubmit() {
     this.submitted = true;
     console.log(this.submitted);
     console.log(this.loginT);
@@ -54,7 +54,9 @@ export class LoginpageComponent implements OnInit {
           console.log(this.user);
           this.checkPref();
           this.checkProps();
-          await this.delay(5000 + (this.sessionService.getSavedProperties().length * 1000));
+          while(this.sessionService.getSavedProperties() == undefined){
+
+          }
           this.router.navigateByUrl('/profile');
         } else {
           alert("Invalid Credentials");

@@ -2387,3 +2387,266 @@ java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
 	at java.lang.Thread.run(Unknown Source) [?:1.8.0_231]
 2020-01-26 20:54:23 INFO  UserDAOImpl:73 - Found User with email: david@yahoo.com
 2020-01-26 20:54:26 INFO  UserDAOImpl:73 - Found User with email: david@yahoo.com
+2020-01-26 21:10:40 INFO  UserDAOImpl:73 - Found User with email: david@yahoo.com
+2020-01-26 21:10:44 INFO  UserDAOImpl:73 - Found User with email: david@yahoo.com
+2020-01-26 21:10:44 INFO  UserController:68 - Successful User login with email: david@yahoo.com
+2020-01-26 21:10:47 INFO  UserDAOImpl:73 - Found User with email: david@yahoo.com
+2020-01-26 21:10:47 INFO  UserDAOImpl:73 - Found User with email: david@yahoo.com
+2020-01-26 21:10:50 INFO  UserDAOImpl:73 - Found User with email: david@yahoo.com
+2020-01-26 21:10:54 INFO  UserDAOImpl:73 - Found User with email: david@yahoo.com
+2020-01-26 21:11:47 INFO  UserDAOImpl:73 - Found User with email: david@yahoo.com
+2020-01-26 21:11:47 INFO  UserDAOImpl:73 - Found User with email: david@yahoo.com
+2020-01-26 21:11:51 INFO  UserDAOImpl:73 - Found User with email: david@yahoo.com
+2020-01-26 21:11:51 INFO  UserController:68 - Successful User login with email: david@yahoo.com
+2020-01-26 21:11:51 INFO  UserDAOImpl:73 - Found User with email: david@yahoo.com
+2020-01-26 21:11:51 INFO  UserController:68 - Successful User login with email: david@yahoo.com
+2020-01-26 21:11:54 INFO  UserDAOImpl:73 - Found User with email: david@yahoo.com
+2020-01-26 21:11:54 INFO  UserDAOImpl:73 - Found User with email: david@yahoo.com
+2020-01-26 21:11:55 INFO  UserDAOImpl:73 - Found User with email: david@yahoo.com
+2020-01-26 21:11:55 INFO  UserDAOImpl:73 - Found User with email: david@yahoo.com
+2020-01-26 21:11:57 INFO  UserDAOImpl:73 - Found User with email: david@yahoo.com
+2020-01-26 21:11:58 INFO  UserDAOImpl:73 - Found User with email: david@yahoo.com
+2020-01-26 21:12:00 INFO  UserDAOImpl:73 - Found User with email: david@yahoo.com
+2020-01-26 21:12:01 INFO  UserDAOImpl:73 - Found User with email: david@yahoo.com
+2020-01-26 21:12:06 INFO  UserDAOImpl:73 - Found User with email: david@yahoo.com
+2020-01-26 21:12:09 INFO  UserDAOImpl:73 - Found User with email: david@yahoo.com
+2020-01-26 21:12:09 INFO  UserController:68 - Successful User login with email: david@yahoo.com
+2020-01-26 21:12:12 INFO  UserDAOImpl:73 - Found User with email: david@yahoo.com
+2020-01-26 21:12:12 INFO  UserDAOImpl:73 - Found User with email: david@yahoo.com
+2020-01-26 21:12:15 INFO  UserDAOImpl:73 - Found User with email: david@yahoo.com
+2020-01-26 21:12:18 INFO  UserDAOImpl:73 - Found User with email: david@yahoo.com
+2020-01-26 21:14:04 INFO  UserDAOImpl:73 - Found User with email: david@yahoo.com
+2020-01-26 21:14:07 INFO  UserDAOImpl:73 - Found User with email: david@yahoo.com
+2020-01-26 21:14:07 INFO  UserController:68 - Successful User login with email: david@yahoo.com
+2020-01-26 21:14:11 INFO  UserDAOImpl:73 - Found User with email: david@yahoo.com
+2020-01-26 21:14:11 INFO  UserDAOImpl:73 - Found User with email: david@yahoo.com
+2020-01-26 21:14:19 INFO  UserDAOImpl:73 - Found User with email: david@yahoo.com
+2020-01-26 21:14:26 INFO  UserDAOImpl:73 - Found User with email: david@yahoo.com
+2020-01-26 21:15:22 INFO  UserDAOImpl:73 - Found User with email: david@yahoo.com
+2020-01-26 21:15:35 INFO  UserDAOImpl:73 - Found User with email: david@yahoo.com
+2020-01-26 21:15:35 INFO  UserController:68 - Successful User login with email: david@yahoo.com
+2020-01-26 21:15:35 INFO  UserDAOImpl:73 - Found User with email: david@yahoo.com
+2020-01-26 21:15:47 INFO  UserDAOImpl:73 - Found User with email: david@yahoo.com
+2020-01-26 21:15:47 INFO  UserController:68 - Successful User login with email: david@yahoo.com
+2020-01-26 21:15:58 INFO  UserDAOImpl:73 - Found User with email: david@yahoo.com
+2020-01-26 21:16:00 INFO  UserDAOImpl:73 - Found User with email: david@yahoo.com
+2020-01-26 21:16:06 INFO  UserDAOImpl:73 - Found User with email: david@yahoo.com
+2020-01-26 21:16:19 INFO  UserDAOImpl:73 - Found User with email: david@yahoo.com
+2020-01-26 21:16:32 INFO  UserDAOImpl:73 - Found User with email: david@yahoo.com
+2020-01-26 21:16:39 INFO  UserDAOImpl:73 - Found User with email: david@yahoo.com
+2020-01-26 21:16:39 INFO  UserController:68 - Successful User login with email: david@yahoo.com
+2020-01-26 21:16:44 INFO  UserDAOImpl:73 - Found User with email: david@yahoo.com
+2020-01-26 21:16:44 INFO  UserDAOImpl:73 - Found User with email: david@yahoo.com
+2020-01-26 21:16:48 INFO  UserDAOImpl:73 - Found User with email: david@yahoo.com
+2020-01-26 21:16:50 INFO  UserDAOImpl:73 - Found User with email: david@yahoo.com
+2020-01-26 21:18:21 INFO  UserDAOImpl:73 - Found User with email: david@yahoo.com
+2020-01-26 21:18:23 INFO  UserDAOImpl:73 - Found User with email: david@yahoo.com
+2020-01-26 21:18:23 INFO  UserController:68 - Successful User login with email: david@yahoo.com
+2020-01-26 21:18:26 INFO  UserDAOImpl:73 - Found User with email: david@yahoo.com
+2020-01-26 21:18:26 INFO  UserDAOImpl:73 - Found User with email: david@yahoo.com
+2020-01-26 21:18:29 INFO  UserDAOImpl:73 - Found User with email: david@yahoo.com
+2020-01-26 21:18:32 INFO  UserDAOImpl:73 - Found User with email: david@yahoo.com
+2020-01-26 21:19:23 INFO  UserDAOImpl:73 - Found User with email: david@yahoo.com
+2020-01-26 21:19:29 INFO  UserDAOImpl:73 - Found User with email: david@yahoo.com
+2020-01-26 21:25:51 INFO  UserDAOImpl:73 - Found User with email: david@yahoo.com
+2020-01-26 21:25:57 INFO  UserStatusDAOImpl:40 - Returned userstatus of: UserStatus [id=2, status=searching for room]
+2020-01-26 21:25:57 INFO  UserDAOImpl:48 - Successful User upsert with email: david@yahoo.com
+2020-01-26 21:26:02 INFO  UserDAOImpl:73 - Found User with email: david@yahoo.com
+2020-01-26 21:26:07 INFO  UserDAOImpl:73 - Found User with email: david@yahoo.com
+2020-01-26 21:26:11 INFO  UserDAOImpl:73 - Found User with email: david@yahoo.com
+2020-01-26 21:35:30 INFO  UserStatusDAOImpl:40 - Returned userstatus of: UserStatus [id=1, status=searching for roommate]
+2020-01-26 21:35:31 INFO  UserDAOImpl:48 - Successful User upsert with email: test@mail.com
+2020-01-26 21:35:32 INFO  UserDAOImpl:73 - Found User with email: test@mail.com
+2020-01-26 21:35:33 INFO  UserDAOImpl:73 - Found User with email: test@mail.com
+2020-01-26 21:35:35 INFO  UserDAOImpl:73 - Found User with email: test@mail.com
+2020-01-26 21:36:27 INFO  UserDAOImpl:73 - Found User with email: test@mail.com
+2020-01-26 21:36:29 INFO  UserDAOImpl:73 - Found User with email: test@mail.com
+2020-01-26 21:36:29 INFO  UserController:68 - Successful User login with email: test@mail.com
+2020-01-26 21:36:30 INFO  UserDAOImpl:73 - Found User with email: test@mail.com
+2020-01-26 21:36:30 WARN  PreferencesDAOImpl:37 - Attempted to find Preference with UserId: 49
+java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+	at java.util.ArrayList.rangeCheck(Unknown Source) ~[?:1.8.0_231]
+	at java.util.ArrayList.get(Unknown Source) ~[?:1.8.0_231]
+	at com.revature.repositories.PreferencesDAOImpl.getPreferenceByUserId(PreferencesDAOImpl.java:34) ~[classes/:?]
+	at sun.reflect.GeneratedMethodAccessor59.invoke(Unknown Source) ~[?:?]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_231]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_231]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:338) ~[spring-aop-5.0.2.RELEASE.jar:5.0.2.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:197) ~[spring-aop-5.0.2.RELEASE.jar:5.0.2.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-5.0.2.RELEASE.jar:5.0.2.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:366) [spring-tx-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:99) [spring-tx-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185) [spring-aop-5.0.2.RELEASE.jar:5.0.2.RELEASE]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212) [spring-aop-5.0.2.RELEASE.jar:5.0.2.RELEASE]
+	at com.sun.proxy.$Proxy62.getPreferenceByUserId(Unknown Source) [?:?]
+	at com.revature.services.PreferenceService.findByEmail(PreferenceService.java:38) [classes/:?]
+	at com.revature.controllers.PreferenceController.findByEmail(PreferenceController.java:34) [classes/:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_231]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_231]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_231]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_231]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190) [spring-web-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138) [spring-web-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106) [spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:888) [spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:793) [spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) [spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040) [spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943) [spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) [spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) [spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660) [servlet-api.jar:?]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) [spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741) [servlet-api.jar:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) [catalina.jar:9.0.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [catalina.jar:9.0.30]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) [tomcat-websocket.jar:9.0.30]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [catalina.jar:9.0.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [catalina.jar:9.0.30]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) [catalina.jar:9.0.30]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [catalina.jar:9.0.30]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) [catalina.jar:9.0.30]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139) [catalina.jar:9.0.30]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [catalina.jar:9.0.30]
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:678) [catalina.jar:9.0.30]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) [catalina.jar:9.0.30]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [catalina.jar:9.0.30]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:367) [tomcat-coyote.jar:9.0.30]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-coyote.jar:9.0.30]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:860) [tomcat-coyote.jar:9.0.30]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1598) [tomcat-coyote.jar:9.0.30]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-coyote.jar:9.0.30]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) [?:1.8.0_231]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_231]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-util.jar:9.0.30]
+	at java.lang.Thread.run(Unknown Source) [?:1.8.0_231]
+2020-01-26 21:36:31 INFO  UserDAOImpl:73 - Found User with email: test@mail.com
+2020-01-26 21:36:32 INFO  UserDAOImpl:73 - Found User with email: test@mail.com
+2020-01-26 21:38:53 INFO  UserDAOImpl:73 - Found User with email: test@mail.com
+2020-01-26 21:38:55 INFO  UserDAOImpl:73 - Found User with email: test@mail.com
+2020-01-26 21:38:55 INFO  UserController:68 - Successful User login with email: test@mail.com
+2020-01-26 21:38:56 INFO  UserDAOImpl:73 - Found User with email: test@mail.com
+2020-01-26 21:38:56 WARN  PreferencesDAOImpl:37 - Attempted to find Preference with UserId: 49
+java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+	at java.util.ArrayList.rangeCheck(Unknown Source) ~[?:1.8.0_231]
+	at java.util.ArrayList.get(Unknown Source) ~[?:1.8.0_231]
+	at com.revature.repositories.PreferencesDAOImpl.getPreferenceByUserId(PreferencesDAOImpl.java:34) ~[classes/:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_231]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_231]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_231]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_231]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:338) ~[spring-aop-5.0.2.RELEASE.jar:5.0.2.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:197) ~[spring-aop-5.0.2.RELEASE.jar:5.0.2.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-5.0.2.RELEASE.jar:5.0.2.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:366) [spring-tx-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:99) [spring-tx-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185) [spring-aop-5.0.2.RELEASE.jar:5.0.2.RELEASE]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212) [spring-aop-5.0.2.RELEASE.jar:5.0.2.RELEASE]
+	at com.sun.proxy.$Proxy62.getPreferenceByUserId(Unknown Source) [?:?]
+	at com.revature.services.PreferenceService.findByEmail(PreferenceService.java:38) [classes/:?]
+	at com.revature.controllers.PreferenceController.findByEmail(PreferenceController.java:34) [classes/:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_231]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_231]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_231]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_231]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190) [spring-web-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138) [spring-web-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106) [spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:888) [spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:793) [spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) [spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040) [spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943) [spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) [spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) [spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660) [servlet-api.jar:?]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) [spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741) [servlet-api.jar:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) [catalina.jar:9.0.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [catalina.jar:9.0.30]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) [tomcat-websocket.jar:9.0.30]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [catalina.jar:9.0.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [catalina.jar:9.0.30]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) [catalina.jar:9.0.30]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [catalina.jar:9.0.30]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) [catalina.jar:9.0.30]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139) [catalina.jar:9.0.30]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [catalina.jar:9.0.30]
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:678) [catalina.jar:9.0.30]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) [catalina.jar:9.0.30]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [catalina.jar:9.0.30]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:367) [tomcat-coyote.jar:9.0.30]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-coyote.jar:9.0.30]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:860) [tomcat-coyote.jar:9.0.30]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1598) [tomcat-coyote.jar:9.0.30]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-coyote.jar:9.0.30]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) [?:1.8.0_231]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_231]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-util.jar:9.0.30]
+	at java.lang.Thread.run(Unknown Source) [?:1.8.0_231]
+2020-01-26 21:38:57 INFO  UserDAOImpl:73 - Found User with email: test@mail.com
+2020-01-26 21:38:58 INFO  UserDAOImpl:73 - Found User with email: test@mail.com
+2020-01-26 21:43:08 INFO  UserDAOImpl:73 - Found User with email: test@mail.com
+2020-01-26 21:43:09 INFO  UserDAOImpl:73 - Found User with email: test@mail.com
+2020-01-26 21:43:09 INFO  UserController:68 - Successful User login with email: test@mail.com
+2020-01-26 21:43:11 INFO  UserDAOImpl:73 - Found User with email: test@mail.com
+2020-01-26 21:43:11 INFO  UserDAOImpl:73 - Found User with email: test@mail.com
+2020-01-26 21:43:11 WARN  PreferencesDAOImpl:37 - Attempted to find Preference with UserId: 49
+java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+	at java.util.ArrayList.rangeCheck(Unknown Source) ~[?:1.8.0_231]
+	at java.util.ArrayList.get(Unknown Source) ~[?:1.8.0_231]
+	at com.revature.repositories.PreferencesDAOImpl.getPreferenceByUserId(PreferencesDAOImpl.java:34) ~[classes/:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_231]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_231]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_231]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_231]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:338) ~[spring-aop-5.0.2.RELEASE.jar:5.0.2.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:197) ~[spring-aop-5.0.2.RELEASE.jar:5.0.2.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-5.0.2.RELEASE.jar:5.0.2.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:366) [spring-tx-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:99) [spring-tx-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:185) [spring-aop-5.0.2.RELEASE.jar:5.0.2.RELEASE]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212) [spring-aop-5.0.2.RELEASE.jar:5.0.2.RELEASE]
+	at com.sun.proxy.$Proxy62.getPreferenceByUserId(Unknown Source) [?:?]
+	at com.revature.services.PreferenceService.findByEmail(PreferenceService.java:38) [classes/:?]
+	at com.revature.controllers.PreferenceController.findByEmail(PreferenceController.java:34) [classes/:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_231]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_231]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_231]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_231]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190) [spring-web-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138) [spring-web-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106) [spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:888) [spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:793) [spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) [spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040) [spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943) [spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) [spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) [spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660) [servlet-api.jar:?]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) [spring-webmvc-5.2.3.RELEASE.jar:5.2.3.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741) [servlet-api.jar:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) [catalina.jar:9.0.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [catalina.jar:9.0.30]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) [tomcat-websocket.jar:9.0.30]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [catalina.jar:9.0.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [catalina.jar:9.0.30]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) [catalina.jar:9.0.30]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [catalina.jar:9.0.30]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) [catalina.jar:9.0.30]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139) [catalina.jar:9.0.30]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [catalina.jar:9.0.30]
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:678) [catalina.jar:9.0.30]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) [catalina.jar:9.0.30]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [catalina.jar:9.0.30]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:367) [tomcat-coyote.jar:9.0.30]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-coyote.jar:9.0.30]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:860) [tomcat-coyote.jar:9.0.30]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1598) [tomcat-coyote.jar:9.0.30]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-coyote.jar:9.0.30]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) [?:1.8.0_231]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_231]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-util.jar:9.0.30]
+	at java.lang.Thread.run(Unknown Source) [?:1.8.0_231]
+2020-01-26 21:43:12 INFO  UserDAOImpl:73 - Found User with email: test@mail.com
