@@ -53,4 +53,20 @@ export class SessionService {
     }
   }
 
+  public storeSavedProperties(properties: Property[]){
+    sessionStorage.setItem('savedProperties', JSON.stringify(properties));
+  }
+
+  public addSavedProperty(property: Property){
+    sessionStorage.setItem('savedProperties', JSON.parse(sessionStorage.getItem('savedProperties')).push(property));
+  }
+
+  public getSavedProperties(): Property[]{
+    if(sessionStorage.getItem('savedProperties') != null && sessionStorage.getItem('currentUser') != null){
+      return JSON.parse(sessionStorage.getItem('savedProperties'));
+    } else {
+      return null;
+    }
+  }
+
 }

@@ -6,6 +6,7 @@ import { User } from '../../model/user';
 import { UserService } from '../../services/user.service';
 import { SessionService } from 'src/app/services/session.service';
 import { Preference } from 'src/app/model/preference';
+import { ProfileService } from '../../services/profile.service';
 
 @Component({
   selector: 'app-loginpage',
@@ -25,6 +26,7 @@ export class LoginpageComponent implements OnInit {
       private userService: UserService,
       private sessionService: SessionService,
       private fb: FormBuilder,
+      private profileService: ProfileService,
       //private profileService: ProfileService,
   ) { 
     this.createForm();
@@ -40,28 +42,33 @@ export class LoginpageComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSubmit() {
+  async onSubmit() {
     this.submitted = true;
     console.log(this.submitted);
     console.log(this.loginT);
     this.loginService.login(this.loginT.value).subscribe(
-      data => {
+      async data => {
         if(data != null){
           this.user = new User(data);
           this.sessionService.saveCurrentUser(this.user);
           console.log(this.user);
           this.checkPref();
+          this.checkProps();
+          await this.delay(3000);
+          this.router.navigateByUrl('/profile');
         } else {
           alert("Invalid Credentials");
           
         }
       }, error => {
+        alert('Invalid Credentials');
         console.log("Error", error);
       });
+      
     }
 
 
-    checkPref(){
+    async checkPref(){
       if(this.sessionService.getCurrentUser() != null){
         this.userService.getUserPreference(this.sessionService.getCurrentUser()).subscribe(
           data => {
@@ -71,8 +78,8 @@ export class LoginpageComponent implements OnInit {
               console.log(this.preference);
             } else {
               console.log('User does not have a preference');
+              this.sessionService.storePreference(null);
             }
-            this.router.navigateByUrl('/profile');
           }, error => {
             console.log('Error ', error);
           }
@@ -81,6 +88,31 @@ export class LoginpageComponent implements OnInit {
         
       }
     }
+
+    async checkProps(){
+      let u = this.sessionService.getCurrentUser();
+      if(u != null){
+        this.profileService.getSavedProperties(u).subscribe(
+          data => {
+            if(data != null){
+              this.sessionService.storeSavedProperties(data);
+              console.log('Got saved properties');
+            } else {
+              console.log('No properties');
+              this.sessionService.storeSavedProperties(null);
+            }
+          }, error => {
+            console.log('Error ', error);
+          }
+        )
+      }
+    }
+  
+
+  delay(ms: number) {
+    return new Promise( resolve => setTimeout(resolve, ms) );
   }
+}
+    
     
         

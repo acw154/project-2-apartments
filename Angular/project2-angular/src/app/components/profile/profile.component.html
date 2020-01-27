@@ -29,12 +29,12 @@
             <h5>Preferences</h5>
             <ul class="profile-ul">
 
-                <li ><h4><strong>Min Price:</strong><span *ngIf="currUserPref">{{ currentUserPref.min_price }}</span></h4></li>
-                <li><h4><strong>Max Price:</strong><span *ngIf="currUserPref">{{ currentUserPref.max_price }}</span></h4></li>
-                <li><h4><strong>Beds:</strong><span *ngIf="currUserPref">{{ currentUserPref.num_beds }}</span></h4></li>
-                <li><h4><strong>Baths:</strong><span *ngIf="currUserPref">{{ currentUserPref.num_baths }}</span></h4></li>
-                <li><h4><strong>City:</strong><span *ngIf="currUserPref">{{ currentUserPref.city }}</span></h4></li>
-                <li><h4><strong>Zip Code:</strong><span *ngIf="currUserPref">{{ currentUserPref.state_code }}</span></h4></li>
+                <li ><h4><strong>Min Price:</strong><span *ngIf="showPref">{{ currentUserPref.minPrice }}</span></h4></li>
+                <li><h4><strong>Max Price:</strong><span *ngIf="showPref">{{ currentUserPref.maxPrice }}</span></h4></li>
+                <li><h4><strong>Beds:</strong><span *ngIf="showPref">{{ currentUserPref.numBeds }}</span></h4></li>
+                <li><h4><strong>Baths:</strong><span *ngIf="showPref">{{ currentUserPref.numBaths }}</span></h4></li>
+                <li><h4><strong>City:</strong><span *ngIf="showPref">{{ currentUserPref.city }}</span></h4></li>
+                <li><h4><strong>State Code:</strong><span *ngIf="showPref">{{ currentUserPref.state_code }}</span></h4></li>
             </ul>
 
             <div class="form-group">
@@ -49,10 +49,11 @@
 
     </div>
 </div>
-
-<div class="col-lg-6 pt-5 savedproperty text-center"> <!--*ngIf="response"   *ngIf="savedproperty"-->
-    <h5>Saved Properties</h5>
-    <table class="table-table-bordered table-hover">
+<br>
+<br>
+<div class="col-lg-6 pt-5 savedproperty text-center" *ngIf="showSaved"> <!--*ngIf="response"   *ngIf="savedproperty"-->
+    <h3>Saved Properties</h3>
+    <table class="table-table-bordered table-hover" >
 
         <thead class="row">
             <th class="col-lg-4">  Address  </th>
@@ -64,17 +65,21 @@
         </thead>
 
         <tbody>
-        <tr class="row">
-            <td class="col-lg-4">  {{savedProperty.street_num}} {{savedProperty.street}}<span *ngIf="property.apt_num > 0"> {{savedProperty.apt_num}}</span>, {{savedProperty.city}}, {{savedProperty.zip}}  </td>
+        <tr class="row" *ngFor="let savedProperty of savedProperties">
+            <td class="col-lg-4">  {{savedProperty.street_num}} {{savedProperty.street}}<span *ngIf="savedProperty.apt_num > 0"> {{savedProperty.apt_num}}</span>, {{savedProperty.city}}, {{savedProperty.zip}}  </td>
             <td class="col-lg-2">  ${{savedProperty.price}}  </td>
-            <td class="col-lg-1">  {{savedProperty.num_beds}}  </td>
+            <td class="col-lg-1">  {{savedProperty.num_beds}}  </td>    
             <td class="col-lg-1">  {{savedProperty.num_baths}}  </td>
             <td class="col-lg-2">  {{savedProperty.revemp_owned}}  </td>
-            <td class="col-lg-2">  {{saved}}  </td>
+            <td class="col-lg-2">  <button class="btn-btn-success" (click)="goToIndividualPropertyPage(savedProperty)">Go To</button>  </td>
 
         </tr>
         </tbody>
     </table>
+
+</div>
+<div style="text-align: center;">
+    <span *ngIf="!showSaved">No Saved Properties</span>
 </div>
 
 
