@@ -32,7 +32,16 @@ public class PreferenceDTO {
 		this.city = city;
 		this.state_code = state_code;
 	}
-
+	
+	public PreferenceDTO(Preference p) {
+		this.email = p.getUser().getEmail();
+		this.min_price = p.getMinPrice();
+		this.max_price = p.getMaxPrice();
+		this.num_beds = p.getNumBeds();
+		this.num_baths = p.getNumBaths();
+		this.city = p.getCity();
+		this.state_code = p.getState_code();
+	}
 
 
 	public String getEmail() {

@@ -58,7 +58,12 @@ export class SessionService {
   }
 
   public addSavedProperty(property: Property){
-    sessionStorage.setItem('savedProperties', JSON.parse(sessionStorage.getItem('savedProperties')).push(property));
+    let proparray: Property[];
+    proparray = JSON.parse(sessionStorage.getItem('savedProperties'));
+    console.log(proparray);
+    proparray.push(property);
+    console.log(proparray);
+    sessionStorage.setItem('savedProperties', JSON.stringify(proparray));
   }
 
   public getSavedProperties(): Property[]{

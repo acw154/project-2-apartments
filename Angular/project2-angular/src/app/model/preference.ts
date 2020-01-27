@@ -1,9 +1,9 @@
 export class Preference {
     email: string;
-    minPrice: number;
-    maxPrice: number;
-    numBeds: number;
-    numBaths: number;
+    min_price: number;
+    max_price: number;
+    num_beds: number;
+    num_baths: number;
     city: string;
     state_code: string;
 

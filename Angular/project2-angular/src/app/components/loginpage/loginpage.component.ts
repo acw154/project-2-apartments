@@ -54,7 +54,7 @@ export class LoginpageComponent implements OnInit {
           console.log(this.user);
           this.checkPref();
           this.checkProps();
-          await this.delay(3000);
+          await this.delay(5000 + (this.sessionService.getSavedProperties().length * 1000));
           this.router.navigateByUrl('/profile');
         } else {
           alert("Invalid Credentials");
