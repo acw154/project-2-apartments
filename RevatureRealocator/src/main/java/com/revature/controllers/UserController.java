@@ -111,6 +111,9 @@ public class UserController {
 
 
 		User user = new User(userdto);
+		String pass = user.getPassword();
+		pass = DigestUtils.sha256Hex(pass);
+		user.setPassword(pass);
 		if(us.upsert(user) != null) {
 			UserDTO dto = new UserDTO(user);
 			System.out.println("us.upsert(user) in user controller is not null");
