@@ -52,10 +52,12 @@ export class LoginpageComponent implements OnInit {
           this.user = new User(data);
           this.sessionService.saveCurrentUser(this.user);
           console.log(this.user);
+         
           this.checkPref();
           this.checkProps();
+          await this.delay(4000);
           while(this.sessionService.getSavedProperties() == undefined){
-
+            await this.delay(1000);
           }
           this.router.navigateByUrl('/profile');
         } else {
@@ -79,6 +81,7 @@ export class LoginpageComponent implements OnInit {
               this.sessionService.storePreference(this.preference);
               console.log(this.preference);
             } else {
+              console.log(data);
               console.log('User does not have a preference');
               this.sessionService.storePreference(null);
             }
