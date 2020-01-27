@@ -56,9 +56,9 @@ export class LoginpageComponent implements OnInit {
           this.checkPref();
           this.checkProps();
           await this.delay(4000);
-          while(this.sessionService.getStoredPreference() == undefined){
-            await this.delay(1000);
-          }
+          // while(this.sessionService.getStoredPreference() == undefined){
+          //   await this.delay(1000);
+          // }
           while(this.sessionService.getSavedProperties() == undefined){
             await this.delay(1000);
           }
