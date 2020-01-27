@@ -42,6 +42,8 @@ export class EditprofileComponent implements OnInit {
  
   editUser(){
     this.preference = new Preference(this.editForm.value);
+    this.preference.email = this.sessionService.getCurrentUser().email;
+    console.log(this.preference);
 
     this.profileService.savePreference(this.preference).subscribe(
       data => {
@@ -55,6 +57,7 @@ export class EditprofileComponent implements OnInit {
         }
         this.router.navigateByUrl('/profile');
       }, error => {
+        alert('hitting error')
         console.log('Error ', error);
         this.editForm.reset();
       }
