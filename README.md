@@ -12,6 +12,7 @@ Full Stack Application for Revature Employees to locate an apartment based on ce
   - JUnit
   - Log4j
   - AWS RDS
+  - Tomcat
  
 # Features
   ## Login / Register
