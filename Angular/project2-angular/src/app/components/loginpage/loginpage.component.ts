@@ -7,6 +7,7 @@ import { UserService } from '../../services/user.service';
 import { SessionService } from 'src/app/services/session.service';
 import { Preference } from 'src/app/model/preference';
 import { ProfileService } from '../../services/profile.service';
+import { UserFull } from 'src/app/model/user-full';
 
 @Component({
   selector: 'app-loginpage',
@@ -16,7 +17,7 @@ import { ProfileService } from '../../services/profile.service';
 export class LoginpageComponent implements OnInit {
   loginT: FormGroup;
   submitted=false;
-  user: User;
+  userFull: UserFull;
   preference: Preference;
   
 
@@ -49,19 +50,20 @@ export class LoginpageComponent implements OnInit {
     this.loginService.login(this.loginT.value).subscribe(
       async data => {
         if(data != null){
-          this.user = new User(data);
-          this.sessionService.saveCurrentUser(this.user);
-          console.log(this.user);
-         
-          this.checkPref();
-          this.checkProps();
-          await this.delay(4000);
+          this.userFull = new UserFull(data);
+          this.sessionService.saveCurrentUser(this.userFull);
+          console.log(this.userFull);
+          this.sessionService.storePreference(this.userFull.preference);
+          this.sessionService.storeSavedProperties(this.userFull.savedProperties);
+          // this.checkPref();
+          // this.checkProps();
+          // await this.delay(4000);
           // while(this.sessionService.getStoredPreference() == undefined){
           //   await this.delay(1000);
           // }
-          while(this.sessionService.getSavedProperties() == undefined){
-            await this.delay(1000);
-          }
+          // while(this.sessionService.getSavedProperties() == undefined){
+          //   await this.delay(1000);
+          // }
           this.router.navigateByUrl('/profile');
         } else {
           alert("Invalid Credentials");

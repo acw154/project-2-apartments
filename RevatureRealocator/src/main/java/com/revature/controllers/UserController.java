@@ -20,7 +20,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.revature.models.AdaptiveUser;
 import com.revature.models.LoginDTO;
+import com.revature.models.PreferenceDTO;
 import com.revature.models.Property;
 import com.revature.models.PropertyDTO;
 import com.revature.models.User;
@@ -53,7 +55,7 @@ public class UserController {
 //	@CrossOrigin(origins = "http://localhost:4200")
 	@PostMapping(value = "/login")
 
-	public ResponseEntity<UserDTO> findByEmail(@RequestBody LoginDTO login) {
+	public ResponseEntity<AdaptiveUser> findByEmail(@RequestBody LoginDTO login) {
 
 	//@ResponseBody
 	//public ResponseEntity<User> findByEmail(@RequestBody LoginDTO login) {
@@ -64,20 +66,25 @@ public class UserController {
 		pass = DigestUtils.sha256Hex(pass);
 		if (us.verifyUser(email, pass)) {
 			User user = us.findByEmail(email);
-			UserDTO dto = new UserDTO(user);
+			List<PropertyDTO> pdtoList = new ArrayList<>();
+			for(Property p : user.getSavedProperties()) {
+				pdtoList.add(new PropertyDTO(p));
+			}
+			AdaptiveUser result = new AdaptiveUser(user.getId(), user.getEmail(), user.getPassword(), user.getF_name(), user.getL_name(), new PreferenceDTO(user.getPreference()), pdtoList, user.getCurrent_state(), user.getUserStatus());
+			//UserDTO dto = new UserDTO(user);
 			logger.info("Successful User login with email: " + user.getEmail());	
 
-			return ResponseEntity.ok().body(dto);
+			return ResponseEntity.ok().body(result);
 		} else {
-			UserDTO user = null;
-			logger.warn("Attempted and failed login with User email: " + user.getEmail());
+			AdaptiveUser result = null;
+			logger.warn("Attempted and failed login with User email: " + login.getEmail());
 
 		//	return ResponseEntity.ok(user);
 	//	} else {
 		//	User user = null;
 		//	logger.warn("Attempted and failed login with User email: " + email);
 
-			return ResponseEntity.status(HttpStatus.NO_CONTENT).body(user);
+			return ResponseEntity.status(HttpStatus.NO_CONTENT).body(result);
 		}
 	}
 	
